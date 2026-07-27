@@ -1,0 +1,6232 @@
+[
+ {
+  "file": "data/00_Duplikatlar/Avtomobil transport--n--n¦Б jolawsh-- aylanbas-- .xlsx",
+  "category": "00_Duplikatlar",
+  "sheets": {
+   "рк": {
+    "shape": [
+     24,
+     18
+    ],
+    "years": [
+     1933,
+     1936,
+     1940,
+     1956,
+     1966,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2058,
+     2068,
+     2082
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Avtomobil transportında jolawshılar aylanbası",
+     "(mln. jolawshı-km)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/00_Duplikatlar/Avtomobil transport--n--n¦Б ju¦Бk aylanbas-- ko¦Бlemi .xlsx",
+  "category": "00_Duplikatlar",
+  "sheets": {
+   "рк": {
+    "shape": [
+     24,
+     18
+    ],
+    "years": [
+     1917,
+     1942,
+     1951,
+     1979,
+     2007,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2062,
+     2067,
+     2090
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Avtomobil transportinıń júk aylanbası kólemi",
+     "(mln. tonna-km)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/00_Duplikatlar/Avtomobil transport--nda tas--lg¦Бan jolawshilar san-- .xlsx",
+  "category": "00_Duplikatlar",
+  "sheets": {
+   "рк": {
+    "shape": [
+     24,
+     19
+    ],
+    "years": [
+     1910,
+     1940,
+     1977,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2035,
+     2071
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Avtomobil transportında tasılǵan jolawshılar sani",
+     "(mıń. adam)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/00_Duplikatlar/Avtomobil transport--nda tas--lg¦Бan ju¦Бkler ko¦Бlemi .xlsx",
+  "category": "00_Duplikatlar",
+  "sheets": {
+   "рк": {
+    "shape": [
+     24,
+     18
+    ],
+    "years": [
+     1907,
+     1916,
+     1917,
+     1920,
+     1938,
+     1940,
+     1954,
+     1965,
+     1975,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2033,
+     2037,
+     2061,
+     2081
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Avtomobil transportinda tasılǵan júkler kólemi",
+     "(mıń.tonna)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/00_Duplikatlar/Aymaqlar boy--nsha ko¦Бrsetilgen x--zmetler ko¦Бleminin¦Б o¦Бsim pa¦Бti.xlsx",
+  "category": "00_Duplikatlar",
+  "sheets": {
+   "3 qosımsha": {
+    "shape": [
+     26,
+     18
+    ],
+    "years": [
+     1957,
+     1964,
+     1987,
+     1991,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2031,
+     2079,
+     2098
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Rayonlar hám qala kesiminde kórsetilgen xızmetler kóleminiń ósim páti",
+     "(ótken jılǵa salıstırǵanda, % te)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/00_Duplikatlar/Aymaqlar boy--nsha ko¦Бrsetilgen xizmetler ko¦Бlemi.xlsx",
+  "category": "00_Duplikatlar",
+  "sheets": {
+   "2 qosımsha ": {
+    "shape": [
+     26,
+     18
+    ],
+    "years": [
+     1905,
+     1958,
+     1964,
+     1973,
+     1991,
+     1999,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2081,
+     2094
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Aymaqlar boyınsha kórsetilgen xızmetler kólemi",
+     "(mlrd. swm)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/00_Duplikatlar/Aymaqlar boy--nsha xal--qt--n¦Б jan bas--na tuwr-- keletug¦Б--n x--zmetler ko¦Бlemi.xlsx",
+  "category": "00_Duplikatlar",
+  "sheets": {
+   "6 qosımsha ": {
+    "shape": [
+     26,
+     18
+    ],
+    "years": [
+     1907,
+     1921,
+     1930,
+     1935,
+     1969,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2036,
+     2047,
+     2063
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Rayonlar hám qala kesiminde xalıqtıń jan basına tuwrı keletuǵın xızmetler kólemi",
+     "(miń.swm)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/00_Duplikatlar/Aymaqlar boy--nsha xal--qt--n¦Б jan bas--na tuwr-- keletug¦Б--n x--zmetler ko¦Бleminin¦Б o¦Бsim pa¦Бti.xlsx",
+  "category": "00_Duplikatlar",
+  "sheets": {
+   "7 ilova ": {
+    "shape": [
+     26,
+     18
+    ],
+    "years": [
+     1905,
+     1918,
+     1925,
+     1928,
+     1931,
+     1946,
+     1968,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2068,
+     2086
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "(ótken jılǵa salıstırǵanda, % te)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/00_Duplikatlar/Ekonomikal--q ha¦Бreket tu¦Бrleri boy--nsha ko¦Бrsetilgen x--zmetler ko¦Бlemi.xlsx",
+  "category": "00_Duplikatlar",
+  "sheets": {
+   "4 qosımsha ": {
+    "shape": [
+     22,
+     18
+    ],
+    "years": [
+     1905,
+     1973,
+     1981,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Ekonomikalıq háreket túrleri boyınsha kórsetilgen xızmetler kólemi",
+     "(mlrd. swm)",
+     "Xızmat túrleri",
+     "Jámi xızmetler",
+     "baylanıs hám málimleme xızmeti",
+     "finanslıq xızmetler",
+     "transport xızmeti",
+     "sonnan: avtotransport xızmetleri",
+     "jasaw hám awqatlanıw xızmetleri",
+     "sawda xızmetleri",
+     "kóshpes múlk penen baylanısli bolǵan xızmetler",
+     "bilimlendiriw tarawındaǵı xızmetler",
+     "den-sawlıqtı saqlaw tarawındaǵi xızmetler",
+     "ijara hám prokat xızmetleri",
+     "kompyuterlerdi hám turmıslıq tovarlardı ońlaw xızmetleri",
+     "basqa jeke xızmetler",
+     "arxitektura, injenerlik izleniwler, tehnikalıq sınawlar hám analiz tarawındaǵı xızmetler",
+     "basqa túrdegi xızmetler",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/00_Duplikatlar/Ekonomikal--q ha¦Бreket tu¦Бrleri boy--nsha ko¦Бrsetilgen x--zmetler ko¦Бleminin¦Б o¦Бsiw pa¦Бti.xlsx",
+  "category": "00_Duplikatlar",
+  "sheets": {
+   "5 qosımsha": {
+    "shape": [
+     22,
+     18
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Ekonomikalıq háreket túrleri boyınsha kórsetilgen xızmetler kóleminiń ósiw páti",
+     "(ótken jılǵa salıstırǵanda, % te)",
+     "Xızmat túrleri",
+     "Jámi xızmetler",
+     "baylanıs hám málimleme xızmeti",
+     "finanslıq xızmetler",
+     "transport xızmeti",
+     "sonnan: avtotransport xızmetleri",
+     "jasaw hám awqatlanıw xızmetleri",
+     "sawda xızmetleri",
+     "kóshpes múlk penen baylanısli bolǵan xızmetler",
+     "bilimlendiriw tarawındaǵı xızmetler",
+     "den-sawlıqtı saqlaw tarawındaǵi xızmetler",
+     "ijara hám prokat xızmetleri",
+     "kompyuterlerdi hám turmıslıq tovarlardı ońlaw xızmetleri",
+     "basqa jeke xızmetler",
+     "arxitektura, injenerlik izleniwler, tehnikalıq sınawlar hám analiz tarawındaǵı xızmetler",
+     "basqa túrdegi xızmetler",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/00_Duplikatlar/¦Рvtotransportt--n¦Б tiykarg¦Б-- ko¦Бrsetkishleri .xlsx",
+  "category": "00_Duplikatlar",
+  "sheets": {
+   "1 qosımsha ": {
+    "shape": [
+     9,
+     18
+    ],
+    "years": [
+     1917,
+     1940,
+     1950,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2035,
+     2037
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Аvtotransporttıń tiykarǵı kórsetkishleri",
+     "Tasılǵan júkler, mıń t",
+     "Júk aylanbası, mln. t-km",
+     "Tasılǵan jolawshılar, mıń adam",
+     "Jolawshılar aylanbası, mln. jolawshı-km",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/01_Makroekonomika/2026-j_l 1-sherek boy_nsha ash_q ma_l_wmatlar (2021 j_l 16 iyunda__ PF-6247-san Parman_a tiykarlan_p).xlsx",
+  "category": "01_Makroekonomika",
+  "sheets": {
+   "ХИЗМАТ САФАРИ ХАРАЖАТЛАРИ ": {
+    "shape": [
+     20,
+     10
+    ],
+    "years": [
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "MAǴLÍWMAT",
+     "№",
+     "1",
+     "3",
+     "2"
+    ]
+   },
+   "АВТО МАЪЛУМОТ -2.": {
+    "shape": [
+     8,
+     6
+    ],
+    "years": [
+     2013,
+     2021,
+     2025,
+     2026
+    ],
+    "has_month": false,
+    "has_quarter": true,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "MAǴLÍWMAT",
+     "Aymaq atı",
+     "Qoraqalpog‘iston \nRespublikasi"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/01_Makroekonomika/Jalp_ aymaql_q oniminin osim patleri.xlsx",
+  "category": "01_Makroekonomika",
+  "sheets": {
+   "List 1": {
+    "shape": [
+     22,
+     18
+    ],
+    "years": [
+     2008,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "(ótken jilga salıstırǵanda protsentte)",
+     "I.JAÒ, jámi",
+     "sonnan:",
+     "Tarmaqlardıń jalpı qosılǵan quramı",
+     "Ónimlerge sap salıqlar",
+     "II. Tarmaqlardıń jalpı qosılǵan quramı",
+     "Awıl, toǵaj hám balıqshılıq xojalıǵı",
+     "Sanaat (qurılıstı qosqan halda )",
+     "sanaat",
+     "qurılıs",
+     "Xızmetler",
+     "sawda, jasaw hám awqatlanıw bojınsha xızmetler",
+     "tasıw hám saqlaw, màlimleme hám baylanıs",
+     "basqa xızmet tarmaqları",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/01_Makroekonomika/Makroekonomikal_q korsetkishler .xlsx",
+  "category": "01_Makroekonomika",
+  "sheets": {
+   "QQ": {
+    "shape": [
+     31,
+     19
+    ],
+    "years": [
+     1937,
+     2008,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Qaraqalpaqstan Respublikası makroekonomikalıq kórsetkishleri",
+     "Jalpı aymaqlıq ónim",
+     "Sanaat ónimi",
+     "Tutınıw tovarları",
+     "Awıl, toğay hám balıqshilıq xojalıǵı  1)",
+     "Tiykarǵı kapitalǵa investitsiyalar",
+     "Qurılıs jumısları",
+     "Usaqlap satıw sawda tovar aylanbası",
+     "Xızmetler, jámi",
+     "Sırtqı sawda aylanbası",
+     "Eksport",
+     "Import",
+     "Saldo",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/01_Makroekonomika/Xal_qt_n jan bas_na tuwr_ keletu__n jalp_ aymaql_q onim kolemi jane on_n osim pati.xlsx",
+  "category": "01_Makroekonomika",
+  "sheets": {
+   "List 1": {
+    "shape": [
+     11,
+     18
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2047,
+     2051,
+     2092
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Xalıq jan basına tuwra keletuǵın  JAÓ kólemi, (mıń. sum)",
+     "Xalıqtıń jan basına tuwra keletuǵın JAÓnıń ósim páti (ótken jilga salıstırǵanda %)",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/02_Sanaat/Ekonomikal_q iskerlik turi boy_nsha sanaat ondiristin fizikal_q kolem indeksi.xlsx",
+  "category": "02_Sanaat",
+  "sheets": {
+   "5 илова": {
+    "shape": [
+     34,
+     19
+    ],
+    "years": [
+     1908,
+     1942,
+     1984,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2077
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": []
+   }
+  }
+ },
+ {
+  "file": "data/02_Sanaat/Ekonomikal_q iskerlik turi boy_nsha sanaat onimlerin islep sh__ar_w.xlsx",
+  "category": "02_Sanaat",
+  "sheets": {
+   "2 илова": {
+    "shape": [
+     34,
+     18
+    ],
+    "years": [
+     1915,
+     1931,
+     1993,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2058,
+     2080
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Sanaat ónimi kólemi, mlrd. som",
+     "Taw- kán sanaatı hám ashıq kánlerdi islew",
+     "Islep shıǵaratuǵın sanaat",
+     "Azıq-awqat ónimleri islep shıǵarıw",
+     "Ishimlikler islep shıǵarıw",
+     "Temeki ónimleri islep shıǵarıw",
+     "Toqımashılıq ónimleri islep shıǵarıw",
+     "Kiyim islep shıǵarıw",
+     "Teri hám oǵan tiyisli ónimler islep shıǵarıw",
+     "Qaǵaz hám qaǵaz ónimleri islep shıǵarıw",
+     "Jazılǵan materiallardı jarıyalaw hám sáwlelendiriw",
+     "Koks hám neftni qayta islew ónimleri islep shıǵarıw",
+     "Ximiya ónimleri islep shıǵarıw",
+     "Tiykarǵı farmacevtika ónimleri hám preparatlari islep shıǵarıw",
+     "Rezina hám plastmassa buyımlar islep shıǵarıw",
+     "Basqa nometall mineral ónimler islep shıǵarıw",
+     "Metallurgiya sanaatı",
+     "Mashina hám úskenelerdna tısqarı tayınmetall buyımlar islep shıǵarıw",
+     "Kompyuterler, elektron hám optikalıq ónimler islep shıǵarıw",
+     "Elektr úskeneler islep shıǵarıw",
+     "Basqa taypalarǵa kiritilmegen mashina hám úskeneler islep shıǵarıw",
+     "Avtotransport quralları, treylerlar hám yarım pritseplar islep shıǵarıw"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/02_Sanaat/Islep sh__ar_w sanaat_ quram_nda rayonlard_n ulesi, %  .xlsx",
+  "category": "02_Sanaat",
+  "sheets": {
+   "6 илова": {
+    "shape": [
+     30,
+     20
+    ],
+    "years": [
+     1909,
+     1955,
+     1956,
+     1965,
+     1985,
+     2026,
+     2031,
+     2032,
+     2036,
+     2055,
+     2072,
+     2078,
+     2083
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Islep shıǵaratuǵın sanaat",
+     "Azıq -awqat ónimleri islep shıǵarıw",
+     "Ishimlikler islep shıǵarıw",
+     "Temeki ónimleri islep shıǵarıw",
+     "Toqımashılıq ónimleri islep shıǵarıw",
+     "Kiyim islep shıǵarıw",
+     "Teri hám oǵan tiyisli ónimler islep shıǵarıw",
+     "Qaǵaz hám qaǵaz ónimleri islep shıǵarıw",
+     "Jazılǵan materiallardı jarıyalaw hám sáwlelendiriw",
+     "Koks hám neftni qayta islew ónimleri islep shıǵarıw",
+     "Ximiya ónimleri islep shıǵarıw",
+     "Tiykarǵı farmacevtika ónimleri hám preparatlari islep shıǵarıw",
+     "Rezina hám plastmassa buyımlar islep shıǵarıw",
+     "Basqa nometall mineral ónimler islep shıǵarıw",
+     "Metallurgiya sanaatı",
+     "Mashina hám úskenelerdna tısqarı tayınmetall buyımlar islep shıǵarıw",
+     "Kompyuterler, elektron hám optikalıq ónimler islep shıǵarıw",
+     "Elektr úskeneler islep shıǵarıw",
+     "Basqa taypalarǵa kiritilmegen mashina hám úskeneler islep shıǵarıw",
+     "Avtotransport quralları, treylerlar hám yarım pritseplar islep shıǵarıw",
+     "Basqa transport uchkunalari islep shıǵarıw",
+     "Mebel islep shıǵarıw"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/02_Sanaat/Islep sh__ar_w sanaat_n_n quram_ (% te) .xlsx",
+  "category": "02_Sanaat",
+  "sheets": {
+   "3 илова": {
+    "shape": [
+     30,
+     18
+    ],
+    "years": [
+     1921,
+     1923,
+     1937,
+     1948,
+     1951,
+     1967,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2059,
+     2063,
+     2064,
+     2098
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Qaraqalpaqstan Respublikasında islep shıǵarıw sanaatınıń quramı (% te)",
+     "Islep shıǵaratuǵın sanaat",
+     "Azıq - awqat ónimleri islep shıǵarıw",
+     "Ishimlikler islep shıǵarıw",
+     "Temeki ónimleri islep shıǵarıw",
+     "Toqımashılıq ónimleri islep shıǵarıw",
+     "Kiyim islep shıǵarıw",
+     "Teri hám oǵan tiyisli ónimler islep shıǵarıw",
+     "Qaǵaz hám qaǵaz ónimleri islep shıǵarıw",
+     "Jazılǵan materiallardı jarıyalaw hám sáwlelendiriw",
+     "Koks hám neftni qayta islew ónimleri islep shıǵarıw",
+     "Ximiya ónimleri islep shıǵarıw",
+     "Tiykarǵı farmacevtika ónimleri hám preparatlari islep shıǵarıw",
+     "Rezina hám plastmassa buyımlar islep shıǵarıw",
+     "Basqa nometall mineral ónimler islep shıǵarıw",
+     "Metallurgiya sanaatı",
+     "Mashina hám úskenelerdna tısqarı tayınmetall buyımlar islep shıǵarıw",
+     "Kompyuterler, elektron hám optikalıq ónimler islep shıǵarıw",
+     "Elektr úskeneler islep shıǵarıw",
+     "Basqa taypalarǵa kiritilmegen mashina hám úskeneler islep shıǵarıw",
+     "Avtotransport quralları, treylerlar hám yarım pritseplar islep shıǵarıw",
+     "Basqa transport uchkunalari islep shıǵarıw"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/02_Sanaat/Rayonlar boy_nsha sanaat islep sh__ar_w indeksi (protsentte) (ayliq) .xlsx",
+  "category": "02_Sanaat",
+  "sheets": {
+   "18 илова ": {
+    "shape": [
+     23,
+     13
+    ],
+    "years": [
+     1989,
+     2014,
+     2026,
+     2096
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Rayonlar boyınsha sanaat islep shıǵarıw indeksi (protsentte)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası.",
+     "rayonlar",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/02_Sanaat/Rayonlar boy_nsha sanaat islep sh__ar_w kolemi (ayliq) .xlsx",
+  "category": "02_Sanaat",
+  "sheets": {
+   "17 илова ": {
+    "shape": [
+     24,
+     13
+    ],
+    "years": [
+     1943,
+     1985,
+     2021,
+     2026,
+     2061,
+     2086
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Rayonlar boyınsha sanaat islep shıǵarıw kólemi",
+     "(ámeldegi baxalarda, mln. som)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası.",
+     "rayonlar",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/02_Sanaat/Rayonlar boy_nsha sanaat islep sh__ar_w koleminde rayonlar ulesi.xlsx",
+  "category": "02_Sanaat",
+  "sheets": {
+   "12 илова": {
+    "shape": [
+     25,
+     18
+    ],
+    "years": [
+     1912,
+     1927,
+     1961,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2099
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qaraqalpaqstan Respublikası boyınsha jámi sanaat islep shıǵarıw kóleminde rayonlar úlesi",
+     "(jamiga salıstırǵanda protsentte)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "¹⁾ dáslepki maǵlıwmat"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/02_Sanaat/Rayonlar boy_nsha sanaat onimi kolemi.xlsx",
+  "category": "02_Sanaat",
+  "sheets": {
+   "10 илова": {
+    "shape": [
+     25,
+     18
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2029,
+     2050
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Rayonlar boyınsha sanaat ónimi kólemi",
+     "(ámeldegi baxalarda; mlrd. som)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "¹⁾ dáslepki maǵlıwmat"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/02_Sanaat/Rayonlar boy_nsha sanaat onimi ondiristin osiw patleri.xlsx",
+  "category": "02_Sanaat",
+  "sheets": {
+   "11 илова": {
+    "shape": [
+     25,
+     18
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Rayonlar boyınsha sanaat ónimi óndiristiń ósiw pátleri",
+     "(ótken jılǵa salıstırǵanda procentte)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "¹⁾ dáslepki maǵlıwmat"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/02_Sanaat/Sanaat_n_n tiykar__ korsetkishleri.xlsx",
+  "category": "02_Sanaat",
+  "sheets": {
+   "8 илова": {
+    "shape": [
+     11,
+     18
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Qaraqalpaqstan Respublikasında sanaatınıń tiykarǵı kórsetkishleri",
+     "Sanaat ónimi kólemi, mlrd.som",
+     "Sanaat ónimi óndiristiń ósiw páti, ótken jılǵa salıstırǵanda protsentte",
+     "Sonday-aq :",
+     "Qazib alıwshı sanaat",
+     "Qayta isleytuǵın sanaat",
+     "¹⁾ dáslepki maǵlıwmat"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/02_Sanaat/Xal_q jan bas_na islep sh__ar_l_an sanaat oniminin osiw patleri.xlsx",
+  "category": "02_Sanaat",
+  "sheets": {
+   "14 илова": {
+    "shape": [
+     25,
+     18
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2051
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Xalıq jan basına islep shıǵarılǵan sanaat óniminiń ósiw pátleri",
+     "(ótken jılǵa salıstırǵanda procentte)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası.",
+     "rayonlar",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "¹⁾ dáslepki maǵlıwmat"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/02_Sanaat/Хal_q jan bas_na islep sh__ar_l_an sanaat onimi.xlsx",
+  "category": "02_Sanaat",
+  "sheets": {
+   "13 илова": {
+    "shape": [
+     24,
+     18
+    ],
+    "years": [
+     1912,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2049,
+     2057,
+     2064
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Rayonlarda xalıq jan basına islep shıǵarılǵan sanaat ónimi\n (mıń som)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "¹⁾ dáslepki maǵlıwmat"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/03_Aw_lXojal___/Aw_l xojal___n_n tiykar__ korsetkishleri.xlsx",
+  "category": "03_Aw_lXojal___",
+  "sheets": {
+   "qq": {
+    "shape": [
+     14,
+     18
+    ],
+    "years": [
+     1964,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2071
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Awıl xojalıǵınıń tiykarǵı kórsetkishleri",
+     "Awıl xojalıǵı eginleri egin maydanı, gektar",
+     "Awıl xojalıǵı ònimleri, \nmlrd. sum",
+     "sonnan:",
+     "dıyqanshılıq",
+     "sharwashılıq",
+     "Awıl xojalıǵı ònimleri islep shıǵarıwdıń òsim páti, òtken jılǵa salıstırǵanda, % te",
+     "sonnan:",
+     "dıyqanshılıq",
+     "sharwashılıq",
+     "2) Dáslepki maģlıwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/03_Aw_lXojal___/Aw_l xojal_g_  onimlerin islep sh_gar_wd_n o`sim patler_  .xlsx",
+  "category": "03_Aw_lXojal___",
+  "sheets": {
+   "qq": {
+    "shape": [
+     24,
+     13
+    ],
+    "years": [
+     1929,
+     1952,
+     1967,
+     1974,
+     2010,
+     2011,
+     2025,
+     2051
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Awıl xojalıģı ònimlerin islep shıģarıwdıń ósim pátleri",
+     "(ótken jilģa salıstirģanda)",
+     "2010 j.",
+     "2011 j.",
+     "2012 j.",
+     "2013 j.",
+     "2014 j.",
+     "2015 j.",
+     "2016 j.",
+     "2017 j.",
+     "2018 j.",
+     "2019 j.",
+     "2020 j.",
+     "2021 j.",
+     "2022 j.",
+     "2023 j.",
+     "2024 j.",
+     "2025 jıl yanvar-dekabr 2)",
+     "2026 jıl yanvar-iyun 2)",
+     "2) Dáslepki maģlıwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/03_Aw_lXojal___/Aw_l xojal_g_ onimlerin islep sh_gar_wd_n quram_  .xlsx",
+  "category": "03_Aw_lXojal___",
+  "sheets": {
+   "qq": {
+    "shape": [
+     24,
+     11
+    ],
+    "years": [
+     2010,
+     2011
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Awıl xojalıģı ónimlerin islep shıģarıwdıń quramı",
+     "(% te)",
+     "2010 j.",
+     "2011 j.",
+     "2012 j.",
+     "2013 j.",
+     "2014 j.",
+     "2015 j.",
+     "2016 j.",
+     "2017 j.",
+     "2018 j.",
+     "2019 j.",
+     "2020 j.",
+     "2021 j.",
+     "2022 j.",
+     "2023 j.",
+     "2024 j.",
+     "2025 jıl yanvar-dekabr 2)",
+     "2026 jıl yanvar-iyun 2)",
+     "2) Dáslepki maģlıwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/03_Aw_lXojal___/Awlan_an bal_qlar.xlsx",
+  "category": "03_Aw_lXojal___",
+  "sheets": {
+   "qq": {
+    "shape": [
+     25,
+     18
+    ],
+    "years": [
+     1999,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2068,
+     2096
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 12,
+    "kind": "rayon",
+    "labels": [
+     "Awlanǵan balıqlar",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdarya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "2) Dáslepki maģlıwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/03_Aw_lXojal___/Aymaqlar boy_nsha aw_l xojal_g_ onimleri (us_ j_lg_ bahalar_nda)  .xlsx",
+  "category": "03_Aw_lXojal___",
+  "sheets": {
+   "qq": {
+    "shape": [
+     25,
+     18
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2071
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 12,
+    "kind": "rayon",
+    "labels": [
+     "Aymaqlar boyınsha awıl xojalıģı ónimleri",
+     "(usı jılģı bahalarında. mlrd. sum)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis rayon",
+     "Taqıyatas",
+     "Taxtakópır",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "2) Dáslepki maģlıwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/03_Aw_lXojal___/Aymaqlar boy_nsha aw_l xojal_g_ onimleri islep sh_gar_wd_n osim patileri  .xlsx",
+  "category": "03_Aw_lXojal___",
+  "sheets": {
+   "qq": {
+    "shape": [
+     25,
+     18
+    ],
+    "years": [
+     1902,
+     1908,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2044,
+     2054,
+     2065
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 12,
+    "kind": "rayon",
+    "labels": [
+     "Aymaqlar boyınsha awıl xojalıģı ónimleri islep shıģarıwdıń ósim pátileri",
+     "(ótken jılģa salıstırģanda % te)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis rayon",
+     "Taqıyatas",
+     "Taxtakópır",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "2) Dáslepki maģlıwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/03_Aw_lXojal___/Aymaqlar boy_nsha aw_l, togay ham bal_qshl_q xojal_g_ onim (x_zmet)lerdin kolemi  .xlsx",
+  "category": "03_Aw_lXojal___",
+  "sheets": {
+   "qq": {
+    "shape": [
+     25,
+     18
+    ],
+    "years": [
+     1920,
+     1999,
+     2000,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 12,
+    "kind": "rayon",
+    "labels": [
+     "Aymaqlar boyınsha awıl, toģay hám balıqshlıq xojalıģı ónim (xızmet)lerdiń kólemi",
+     "(usı jılģıń bahalarında. mlrd. sum)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópır",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "2) Dáslepki maģlıwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/03_Aw_lXojal___/Aymaqlar boy_nsha aw_l, togay ham bal_qshl_q xojal_g_ onim (x_zmet)lerdin osim pati.xlsx",
+  "category": "03_Aw_lXojal___",
+  "sheets": {
+   "qq": {
+    "shape": [
+     25,
+     18
+    ],
+    "years": [
+     1915,
+     1921,
+     1935,
+     1956,
+     1972,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2096
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 12,
+    "kind": "rayon",
+    "labels": [
+     "Aymaqlar boyınsha awıl, toģay hám balıqshlıq xojalıģı ónim (xızmet)lerdiń ósim páti",
+     "(ótken jılģa salıstırģanda prosentte)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópır",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "2) Dáslepki maģlıwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/03_Aw_lXojal___/Barshe turlerinde islep sh_g_lgan d_yqansh_l_q ham sharwash_l_q onimleri  haqq_nda.xlsx",
+  "category": "03_Aw_lXojal___",
+  "sheets": {
+   "qq": {
+    "shape": [
+     90,
+     22
+    ],
+    "years": [
+     1998,
+     2009,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2029,
+     2050
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "MAǴLÍWMAT",
+     "Kod FAO",
+     "15",
+     "27",
+     "116",
+     "157",
+     "221",
+     "223",
+     "234",
+     "945",
+     "1056",
+     "1185"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/04_Investitsiya/Investitsiyalar ham qur_l_sd_n tiykar__ sotsial-ekonomikal_q korsetkishleri.xlsx",
+  "category": "04_Investitsiya",
+  "sheets": {
+   "uzb": {
+    "shape": [
+     17,
+     18
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2056
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Investitsiyalar hám qurılıstıń tiykarǵı sotcial-ekonomikalıq kórsetkishleri",
+     "Тiykarģı kapitalǵa ózlestirilgen investitsiyalar - jámi, mlrd.som",
+     "Тiykarģı kapitalǵa ózlestirilgen investitsiyalardıń  JaAOdegi úlesi, % da",
+     "Ùy-jaylardıń  ulıwma maydanı mıń.m²",
+     "ulıwma bilim beriw mektepleri, mıń oqıwshı orın",
+     "kásip-óner kollejleri, mıń oqıwshı orın",
+     "litseyler, mıń oqıwshı orın",
+     "akademik, mıń oqıwshı orın",
+     "qánigelestirilgen, mıń oqıwshı orın",
+     "emlewxanalar, mıń jataq",
+     "poliklinika shólkemleri, sonnan awıl vrachlıq punktleri, smenada mıń qatnaw",
+     "Qurılıs jumısları, mlrd. som",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/04_Investitsiya/Qaraqalpaqstan Respublikas_n_n aymaql_q boliniwi.xlsx",
+  "category": "04_Investitsiya",
+  "sheets": {
+   "РК": {
+    "shape": [
+     173,
+     8
+    ],
+    "years": [
+     2025,
+     2096
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qaraqalpaqstan Respublikasınıń aymaqlıq bóliniwi",
+     "(2025-jıl 1-yanvar jaǵdayına)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "(2024-jıl 1-yanvar jaǵdayına)"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/04_Investitsiya/Qarj_land_r_w derekler boy_nsha aymaqlar kesiminde.xlsx",
+  "category": "04_Investitsiya",
+  "sheets": {
+   "uzb": {
+    "shape": [
+     115,
+     21
+    ],
+    "years": [
+     2000,
+     2010,
+     2011,
+     2012,
+     2013
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qarjılandırıw derekler boyınsha aymaqlar kesiminde\ntiykarǵı kapitalǵa investiciyalar",
+     "(jámi % te)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "Qaraqalpaqstan Respublikası"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/04_Investitsiya/Qur_l_s jum_slar_ (mlrd. som).xlsx",
+  "category": "04_Investitsiya",
+  "sheets": {
+   "UZB": {
+    "shape": [
+     26,
+     18
+    ],
+    "years": [
+     1928,
+     1986,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qurılıs jumısları",
+     "(mlrd. som)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "bólinbegen kólem"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/04_Investitsiya/Qur_l_s jum_slar_ o'sim pa'ti (osim pati, %).xlsx",
+  "category": "04_Investitsiya",
+  "sheets": {
+   "UZB": {
+    "shape": [
+     26,
+     18
+    ],
+    "years": [
+     1900,
+     1935,
+     1955,
+     1983,
+     2006,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2041,
+     2074
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qurılıs jumısları",
+     "(ósim páti, %)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "bólinbegen kólem"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/04_Investitsiya/Xal_qt_n jan bas_na tiykarg_ kapital_a ozlestirilgen investitsiyalar (m_n. som).xlsx",
+  "category": "04_Investitsiya",
+  "sheets": {
+   "kk": {
+    "shape": [
+     25,
+     18
+    ],
+    "years": [
+     1906,
+     1911,
+     1935,
+     1979,
+     1986,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2094
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Xalıqtıń jan basına tiykarģı kapitalǵa ózlestirilgen investitsiyalar",
+     "(mıń. som)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/04_Investitsiya/Тiykarg_ kapital_a ozlestirilgen investitsiyalar (mlrd. som).xlsx",
+  "category": "04_Investitsiya",
+  "sheets": {
+   "kk": {
+    "shape": [
+     26,
+     18
+    ],
+    "years": [
+     2000,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2056
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Тiykarģı kapitalǵa ózlestirilgen investitsiyalar",
+     "(mlrd. som)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "bólinbegen kólem"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/04_Investitsiya/Тiykarg_ kapital_a ozlestirilgen investitsiyalar osim patleri (osim pati, % dа).xlsx",
+  "category": "04_Investitsiya",
+  "sheets": {
+   "kk": {
+    "shape": [
+     25,
+     18
+    ],
+    "years": [
+     1930,
+     1982,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2032
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Тiykarģı kapitalǵa ózlestirilgen investitsiyalar",
+     "(ósim páti, % dа)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/05_S_rtq_Sawda/Eksport.xlsx",
+  "category": "05_S_rtq_Sawda",
+  "sheets": {
+   "eksport": {
+    "shape": [
+     7,
+     16
+    ],
+    "years": [
+     1999,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2099
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Qaraqalpaqstan Respublikasınıń eksportı",
+     "eksport",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/05_S_rtq_Sawda/Qaraqalpaqstan Respublikas_n_n eksport ham import quram_ ul_wma.xlsx",
+  "category": "05_S_rtq_Sawda",
+  "sheets": {
+   "qq": {
+    "shape": [
+     28,
+     18
+    ],
+    "years": [
+     1919,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2025,
+     2026,
+     2032,
+     2070,
+     2086
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Sırtqı sawda aylanısı",
+     "eksport",
+     "import",
+     "Eksport quramı",
+     "sonnan:",
+     "paxta",
+     "azıq-awqat ónimleri",
+     "ximiyalıq ónimler hám buyımlar",
+     "energiya derekleri hám neft ónimleri",
+     "qara hám reńli metallar",
+     "mashina hám ásbap-úskeneler",
+     "xızmetler",
+     "basqalar",
+     "Import quramı",
+     "sonnan:",
+     "azıq-awqat ónimleri",
+     "ximiyalıq ónimler hám buyımlar",
+     "energiya derekleri hám neft ónimleri",
+     "qara hám reńli metallar",
+     "mashina hám ásbap-úskeneler",
+     "xızmetler",
+     "basqalar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/05_S_rtq_Sawda/Qaraqalpaqstan Respublikas_n_n s_rtq_ sawda aylan_s.xlsx",
+  "category": "05_S_rtq_Sawda",
+  "sheets": {
+   "Sheet1": {
+    "shape": [
+     38,
+     18
+    ],
+    "years": [
+     1936,
+     1966,
+     1999,
+     2000,
+     2009,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2042,
+     2053,
+     2062,
+     2099
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Qaraqalpaqstan Respublikasınıń sırtqı sawda aylanısı",
+     "Sırtqı sawda",
+     "Tovarlar hám xızmetler, tovarlar eksporti",
+     "Tovarlardı eksport qılıw (FOB bahasında)",
+     "Paxta",
+     "Ximiyalıq ónimler hám buyımlar",
+     "Qara hám reńli metallar",
+     "Energiya derekleri hám neft ónimleri",
+     "Mashina hám ásbap-úskeneler",
+     "Azıq-awqat ónimleri",
+     "Xızmetlerdi eksport qilish",
+     "Qurılıs",
+     "Transport xızmetleri",
+     "Saparlar (turizm)",
+     "Basqa xızmetler",
+     "Basqa",
+     "Tovarlar hám xızmetler importi",
+     "Tovarlard import qılıw (CIF bahasında)",
+     "Ximiyalıq ónimler hám buyımlar",
+     "Qara hám reńli metallar",
+     "Energiya derekleri hám neft ónimleri",
+     "Mashina hám ásbap-úskeneler"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/05_S_rtq_Sawda/Qaraqalpaqstan Respublikas_n_n s_rtq_ sawda aylan_s_.xlsx",
+  "category": "05_S_rtq_Sawda",
+  "sheets": {
+   "sırtqı sawda": {
+    "shape": [
+     31,
+     18
+    ],
+    "years": [
+     1925,
+     1936,
+     1956,
+     1999,
+     2000,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2053,
+     2099
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Qaraqalpaqstan Respublikasınıń sırtqı sawda aylanısı",
+     "Million. Doll.",
+     "Sırtqı sawda aylanısı",
+     "eksport",
+     "import",
+     "sawda balansı saldosi",
+     "sonnan:",
+     "ǴMDA mámleketleri menen",
+     "eksport",
+     "import",
+     "sawda balansı saldosi",
+     "basqa mámleketler menen",
+     "eksport",
+     "import",
+     "savdo balansi  saldosi",
+     "ótken jılǵa salıstırǵanda, prosentte",
+     "Sırtqı sawda aylanısı",
+     "eksport",
+     "import",
+     "sonnan:",
+     "ǴMDA mámleketleri menen",
+     "eksport"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/05_S_rtq_Sawda/Qaraqalpaqstan Respublikas_n_n s_rtq_ sawda eksport HS2017 belgileri.xlsx",
+  "category": "05_S_rtq_Sawda",
+  "sheets": {
+   "Экспорт": {
+    "shape": [
+     90,
+     19
+    ],
+    "years": [
+     1968,
+     1990,
+     1999,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Qaraqalpaqstan Respublikasınıń sırtqı sawda eksport (HS2017 belgileri boyınsha)",
+     "Код\nТНВЭД",
+     "02",
+     "03",
+     "04",
+     "05",
+     "06",
+     "07",
+     "08",
+     "09",
+     "10",
+     "11",
+     "12",
+     "13",
+     "14",
+     "15",
+     "16",
+     "17",
+     "19",
+     "20",
+     "21",
+     "22"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/05_S_rtq_Sawda/Qaraqalpaqstan Respublikas_n_n s_rtq_ sawda eksport mamleketler.xlsx",
+  "category": "05_S_rtq_Sawda",
+  "sheets": {
+   "Eksport": {
+    "shape": [
+     140,
+     18
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Qaraqalpaqstan Respublikasınıń sırtqı sawda eksport (mámleketler boyınsha)",
+     "Sherik mámleketler",
+     "Awǵanıstan",
+     "Amerika Samoasi",
+     "Andorra",
+     "Angilya",
+     "AQSh",
+     "Argentina",
+     "Armaniston",
+     "Avstraliya",
+     "Avstriya",
+     "Azerbayjan",
+     "Armeniya",
+     "Bahrayn",
+     "Bangladesh",
+     "Belarus",
+     "Belgiya",
+     "Beliz",
+     "Benin",
+     "Birlesken Arab Amirligi",
+     "Birlesken Qirollik",
+     "Bolgariya"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/05_S_rtq_Sawda/Qaraqalpaqstan Respublikas_n_n s_rtq_ sawda import HS2017 belgileri.xlsx",
+  "category": "05_S_rtq_Sawda",
+  "sheets": {
+   "Импорт": {
+    "shape": [
+     99,
+     19
+    ],
+    "years": [
+     1900,
+     2000,
+     2003,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2064,
+     2094
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Qaraqalpaqstan Respublikasınıń sırtqı sawda - import (HS2017 belgileri boyınsha)",
+     "Код\nТНВЭД",
+     "01",
+     "02",
+     "03",
+     "04",
+     "05",
+     "06",
+     "07",
+     "08",
+     "09",
+     "10",
+     "11",
+     "12",
+     "13",
+     "15",
+     "16",
+     "17",
+     "18",
+     "19",
+     "20",
+     "21"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/05_S_rtq_Sawda/Qaraqalpaqstan Respublikas_n_n s_rtq_ sawda import mamleketler.xlsx",
+  "category": "05_S_rtq_Sawda",
+  "sheets": {
+   "import": {
+    "shape": [
+     87,
+     18
+    ],
+    "years": [
+     1999,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Qaraqalpaqstan Respublikasınıń sırtqı sawda import (mámleketler boyınsha)",
+     "Sherik mámleketler",
+     "Awǵanıstan",
+     "AQSh",
+     "Angola",
+     "Argentina",
+     "Armaniston",
+     "Avstraliya",
+     "Avstriya",
+     "Belarus",
+     "Belgiya",
+     "Birlesken Arab Amirligi",
+     "Bolgariya",
+     "Braziliya",
+     "Britaniyanıń Hind okeanidagı  aymaqları",
+     "Buyuk Britaniya BQ ham Shimoliy Irlandiya",
+     "Chexiya",
+     "Daniya",
+     "Ekvador",
+     "Eron Islom Respublikasi",
+     "Estoniya",
+     "Filippin"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/06_X_zmetler/Aymaqlar boy_nsha korsetilgen x_zmetler koleminin osim pati.xlsx",
+  "category": "06_X_zmetler",
+  "sheets": {
+   "3 qosımsha": {
+    "shape": [
+     26,
+     18
+    ],
+    "years": [
+     1957,
+     1964,
+     1987,
+     1991,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2031,
+     2079,
+     2098
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Rayonlar hám qala kesiminde kórsetilgen xızmetler kóleminiń ósim páti",
+     "(ótken jılǵa salıstırǵanda, % te)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/06_X_zmetler/Aymaqlar boy_nsha korsetilgen xizmetler kolemi.xlsx",
+  "category": "06_X_zmetler",
+  "sheets": {
+   "2 qosımsha ": {
+    "shape": [
+     26,
+     18
+    ],
+    "years": [
+     1905,
+     1958,
+     1964,
+     1973,
+     1991,
+     1999,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2081,
+     2094
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Aymaqlar boyınsha kórsetilgen xızmetler kólemi",
+     "(mlrd. swm)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/06_X_zmetler/Aymaqlar boy_nsha xal_qt_n jan bas_na tuwr_ keletu__n x_zmetler kolemi.xlsx",
+  "category": "06_X_zmetler",
+  "sheets": {
+   "6 qosımsha ": {
+    "shape": [
+     26,
+     18
+    ],
+    "years": [
+     1907,
+     1921,
+     1930,
+     1935,
+     1969,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2036,
+     2047,
+     2063
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Rayonlar hám qala kesiminde xalıqtıń jan basına tuwrı keletuǵın xızmetler kólemi",
+     "(miń.swm)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/06_X_zmetler/Aymaqlar boy_nsha xal_qt_n jan bas_na tuwr_ keletu__n x_zmetler koleminin osim pati (1).xlsx",
+  "category": "06_X_zmetler",
+  "sheets": {
+   "7 ilova ": {
+    "shape": [
+     26,
+     18
+    ],
+    "years": [
+     1905,
+     1918,
+     1925,
+     1928,
+     1931,
+     1946,
+     1968,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2068,
+     2086
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "(ótken jılǵa salıstırǵanda, % te)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/06_X_zmetler/Aymaqlar boy_nsha xal_qt_n jan bas_na tuwr_ keletu__n x_zmetler koleminin osim pati.xlsx",
+  "category": "06_X_zmetler",
+  "sheets": {
+   "7 ilova ": {
+    "shape": [
+     26,
+     18
+    ],
+    "years": [
+     1905,
+     1918,
+     1925,
+     1928,
+     1931,
+     1946,
+     1968,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2068,
+     2086
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "(ótken jılǵa salıstırǵanda, % te)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/06_X_zmetler/Ekonomikal_q hareket turleri boy_nsha korsetilgen x_zmetler kolemi.xlsx",
+  "category": "06_X_zmetler",
+  "sheets": {
+   "4 qosımsha ": {
+    "shape": [
+     22,
+     18
+    ],
+    "years": [
+     1905,
+     1973,
+     1981,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Ekonomikalıq háreket túrleri boyınsha kórsetilgen xızmetler kólemi",
+     "(mlrd. swm)",
+     "Xızmat túrleri",
+     "Jámi xızmetler",
+     "baylanıs hám málimleme xızmeti",
+     "finanslıq xızmetler",
+     "transport xızmeti",
+     "sonnan: avtotransport xızmetleri",
+     "jasaw hám awqatlanıw xızmetleri",
+     "sawda xızmetleri",
+     "kóshpes múlk penen baylanısli bolǵan xızmetler",
+     "bilimlendiriw tarawındaǵı xızmetler",
+     "den-sawlıqtı saqlaw tarawındaǵi xızmetler",
+     "ijara hám prokat xızmetleri",
+     "kompyuterlerdi hám turmıslıq tovarlardı ońlaw xızmetleri",
+     "basqa jeke xızmetler",
+     "arxitektura, injenerlik izleniwler, tehnikalıq sınawlar hám analiz tarawındaǵı xızmetler",
+     "basqa túrdegi xızmetler",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/06_X_zmetler/Ekonomikal_q hareket turleri boy_nsha korsetilgen x_zmetler koleminin osiw pati.xlsx",
+  "category": "06_X_zmetler",
+  "sheets": {
+   "5 qosımsha": {
+    "shape": [
+     22,
+     18
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Ekonomikalıq háreket túrleri boyınsha kórsetilgen xızmetler kóleminiń ósiw páti",
+     "(ótken jılǵa salıstırǵanda, % te)",
+     "Xızmat túrleri",
+     "Jámi xızmetler",
+     "baylanıs hám málimleme xızmeti",
+     "finanslıq xızmetler",
+     "transport xızmeti",
+     "sonnan: avtotransport xızmetleri",
+     "jasaw hám awqatlanıw xızmetleri",
+     "sawda xızmetleri",
+     "kóshpes múlk penen baylanısli bolǵan xızmetler",
+     "bilimlendiriw tarawındaǵı xızmetler",
+     "den-sawlıqtı saqlaw tarawındaǵi xızmetler",
+     "ijara hám prokat xızmetleri",
+     "kompyuterlerdi hám turmıslıq tovarlardı ońlaw xızmetleri",
+     "basqa jeke xızmetler",
+     "arxitektura, injenerlik izleniwler, tehnikalıq sınawlar hám analiz tarawındaǵı xızmetler",
+     "basqa túrdegi xızmetler",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/06_X_zmetler/Qaraqalpaqstan Respublikas_ aymaqlar kesiminde ortasha xal_q jan bas_na  usaqlap sat_w  tovar aylan_s_ .xlsx",
+  "category": "06_X_zmetler",
+  "sheets": {
+   "Лист1": {
+    "shape": [
+     27,
+     18
+    ],
+    "years": [
+     1927,
+     1948,
+     1974,
+     1980,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2047,
+     2064,
+     2074,
+     2097
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "(ámeldegi narxlarda; mıń sum)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/07_Transport/Avtomobil transport_n_n jolawsh_ aylanbas_ .xlsx",
+  "category": "07_Transport",
+  "sheets": {
+   "рк": {
+    "shape": [
+     24,
+     18
+    ],
+    "years": [
+     1933,
+     1936,
+     1940,
+     1956,
+     1966,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2058,
+     2068,
+     2082
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Avtomobil transportında jolawshılar aylanbası",
+     "(mln. jolawshı-km)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/07_Transport/Avtomobil transport_n_n juk aylanbas_ kolemi .xlsx",
+  "category": "07_Transport",
+  "sheets": {
+   "рк": {
+    "shape": [
+     24,
+     18
+    ],
+    "years": [
+     1917,
+     1942,
+     1951,
+     1979,
+     2007,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2062,
+     2067,
+     2090
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Avtomobil transportinıń júk aylanbası kólemi",
+     "(mln. tonna-km)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/07_Transport/Avtomobil transport_nda tas_l_an jolawshilar san_ .xlsx",
+  "category": "07_Transport",
+  "sheets": {
+   "рк": {
+    "shape": [
+     24,
+     19
+    ],
+    "years": [
+     1910,
+     1940,
+     1977,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2035,
+     2071
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Avtomobil transportında tasılǵan jolawshılar sani",
+     "(mıń. adam)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/07_Transport/Avtomobil transport_nda tas_l_an jukler kolemi  (1).xlsx",
+  "category": "07_Transport",
+  "sheets": {
+   "рк": {
+    "shape": [
+     24,
+     18
+    ],
+    "years": [
+     1907,
+     1916,
+     1917,
+     1920,
+     1938,
+     1940,
+     1954,
+     1965,
+     1975,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2033,
+     2037,
+     2061,
+     2081
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Avtomobil transportinda tasılǵan júkler kólemi",
+     "(mıń.tonna)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/07_Transport/Avtomobil transport_nda tas_l_an jukler kolemi .xlsx",
+  "category": "07_Transport",
+  "sheets": {
+   "рк": {
+    "shape": [
+     24,
+     18
+    ],
+    "years": [
+     1907,
+     1916,
+     1917,
+     1920,
+     1938,
+     1940,
+     1954,
+     1965,
+     1975,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2033,
+     2037,
+     2061,
+     2081
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Avtomobil transportinda tasılǵan júkler kólemi",
+     "(mıń.tonna)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis qalası",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/07_Transport/Аvtotransportt_n tiykar__ korsetkishleri  (1).xlsx",
+  "category": "07_Transport",
+  "sheets": {
+   "1 qosımsha ": {
+    "shape": [
+     9,
+     18
+    ],
+    "years": [
+     1917,
+     1940,
+     1950,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2035,
+     2037
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Аvtotransporttıń tiykarǵı kórsetkishleri",
+     "Tasılǵan júkler, mıń t",
+     "Júk aylanbası, mln. t-km",
+     "Tasılǵan jolawshılar, mıń adam",
+     "Jolawshılar aylanbası, mln. jolawshı-km",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/07_Transport/Аvtotransportt_n tiykar__ korsetkishleri .xlsx",
+  "category": "07_Transport",
+  "sheets": {
+   "1 qosımsha ": {
+    "shape": [
+     9,
+     18
+    ],
+    "years": [
+     1917,
+     1940,
+     1950,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2035,
+     2037
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Аvtotransporttıń tiykarǵı kórsetkishleri",
+     "Tasılǵan júkler, mıń t",
+     "Júk aylanbası, mln. t-km",
+     "Tasılǵan jolawshılar, mıń adam",
+     "Jolawshılar aylanbası, mln. jolawshı-km",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/08_MiynetBazar/Ekonomikal_q aktiv xal_q, bantler ham jum_ss_zlar san_.xlsx",
+  "category": "08_MiynetBazar",
+  "sheets": {
+   "1735": {
+    "shape": [
+     24,
+     37
+    ],
+    "years": [
+     1993,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2029
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 16,
+    "kind": "rayon",
+    "labels": [
+     "Qoraqalpog'iston Respublikasi",
+     "Nukus sh.",
+     "tumanlar:",
+     "Amudaryo",
+     "Beruniy",
+     "Bo'zatov",
+     "Qorao'zak",
+     "Kegeyli",
+     "Qo'ng'irot",
+     "Qanliko'l",
+     "Mo'ynoq",
+     "Nukus",
+     "Taxiatosh",
+     "Taxtako'pir",
+     "To'rtko'l",
+     "Xo'jayli",
+     "Chimboy",
+     "Shumanay",
+     "Ellikqal'a"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/08_MiynetBazar/Is haq_.xlsx",
+  "category": "08_MiynetBazar",
+  "sheets": {
+   "2025": {
+    "shape": [
+     18,
+     34
+    ],
+    "years": [
+     1902,
+     1910,
+     1927,
+     1943,
+     1947,
+     1975,
+     1989,
+     1994,
+     1996,
+     2000,
+     2005,
+     2013,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2050,
+     2068,
+     2069,
+     2093
+    ],
+    "has_month": false,
+    "has_quarter": true,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Kórsetkishler",
+     "Ortasha esaplanǵan aylıq is haqı",
+     "Sanaat",
+     "Qurılıs",
+     "Sawda",
+     "Tasıw hám saqlaw",
+     "Jasaw hám awqatlanıw boyınsha xızmetler",
+     "Málimleme hám baylanıs",
+     "Finanslıq hám qamsızlandırıw xızmeti",
+     "Bilimlendiriw",
+     "Densawlıqtı saqlaw hám sociallıq xızmetler kórsetiw",
+     "Mádeniyat, kewil ashıw hám dem alıw",
+     "Basqa xızmet túrleri"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/08_MiynetBazar/Miynet resurslar_ quram_.xlsx",
+  "category": "08_MiynetBazar",
+  "sheets": {
+   "1735": {
+    "shape": [
+     13,
+     17
+    ],
+    "years": [
+     1918,
+     1951,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Mehnat resurslari tarkibi",
+     "(ming kishi)",
+     "Mehnat resurslari",
+     "doimiy aholiga nisbatan, foizda",
+     "shu jumladan:",
+     "mehnatga layoqatli yoshdagi mehnatga layoqatli aholi",
+     "doimiy aholiga nisbatan, foizda",
+     "mehnat resurslariga nisbatan, foizda",
+     "mehnatga layoqatli yoshdan kichik va katta yoshdagi ishlovchilar",
+     "doimiy aholiga nisbatan, foizda",
+     "mehnat resurslariga nisbatan, foizda"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/08_MiynetBazar/Miynet resurslar_n_n ekonomikal_q aktiv ham aktiv emes xal_q boy_nsha bolistiriliwi.xlsx",
+  "category": "08_MiynetBazar",
+  "sheets": {
+   "1735": {
+    "shape": [
+     19,
+     27
+    ],
+    "years": [
+     1914,
+     1999,
+     2000,
+     2001,
+     2002,
+     2003,
+     2004,
+     2005,
+     2006,
+     2007,
+     2008,
+     2009,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2031,
+     2044,
+     2084
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Mehnat resurslarining iqtisodiy faol va nofaol aholi bo`yicha taqsimlanishi",
+     "(ming kishi)",
+     "Jami mehnat resurslari",
+     "shahar",
+     "jamiga nisbatan foizda",
+     "qishloq",
+     "jamiga nisbatan foizda",
+     "iqtisodiy faol aholi",
+     "shahar",
+     "jamiga nisbatan foizda",
+     "qishloq",
+     "jamiga nisbatan foizda",
+     "iqtisodiy nofaol aholi",
+     "shahar",
+     "jamiga nisbatan foizda",
+     "qishloq",
+     "jamiga nisbatan foizda"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/09_Xal_q/Duzilgen nekeler san_.xlsx",
+  "category": "09_Xal_q",
+  "sheets": {
+   "РК": {
+    "shape": [
+     347,
+     4
+    ],
+    "years": [
+     2024
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Dúzilgen nekeler sanı",
+     "(jılda; birlikte)",
+     "2024",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala"
+    ]
+   },
+   "13.4": {
+    "shape": [
+     345,
+     4
+    ],
+    "years": [
+     2019
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Tuzilgan nikohlar soni",
+     "(yilda; birlikda)",
+     "2019",
+     "O`zbekiston Respublikasi",
+     "Qoraqalpog`iston Respublikasi",
+     "viloyatlar:",
+     "Andijon",
+     "Buxoro",
+     "Jizzax",
+     "Qashqadaryo",
+     "Navoiy",
+     "Namangan",
+     "Samarqand",
+     "Surxondaryo",
+     "Sirdaryo",
+     "Toshkent",
+     "Farg`ona",
+     "Xorazm",
+     "Toshkent sh.",
+     "2018",
+     "O`zbekiston Respublikasi",
+     "Qoraqalpog`iston Respublikasi"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/09_Xal_q/Koship kelgenler san_.xlsx",
+  "category": "09_Xal_q",
+  "sheets": {
+   "РК": {
+    "shape": [
+     23,
+     26
+    ],
+    "years": [
+     2000,
+     2001,
+     2002,
+     2003,
+     2004,
+     2005,
+     2006,
+     2007,
+     2008,
+     2009,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2066,
+     2091
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Kóship kelgenler sanı",
+     "(jılda; adam)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/09_Xal_q/Koship ketkenler san_.xlsx",
+  "category": "09_Xal_q",
+  "sheets": {
+   "13.7": {
+    "shape": [
+     23,
+     26
+    ],
+    "years": [
+     1913,
+     2000,
+     2001,
+     2002,
+     2003,
+     2004,
+     2005,
+     2006,
+     2007,
+     2008,
+     2009,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2052,
+     2064
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Kóship ketkenler sanı",
+     "(jılda; adam)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/09_Xal_q/Nekeden aj_ras_wlar san_.xlsx",
+  "category": "09_Xal_q",
+  "sheets": {
+   "РК": {
+    "shape": [
+     353,
+     4
+    ],
+    "years": [
+     2024
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Nekeden ajırasıwlar sanı",
+     "(jılda; birlikte)",
+     "2024",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/09_Xal_q/Qala ham rayonlar boy_nsha turaql_ xal_q san_.xlsx",
+  "category": "09_Xal_q",
+  "sheets": {
+   "РК": {
+    "shape": [
+     339,
+     4
+    ],
+    "years": [
+     2025,
+     2029
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qala hám rayonlar boyınsha turaqlı xalıq sanı",
+     "(jıl basına; mıń adam)",
+     "2025",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/09_Xal_q/Qayt_s bol_anlar san_.xlsx",
+  "category": "09_Xal_q",
+  "sheets": {
+   "РК": {
+    "shape": [
+     346,
+     4
+    ],
+    "years": [
+     2024
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qaytıs bolǵanlar sanı",
+     "(jılda; adam)",
+     "2024",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/09_Xal_q/Turaql_ xal_q san_n_n jas_ boy_nsha bolistiriliwi .xlsx",
+  "category": "09_Xal_q",
+  "sheets": {
+   "РК": {
+    "shape": [
+     26,
+     222
+    ],
+    "years": [
+     1909,
+     1912,
+     1922,
+     1923,
+     1947,
+     1948,
+     1966,
+     1976,
+     1979,
+     1986,
+     1994,
+     2002,
+     2013,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2029,
+     2030,
+     2053,
+     2058,
+     2071,
+     2083
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/09_Xal_q/Turaql_ xal_q san_n_n jas_ boy_nsha bolistiriliwi.xlsx",
+  "category": "09_Xal_q",
+  "sheets": {},
+  "error": "ImportError: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd."
+ },
+ {
+  "file": "data/09_Xal_q/Tuw_l_anlar  san_.xlsx",
+  "category": "09_Xal_q",
+  "sheets": {
+   "РК": {
+    "shape": [
+     325,
+     4
+    ],
+    "years": [
+     1996,
+     2024
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Tuwılǵanlar  sanı",
+     "(jılda; adam)",
+     "2024",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/10_Bilimlendiriw/Akademiyal_q liceyler san_, birlik .xlsx",
+  "category": "10_Bilimlendiriw",
+  "sheets": {
+   "Akademik litseylar": {
+    "shape": [
+     71,
+     16
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Akademiyalıq liceyler sanı, birlik",
+     "(oqıw jılı basına, birlik)",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "Oqıwshılar sanı"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/10_Bilimlendiriw/Joqar_ bilimlendiriw sholkemler san_.xlsx",
+  "category": "10_Bilimlendiriw",
+  "sheets": {
+   "Oliy ta՚lim tashkilotlar": {
+    "shape": [
+     71,
+     16
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Joqarı bilimlendiriw shólkemler sanı",
+     "(oqıw jılı basına, birlik)",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "Studentler sanı"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/10_Bilimlendiriw/Kasip-oner kolledjleri san_.xlsx",
+  "category": "10_Bilimlendiriw",
+  "sheets": {
+   "Kasb-hunar kollejlari": {
+    "shape": [
+     73,
+     16
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Kásip-óner kolledjleri sanı *)",
+     "(oqıw jılı basına, birlik)",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "Oqıwshılar sanı *)"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/10_Bilimlendiriw/Kasip-oner mektepleri san_.xlsx",
+  "category": "10_Bilimlendiriw",
+  "sheets": {
+   "Kasb-hunar maktablari ": {
+    "shape": [
+     71,
+     16
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Kásip-óner mektepleri sanı",
+     "(oqıw jılı basına, birlik)",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "Oqıwshılar sanı"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/10_Bilimlendiriw/Mektepke shekemgi bilimlendiriw sholkemleri san_ .xlsx",
+  "category": "10_Bilimlendiriw",
+  "sheets": {
+   "Maktabgacha ta՚lim tashkilot": {
+    "shape": [
+     71,
+     16
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Mektepke shekemgi bilimlendiriw shólkemleri sanı",
+     "(jıl aqırına, birlik)",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "Tárbiyalanıwshılar sanı"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/10_Bilimlendiriw/Texnikumlar san_.xlsx",
+  "category": "10_Bilimlendiriw",
+  "sheets": {
+   "Texnikumlar": {
+    "shape": [
+     71,
+     16
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Texnikumlar sanı",
+     "(oqıw jılı basına, birlik)",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "Oqıwshılar sanı"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/10_Bilimlendiriw/Ul_wma bilimlendiriw makemeleri san_.xlsx",
+  "category": "10_Bilimlendiriw",
+  "sheets": {
+   "Umumta՚lim muassasalari": {
+    "shape": [
+     71,
+     16
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Ulıwma bilimlendiriw mákemeleri sanı",
+     "(oqıw jılı basına, birlik)",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "Oqıwshılar sanı"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/11_Densawl_q/Iskerlik jurgizip at_r_an ambulator-poliklinikalar san_.xlsx",
+  "category": "11_Densawl_q",
+  "sheets": {
+   "Ambulator-poliklinikalar soni": {
+    "shape": [
+     25,
+     16
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qaraqalpaqstan Respublikasında iskerlik júrgizip atırǵan ambulator-poliklinikalar sanı",
+     "(birlik)",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) Qaraqalpaqstan Respublikası boyınsha bólistirilmegen maǵlumatlar qosılǵan"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/11_Densawl_q/Iskerlik jurgizip at_r_an emlewxana makemeleri san_.xlsx",
+  "category": "11_Densawl_q",
+  "sheets": {
+   "shifoxona muassasalari": {
+    "shape": [
+     25,
+     16
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qaraqalpaqstan Respublikasında iskerlik júrgizip atırǵan emlewxana mákemeleri sanı *)",
+     "(birlik)",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) Qaraqalpaqstan Respublikası boyınsha bólistirilmegen maǵlumatlar qosılǵan"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/11_Densawl_q/Iskerlik jurgizip at_r_an emlewxana makemelerinin or_nlar san_.xlsx",
+  "category": "11_Densawl_q",
+  "sheets": {
+   "shifoxona koykalari soni": {
+    "shape": [
+     24,
+     16
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) Qaraqalpaqstan Respublikası boyınsha bólistirilmegen maǵlumatlar qosılǵan"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/11_Densawl_q/Iskerlik jurgizip at_r_an medicina x_zmetkerleri san_ .xlsx",
+  "category": "11_Densawl_q",
+  "sheets": {
+   "Tibbiyot xodimlari": {
+    "shape": [
+     22,
+     16
+    ],
+    "years": [
+     1913,
+     1919,
+     1949,
+     1953,
+     1959,
+     1969,
+     1975,
+     1979,
+     1986,
+     1988,
+     1992,
+     1993,
+     1994,
+     2001,
+     2002,
+     2009,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2057,
+     2093
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qaraqalpaqstan Respublikasında iskerlik júrgizeip atırǵan medicina xızmetkerleri sanı",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/11_Densawl_q/Orta medicina x_zmetkerleri san_.xlsx",
+  "category": "11_Densawl_q",
+  "sheets": {
+   "o‘rta tibbiyot xodimlari": {
+    "shape": [
+     22,
+     16
+    ],
+    "years": [
+     1914,
+     1940,
+     1996,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qaraqalpaqstan Respublikasında orta medicina xızmetkerleri sanı",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/12_Sawda_Bahalar/Miymanxana ham so_an uqsas jaylast_r_w or_nlar_ (obiektler) san_.xlsx",
+  "category": "12_Sawda_Bahalar",
+  "sheets": {
+   "Turizm ": {
+    "shape": [
+     45,
+     16
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Miymanxana hám soǵan uqsas jaylastırıw orınları (obiektler) sanı, birlik",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "Turistlik iskerlikti ámelge asırǵan shólkemler",
+     "Qaraqalpaqstan Respublikasında"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/12_Sawda_Bahalar/Qaraqalpaqstan Respublikas_ aymaqlar kesiminde  usaqlap sat_w  tovar aylan_s_n_n koleminin osim patleri .xlsx",
+  "category": "12_Sawda_Bahalar",
+  "sheets": {
+   "Лист1": {
+    "shape": [
+     26,
+     18
+    ],
+    "years": [
+     1933,
+     1953,
+     2002,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2073
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "(ótken jılģa salıstırģanda procentte)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/12_Sawda_Bahalar/Qaraqalpaqstan Respublikas_ boy_nsha diyqan bazarlar_ ham dukanlarda__ ayr_m tovarlard_n ortasha bahalar_.xlsx",
+  "category": "12_Sawda_Bahalar",
+  "sheets": {
+   "1": {
+    "shape": [
+     45,
+     75
+    ],
+    "years": [
+     1903,
+     1938,
+     1943,
+     1945,
+     1953,
+     1962,
+     1992,
+     1998,
+     1999,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2031,
+     2038,
+     2041,
+     2051,
+     2055,
+     2070,
+     2099
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Ónimniń atı",
+     "Gurish",
+     "Arpa",
+     "Biyday",
+     "Mákke",
+     "Kepеk",
+     "Shrot",
+     "Shulxa",
+     "Kombikorm",
+     "Sortlı biyday unı",
+     "1-sortli biyday unı",
+     "1-sortli biyday unınan nan",
+     "Mal góshi",
+     "Qoy góshi",
+     "Tawıq góshi",
+     "Har túrli balıqlar",
+     "Jańa sawılǵan sút (1 litr)",
+     "Máyek  (10 dana)",
+     "Paxta mayı (1 litr)",
+     "Semechka mayı (1 litr)",
+     "Sarımay",
+     "Limon"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/12_Sawda_Bahalar/Qaraqalpaqstan Respublikas_ boy_nsha diyqan bazarlar_nda__ ayr_m tovarlard_n ortasha bahalar_.xlsx",
+  "category": "12_Sawda_Bahalar",
+  "sheets": {
+   "1": {
+    "shape": [
+     45,
+     101
+    ],
+    "years": [
+     1906,
+     1914,
+     1918,
+     1923,
+     1926,
+     1930,
+     1936,
+     1944,
+     1952,
+     1953,
+     1987,
+     1993,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2031,
+     2050,
+     2058,
+     2059,
+     2070,
+     2075,
+     2083,
+     2097
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Ónimniń atı",
+     "Gurish",
+     "Arpa",
+     "Biyday",
+     "Mákke",
+     "Kepеk",
+     "Shrot",
+     "Shulxa",
+     "Kombikorm",
+     "Sortlı biyday unı",
+     "1-sortli biyday unı",
+     "1-sortli biyday unınan nan",
+     "Mal góshi",
+     "Qoy góshi",
+     "Tawıq góshi",
+     "Har túrli balıqlar",
+     "Jańa sawılǵan sút (1 litr)",
+     "Máyek  (10 dana)",
+     "Paxta mayı (1 litr)",
+     "Semechka mayı (1 litr)",
+     "Sarımay",
+     "Limon"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/12_Sawda_Bahalar/Qaraqalpaqstan Respublikas_ boy_nsha dukanlarda__ ayr_m tovarlard_n ortasha bahalar_.xlsx",
+  "category": "12_Sawda_Bahalar",
+  "sheets": {
+   "1": {
+    "shape": [
+     45,
+     75
+    ],
+    "years": [
+     1900,
+     1914,
+     1937,
+     1953,
+     1962,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2031,
+     2041,
+     2063,
+     2070,
+     2089,
+     2099
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Ónimniń atı",
+     "Gurish",
+     "Arpa",
+     "Biyday",
+     "Mákke",
+     "Kepеk",
+     "Shrot",
+     "Shulxa",
+     "Kombikorm",
+     "Sortlı biyday unı",
+     "1-sortli biyday unı",
+     "1-sortli biyday unınan nan",
+     "Mal góshi",
+     "Qoy góshi",
+     "Tawıq góshi",
+     "Har túrli balıqlar",
+     "Jańa sawılǵan sút (1 litr)",
+     "Máyek  (10 dana)",
+     "Paxta mayı (1 litr)",
+     "Semechka mayı (1 litr)",
+     "Sarımay",
+     "Limon"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/12_Sawda_Bahalar/Qaraqalpaqstan Respublikas_ usaqlap sat_w  tovar aylan_s_n_n kolemi  .xlsx",
+  "category": "12_Sawda_Bahalar",
+  "sheets": {
+   "Лист1": {
+    "shape": [
+     27,
+     18
+    ],
+    "years": [
+     1923,
+     1977,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qaraqalpaqstan Respublikası usaqlap satıw tovar aylanısınıń kólemi",
+     "(ámeldegi narxlarda; mlrd.sum)",
+     "Qaraqalpaqstan Respublikası",
+     "Nókis q.",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "*) dáslepki maǵliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/13_Isbilermenlik/Ekonomikal_q x_zmet turleri boy_nsha karxana ham sholkemler san_.xlsx",
+  "category": "13_Isbilermenlik",
+  "sheets": {
+   "qq": {
+    "shape": [
+     16,
+     71
+    ],
+    "years": [
+     1902,
+     1903,
+     1968,
+     1979,
+     1980,
+     2009,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2078
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Jámi",
+     "sonnan:",
+     "Awıl, toǵay hám balıqshılıq xojalıǵı",
+     "Sanaat",
+     "Qurılıs",
+     "Sawda",
+     "Tasıw hám saqlaw",
+     "Jasaw hám awqatlanıw boyınsha xızmetler",
+     "Málimleme hám baylanıs",
+     "Densawlıqtı saqlaw hám sociallıq xızmetler kórsetiw",
+     "Basqa xızmet túrleri"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/13_Isbilermenlik/Ekonomikal_q x_zmet turleri boy_nsha kishi isbilermenlik subyektleri san_.xlsx",
+  "category": "13_Isbilermenlik",
+  "sheets": {
+   "qq": {
+    "shape": [
+     16,
+     71
+    ],
+    "years": [
+     1928,
+     1954,
+     1960,
+     1975,
+     1985,
+     1999,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026,
+     2066
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Jámi",
+     "sonnan:",
+     "Awıl, toǵay hám balıqshılıq xojalıǵı",
+     "Sanaat",
+     "Qurılıs",
+     "Sawda",
+     "Tasıw hám saqlaw",
+     "Jasaw hám awqatlanıw boyınsha xızmetler",
+     "Málimleme hám baylanıs",
+     "Densawlıqtı saqlaw hám sociallıq xızmetler kórsetiw",
+     "Basqa xızmet túrleri"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/13_Isbilermenlik/Karxana ham sholkemler san_.xlsx",
+  "category": "13_Isbilermenlik",
+  "sheets": {
+   "uzb": {
+    "shape": [
+     145,
+     16
+    ],
+    "years": [
+     1921,
+     2010,
+     2011,
+     2012
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qaraqalpaqstan Respublikası boyınsha kárxana hám shólkemlerdi sanı",
+     "(fermer hám diyqan xojalıqlarınan basqa)",
+     "(1 yanvar jaǵdayına, birlikte)",
+     "Qaraqalpaqstan Respublikasi",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqiyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "Nókis q.",
+     "Qaraqalpaqstan Respublikasi"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/13_Isbilermenlik/Kishi isbilermenlik subyektleri san_.xlsx",
+  "category": "13_Isbilermenlik",
+  "sheets": {
+   "qq": {
+    "shape": [
+     124,
+     16
+    ],
+    "years": [
+     1916,
+     2010,
+     2011,
+     2012
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Qaraqalpaqstan Respublikası boyınsha kishi isbilermenlik subyektleri sanı",
+     "(fermer hám diyqan xojalıqlarınan basqa)",
+     "(1 yanvar jaǵdayına, birlikte)",
+     "Qaraqalpaqstan Respublikasi",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqiyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "Nókis q.",
+     "Qaraqalpaqstan Respublikasi"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/13_Isbilermenlik/Kishi isbilermenliktin  ekonomikal_q x_zmet turleri boy_nsha ulesi  .xlsx",
+  "category": "13_Isbilermenlik",
+  "sheets": {
+   "илова2": {
+    "shape": [
+     23,
+     5
+    ],
+    "years": [
+     1909,
+     2010,
+     2011,
+     2012,
+     2013
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "(ulıwma kolemdi salıstırqanda  % de)",
+     "jıllar",
+     "2010-jıl",
+     "2011-jıl",
+     "2012-jıl",
+     "2013-jıl",
+     "2014-jıl",
+     "2015-jıl",
+     "2016-jıl",
+     "2017-jıl",
+     "2018-jıl",
+     "2019-jıl",
+     "2020-jıl",
+     "2021-jıl",
+     "2022-jıl",
+     "2023-jıl",
+     "2024-jıl",
+     "2025-jıl",
+     "2026-jıl\n(yanvar-iyun)*",
+     "*) Dáslepki maģlıwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/13_Isbilermenlik/Kishi isbilermenliktin ham mikrofirmalar tarmaqlar boy_nsha tiykarg_  korsetkishleri kolemi  .xlsx",
+  "category": "13_Isbilermenlik",
+  "sheets": {
+   "илова1": {
+    "shape": [
+     22,
+     13
+    ],
+    "years": [
+     1916,
+     1930,
+     1969,
+     1983,
+     2006,
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2077,
+     2082,
+     2091
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "Jillar",
+     "2010 jıl",
+     "2011 jıl",
+     "2012 jıl",
+     "2013 jıl",
+     "2014 jıl",
+     "2015 jıl",
+     "2016 jıl",
+     "2017 jıl",
+     "2018 jıl",
+     "2019 jıl",
+     "2020 jıl",
+     "2021 jıl",
+     "2022 jıl",
+     "2023 jıl",
+     "2024 jıl",
+     "2025-jıl",
+     "2026-jıl\n(yanvar-iyun)*",
+     "*) Dáslepki maģliwmatlar"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/14_Madeniyat/Madeniyat (1).xlsx",
+  "category": "14_Madeniyat",
+  "sheets": {
+   "madaniyat": {
+    "shape": [
+     70,
+     16
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Professional teatrlar sanı, birlik",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "Muzeyler sanı (filiallardı qosqan halda), birlik",
+     "Qaraqalpaqstan Respublikasında"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/14_Madeniyat/Madeniyat.xlsx",
+  "category": "14_Madeniyat",
+  "sheets": {
+   "madaniyat": {
+    "shape": [
+     70,
+     16
+    ],
+    "years": [
+     2010,
+     2011,
+     2012,
+     2013,
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 13,
+    "kind": "rayon",
+    "labels": [
+     "Professional teatrlar sanı, birlik",
+     "Qaraqalpaqstan Respublikasında",
+     "Nókis qalası",
+     "rayonlar:",
+     "Ámiwdárya",
+     "Beruniy",
+     "Bozataw",
+     "Qaraózek",
+     "Kegeyli",
+     "Qońırat",
+     "Qanlıkól",
+     "Moynaq",
+     "Nókis",
+     "Taqıyatas",
+     "Taxtakópir",
+     "Tórtkúl",
+     "Xojeli",
+     "Shımbay",
+     "Shomanay",
+     "Ellikqala",
+     "Muzeyler sanı (filiallardı qosqan halda), birlik",
+     "Qaraqalpaqstan Respublikasında"
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/15_Finanslar/FINANSLIQ NATIYJELER TUWRISINDA MA_LIWMAT - 2-sanl_ forma.xlsx",
+  "category": "15_Finanslar",
+  "sheets": {
+   "ф-2 Гоззакас +": {
+    "shape": [
+     32,
+     7
+    ],
+    "years": [
+     1999
+    ],
+    "has_month": false,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": []
+   }
+  }
+ },
+ {
+  "file": "data/15_Finanslar/Qaraqalpaqstan Respublikas_ statistika basqarmas_ qarajetler tuwr_s_nda.xlsx",
+  "category": "15_Finanslar",
+  "sheets": {
+   "2а-илова": {
+    "shape": [
+     77,
+     5
+    ],
+    "years": [
+     2026
+    ],
+    "has_month": false,
+    "has_quarter": true,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "2026-jıl  I sherek ushın",
+     "№",
+     "1",
+     "1.1.",
+     "1.2.",
+     "1.3.",
+     "1.4.",
+     "1.5.",
+     "1.6.",
+     "1.7.",
+     "1.8.",
+     "1.9.",
+     "2",
+     "2.1.",
+     "2.2.",
+     "2.3.",
+     "2.4.",
+     "2.5.",
+     "2.6.",
+     "2.7.",
+     "2.8.",
+     "2.9."
+    ]
+   }
+  }
+ },
+ {
+  "file": "data/15_Finanslar/QR statistika basqarmas_ hamde on_n rayon (qala) bolimlerinin qarj_-xojal_q iskerligi juwmaqlar_ tuwr_s_nda.xlsx",
+  "category": "15_Finanslar",
+  "sheets": {
+   "2-илова": {
+    "shape": [
+     26,
+     10
+    ],
+    "years": [
+     2026
+    ],
+    "has_month": true,
+    "has_quarter": false,
+    "district_rows": 0,
+    "kind": "korsetkish",
+    "labels": [
+     "№",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10",
+     "11",
+     "12",
+     "13",
+     "14",
+     "15",
+     "16",
+     "17",
+     "18"
+    ]
+   }
+  }
+ }
+]
