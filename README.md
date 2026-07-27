@@ -135,6 +135,11 @@ manzilini talab qiladi.
 Repozitoriyda `render.yaml` tayyor, shuning uchun **New → Blueprint** orqali
 repozitoriyni ulash kifoya. Render panelida quyidagilarni kiriting:
 
+> **Python versiyasi 3.12 ga qadalgan** (`backend/.python-version`). Render'ning
+> standart versiyasi yangiroq bo'lishi mumkin, u holda `pydantic-core` uchun
+> tayyor wheel topilmay, pip uni Rust orqali qurishga urinadi va Render'ning
+> read-only fayl tizimida yiqiladi. Faylni o'chirmang.
+
 | O'zgaruvchi         | Qiymat                                              |
 | ------------------- | --------------------------------------------------- |
 | `DATABASE_URL`      | Neon'dan olingan satr                                |
