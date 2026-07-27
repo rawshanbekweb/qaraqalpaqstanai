@@ -1,4 +1,5 @@
 import logging
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -11,7 +12,16 @@ logging.basicConfig(level=logging.INFO)
 
 settings = get_settings()
 
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    """Jadvallar mavjud bo'lmasa yaratiladi (mavjudlariga tegmaydi)."""
+    Base.metadata.create_all(engine)
+    yield
+
+
 app = FastAPI(
+    lifespan=lifespan,
     title="Qoraqalpog'iston — Iqtisodiy monitoring va AI analitika",
     description=(
         "Admin kiritgan ko'rsatkichlar PostgreSQL'da saqlanadi; AI javoblari "
@@ -32,11 +42,6 @@ app.include_router(auth.router)
 app.include_router(data.router)
 app.include_router(analytics.router)
 app.include_router(ai.router)
-
-
-@app.on_event("startup")
-def on_startup() -> None:
-    Base.metadata.create_all(engine)
 
 
 @app.get("/api/health")

@@ -1,0 +1,404 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════════════════════════════
+   QARAQALPAQ ANALYTICS — dizayn tizimi
+   Chuqur kosmik fon + aurora, shisha panellar, neon aksentlar.
+   ══════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* Fon qatlamlari */
+  --color-void: #04060f;
+  --color-abyss: #070b1a;
+  --color-deep: #0b1024;
+  --color-surface: #101733;
+  --color-raised: #16203f;
+
+  /* Chiziqlar */
+  --color-hairline: #1e2a4d;
+  --color-edge: #2b3a63;
+
+  /* Matn */
+  --color-ink: #eef2ff;
+  --color-ink-2: #a8b4d8;
+  --color-ink-3: #6b779c;
+
+  /* Aksentlar */
+  --color-cyan: #22d3ee;
+  --color-azure: #38bdf8;
+  --color-iris: #818cf8;
+  --color-violet: #a78bfa;
+  --color-magenta: #e879f9;
+  --color-amber: #fbbf24;
+  --color-lime: #a3e635;
+  --color-mint: #34d399;
+  --color-coral: #fb7185;
+  --color-crimson: #f43f5e;
+
+  /* Status ranglari */
+  --color-st-completed: #34d399;
+  --color-st-progress: #38bdf8;
+  --color-st-risk: #fbbf24;
+  --color-st-critical: #f43f5e;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-panel: 20px;
+
+  /* Animatsiyalar */
+  --animate-aurora: aurora 24s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-shimmer: shimmer 2.6s linear infinite;
+  --animate-sweep: sweep 3.5s ease-in-out infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-blink: blink 1.1s steps(2, start) infinite;
+}
+
+@keyframes aurora {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+  33% {
+    transform: translate3d(6%, -4%, 0) scale(1.15);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translate3d(-5%, 5%, 0) scale(1.05);
+    opacity: 0.45;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  70%,
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes sweep {
+  0%,
+  100% {
+    transform: translateX(-110%);
+  }
+  50% {
+    transform: translateX(110%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes blink {
+  to {
+    opacity: 0;
+  }
+}
+
+/* ── Baza ─────────────────────────────────────────────────────────── */
+
+:root {
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  border-color: var(--color-hairline);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+/* Dashboard qobig'i sahifa aylanishini o'zi boshqaradi */
+body:has(.app-shell) {
+  overflow: hidden;
+}
+
+/* Raqamlar ustun bo'lib turishi uchun */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ── Aurora fon ───────────────────────────────────────────────────── */
+
+.aurora-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform, opacity;
+}
+
+.grid-veil {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-edge) 45%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-edge) 45%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 20%, transparent 78%);
+  opacity: 0.35;
+}
+
+.noise-veil {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Shisha panel ─────────────────────────────────────────────────── */
+
+/*
+ * Uch pog'onali shaffoflik. Panellar endi xarita USTIDA suzadi, shuning
+ * uchun ular fonni to'sib qo'ymasligi kerak — rang o'rniga blur ishlaydi:
+ * matn o'qiladi, xarita esa ostidan ko'rinib turadi.
+ *   .glass       — ichki kartochkalar (eng shaffof)
+ *   .glass-rail  — suzuvchi asosiy panellar
+ *   .glass-chip  — mayda suzuvchi boshqaruvlar
+ */
+
+/*
+ * MUHIM: bu klasslar `@layer components` ichida turadi. Aks holda ular
+ * `@import "tailwindcss"` dan keyin kelgani uchun bir xil xosligadagi
+ * utilitlarni (masalan `.absolute`) manba tartibi bo'yicha yengib qo'yadi
+ * va `position: relative` panellarni joyidan qo'zg'atadi.
+ */
+@layer components {
+  .glass {
+    position: relative;
+    background: linear-gradient(
+      150deg,
+      color-mix(in oklab, var(--color-surface) 38%, transparent),
+      color-mix(in oklab, var(--color-abyss) 48%, transparent)
+    );
+    border: 1px solid color-mix(in oklab, var(--color-edge) 46%, transparent);
+    border-radius: var(--radius-panel);
+    backdrop-filter: blur(16px) saturate(150%);
+    box-shadow:
+      0 1px 0 0 color-mix(in oklab, #fff 6%, transparent) inset,
+      0 18px 44px -22px rgb(0 0 0 / 0.7);
+  }
+
+  .glass-rail {
+    position: relative;
+    background: linear-gradient(
+      155deg,
+      color-mix(in oklab, var(--color-surface) 30%, transparent),
+      color-mix(in oklab, var(--color-void) 42%, transparent) 70%
+    );
+    border: 1px solid color-mix(in oklab, var(--color-edge) 42%, transparent);
+    border-radius: 22px;
+    /* Rang emas, blur o'qishni ta'minlaydi — xarita ostidan ko'rinib turadi */
+    backdrop-filter: blur(30px) saturate(175%);
+    box-shadow:
+      0 1px 0 0 color-mix(in oklab, #fff 9%, transparent) inset,
+      0 30px 80px -30px rgb(0 0 0 / 0.9);
+  }
+
+  .glass-chip {
+    position: relative;
+    background: color-mix(in oklab, var(--color-void) 52%, transparent);
+    border: 1px solid color-mix(in oklab, var(--color-edge) 45%, transparent);
+    backdrop-filter: blur(20px) saturate(150%);
+    box-shadow: 0 10px 30px -14px rgb(0 0 0 / 0.8);
+  }
+
+  /* Panel yuqorisidagi yorug' chiziq */
+  .glass-top-glow::before {
+    content: "";
+    position: absolute;
+    inset-inline: 12%;
+    top: -1px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-cyan), transparent);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+
+  /* Suzuvchi qatlam: sichqoncha faqat panellarning o'ziga tegsin, ular
+     orasidagi bo'shliqdan xaritaga o'tib ketsin. */
+  .overlay-pass {
+    pointer-events: none;
+  }
+  .overlay-pass > * {
+    pointer-events: auto;
+  }
+}
+
+/* ── Aksent matn ──────────────────────────────────────────────────── */
+
+.text-gradient {
+  background: linear-gradient(100deg, var(--color-cyan), var(--color-iris) 45%, var(--color-magenta));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-ink-3) 0%,
+    var(--color-ink) 45%,
+    var(--color-cyan) 55%,
+    var(--color-ink-3) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: var(--animate-shimmer);
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────── */
+
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-edge) transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-edge);
+  border-radius: 999px;
+}
+.thin-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--color-iris);
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ── Xarita ───────────────────────────────────────────────────────── */
+
+.map-stage {
+  cursor: grab;
+  touch-action: none;
+}
+.map-stage[data-dragging="true"] {
+  cursor: grabbing;
+}
+
+.district-path {
+  transition:
+    fill 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+/* Chegara qatlamlari — fill'dan alohida chiziladi, shuning uchun ular
+   qo'shni tumanlar tomonidan yarim yopilib qolmaydi. */
+.district-edge {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+  transition:
+    opacity 300ms ease,
+    stroke-width 240ms ease;
+}
+
+/* Tanlangan tuman atrofidagi aylanuvchi punktir kontur */
+.district-marching {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+  stroke-dasharray: 7 7;
+  animation: marching 1.1s linear infinite;
+}
+
+@keyframes marching {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+
+/* Brauzerning to'rtburchak fokus ramkasi xarita shakliga mos kelmaydi —
+   uni o'chirib, fokusni konturning o'zi bilan ko'rsatamiz. */
+.district-path:focus {
+  outline: none;
+}
+
+.district-path:focus-visible {
+  outline: none;
+  stroke: var(--color-cyan);
+  stroke-width: 2.5;
+}
+
+/* ── Fokus va forma ───────────────────────────────────────────────── */
+
+:where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--color-cyan) 80%, transparent);
+  outline-offset: 2px;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+select option {
+  background: var(--color-deep);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-iris) 45%, transparent);
+  color: var(--color-ink);
+}
+
+/* Harakatni kamaytirish rejimi */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

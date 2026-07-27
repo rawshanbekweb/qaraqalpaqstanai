@@ -1,0 +1,28 @@
+# Render blueprint — FastAPI backend.
+#
+# Ma'lumotlar bazasi Render'da emas, Neon'da turadi (bepul darajada
+# cheklovsizroq), shuning uchun bu yerda faqat veb-xizmat e'lon qilingan.
+# DATABASE_URL ni Neon'dan nusxalab Render panelidan kiritasiz.
+
+services:
+  - type: web
+    name: qaraqalpaqstan-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.8"
+      # Quyidagilar Render panelida qo'lda kiritiladi (sync: false —
+      # ya'ni blueprint ularni qayta yozmaydi va git'ga tushmaydi):
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false

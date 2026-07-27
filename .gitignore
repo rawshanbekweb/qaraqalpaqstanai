@@ -1,0 +1,40 @@
+# ── Sirlar ──────────────────────────────────────────────────────────
+.env
+.env.local
+.env.production
+.env*.local
+!.env.example
+!.env.local.example
+
+# ── Node / Next.js ──────────────────────────────────────────────────
+node_modules/
+.next/
+out/
+build/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+
+# ── Python ──────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# ── Ma'lumotlar bazasi ──────────────────────────────────────────────
+*.db
+*.sqlite3
+
+# ── Ish jarayonidagi vaqtinchalik fayllar ───────────────────────────
+.paths.json
+.mapcheck.png
+.mapzoom.png
+
+# ── OS / IDE ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.log
