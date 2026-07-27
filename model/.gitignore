@@ -1,0 +1,46 @@
+# Claude Code ichki fayllar
+.claude/
+
+# Test fayllar
+test_full.py
+
+# Muhit sozlamalari (API keys!)
+.env
+.env.local
+.env.production
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Model fayllar (juda katta — Git LFS yoki alohida saqlash)
+models/*.pkl
+models/*.keras
+models/*.zip
+models/qwen25_karakalpak_qlora/
+
+# Database
+*.db
+*.sqlite3
+
+# Audio fayllar
+results/audio/*.mp3
+
+# Jupyter
+*.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log

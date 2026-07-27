@@ -1,0 +1,84 @@
+{
+  "saqlangan_waqt": "2026-07-27 18:48:06",
+  "versiya": "1.0",
+  "modellar": {
+    "XGBoost_WeakSpot": {
+      "fayl": "models/weak_spot_model.pkl",
+      "nısaw": "Rayon qauip dárejesi (Jaqsı/Ortasha/Qauipli)",
+      "anıqlıq": "98.21% (CV F1-macro)",
+      "oqıtiw_dáwiri": "2017-2024 (18 rayon)"
+    },
+    "Prophet_JAO": {
+      "fayl": "models/prophet_JAO.pkl",
+      "nısaw": "JAO boljanıwı",
+      "anıqlıq": "90.10% (holdout 2022-2025)",
+      "oqıtiw_dáwiri": "2010-2021"
+    },
+    "Prophet_Sanaat": {
+      "fayl": "models/prophet_Sanaat.pkl",
+      "nısaw": "Sanaat boljanıwı",
+      "anıqlıq": "89.02%",
+      "oqıtiw_dáwiri": "2010-2021"
+    },
+    "Prophet_AwılXojalıǵı": {
+      "fayl": "models/prophet_AwılXojalıǵı.pkl",
+      "nısaw": "Awıl xojalıǵı boljanıwı",
+      "anıqlıq": "95.21%",
+      "oqıtiw_dáwiri": "2010-2021"
+    },
+    "Prophet_Import": {
+      "fayl": "models/prophet_Import.pkl",
+      "nısaw": "Import boljanıwı",
+      "anıqlıq": "81.83%",
+      "oqıtiw_dáwiri": "2010-2021"
+    },
+    "LSTM_Eksport": {
+      "fayl": "models/lstm_Eksport.pkl",
+      "keras": "models/lstm_Eksport.keras",
+      "nısaw": "Eksport LSTM boljanıwı",
+      "anıqlıq": "90.12% (holdout 2022-2025)",
+      "arxitektura": "LSTM(64)->LSTM(32)->Dense(1)",
+      "oqıtiw_dáwiri": "2010-2021"
+    },
+    "MV_LSTM_Investitsiya": {
+      "fayl": "models/lstm_mv_Investitsiya.pkl",
+      "keras": "models/lstm_mv_Investitsiya.keras",
+      "nısaw": "Investitsiya Multivariate LSTM",
+      "anıqlıq": "79.94% (holdout 2022-2025)",
+      "arxitektura": "Input(4,4)->LSTM(128)->LSTM(64)->Dense(1)",
+      "features": [
+        "JAO",
+        "Sanaat",
+        "Qurılıs",
+        "Investitsiya"
+      ],
+      "oqıtiw_dáwiri": "2010-2021"
+    },
+    "MV_LSTM_Xızmetler": {
+      "fayl": "models/lstm_mv_Xizmetler.pkl",
+      "keras": "models/lstm_mv_Xizmetler.keras",
+      "nısaw": "Xızmetler MV-LSTM + Prophet Ensemble",
+      "anıqlıq": "95.54% (ensemble holdout)",
+      "arxitektura": "Input(4,4)->LSTM(128)->LSTM(64)->Dense(1)",
+      "features": [
+        "JAO",
+        "Sanaat",
+        "Xızmetler",
+        "Transport"
+      ],
+      "oqıtiw_dáwiri": "2010-2021"
+    },
+    "Prophet_Xızmetler_Ensemble": {
+      "nısaw": "Xızmetler Prophet komponenti (ensemble ichinde)",
+      "salmaqlıq": 0.6,
+      "anıqlıq": "91.38%"
+    }
+  },
+  "ulıwma_anıqlıq": "89.99%",
+  "ensemble": {
+    "Xızmetler": {
+      "Prophet": 0.6,
+      "MV-LSTM": 0.4
+    }
+  }
+}
