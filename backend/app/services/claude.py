@@ -18,22 +18,14 @@ from sqlalchemy.orm import Session
 
 from app.config import get_settings
 from app.schemas import AiInsight, ChartSpec, ChatResponse, Recommendation
-from app.services import analytics as an
-from app.services import charts as ch
+from app.services import stat_charts as ch
+from app.services import stats as st
 
 logger = logging.getLogger(__name__)
 
 MODEL = get_settings().claude_model
 
-CHART_KINDS = [
-    "dynamics",    # tanlangan soha bo'yicha oylik reja/amalda
-    "quarters",    # choraklar kesimi
-    "deviation",   # tumanlarning rejadan chetlanishi
-    "comparison",  # tumanlar reytingi (reja vs amalda)
-    "structure",   # sohalar tarkibi
-    "growth",      # yillik o'sish sur'ati
-    "profile",     # tuman ↔ respublika o'rtachasi
-]
+CHART_KINDS = ch.CHART_KINDS
 
 SEVERITIES = ["completed", "in_progress", "at_risk", "critical"]
 
@@ -48,7 +40,7 @@ ANSWER_SCHEMA = {
     "properties": {
         "answer": {
             "type": "string",
-            "description": "O'zbek tilida, markdown formatidagi tahliliy javob.",
+            "description": "Qoraqalpoq tilida, markdown formatidagi tahliliy javob.",
         },
         "insight": {
             "type": "object",
@@ -86,11 +78,11 @@ ANSWER_SCHEMA = {
                     "kind": {"type": "string", "enum": CHART_KINDS},
                     "module_id": {
                         "type": "string",
-                        "description": "Soha kodi; tegishli bo'lmasa bo'sh satr.",
+                        "description": "Tayanch soha kodi; tegishli bo'lmasa bo'sh satr.",
                     },
                     "district_id": {
                         "type": "string",
-                        "description": "Tuman kodi; respublika kesimi uchun bo'sh satr.",
+                        "description": "Hudud kodi; respublika kesimi uchun bo'sh satr.",
                     },
                 },
             },
@@ -106,50 +98,61 @@ ANSWER_SCHEMA = {
 SYSTEM_PROMPT = """Sen Qoraqalpog'iston Respublikasi iqtisodiy monitoring platformasining tahlilchi yordamchisisan.
 
 ## Asosiy qoida
-Sen FAQAT foydalanuvchi xabarida berilgan ma'lumotlar bazasi kontekstiga tayanasan. Kontekstda yo'q raqamni hech qachon o'ylab topma, taxmin qilma va tashqi bilimdan keltirma. Agar savolga javob berish uchun kontekstda ma'lumot yetmasa — buni ochiq ayt va adminga qanday ma'lumot kiritish kerakligini tushuntir.
+Sen FAQAT foydalanuvchi xabarida berilgan ma'lumotlar bazasi kontekstiga tayanasan. Kontekstda yo'q raqamni hech qachon o'ylab topma, taxmin qilma va tashqi bilimdan keltirma. Agar savolga javob berish uchun kontekstda ma'lumot yetmasa — buni ochiq ayt.
 
 ## Javob tili va uslubi
-- Javob har doim o'zbek tilida (lotin yozuvida).
+- Javob har doim QORAQALPOQ tilida (lotin yozuvida: á, ǵ, ı, ń, ó, ú harflari bilan).
 - Markdown: muhim raqamlar **qalin**, ro'yxatlar qisqa.
 - Natijani boshida ayt, tafsilotni keyin. Bir savolga bir javob — ortiqcha muqaddima yozma.
-- Raqamlarni kontekstdagi ko'rinishda keltir, birligini ko'rsat.
+- Raqamlarni kontekstdagi ko'rinishda keltir, o'lchov birligini ko'rsat.
 
-## Ko'rsatkichlarni o'qish
-- `reja` — rejalashtirilgan ko'rsatkich (KPI), `amalda` — haqiqiy natija.
-- `bajarilish` = amalda / reja. 100% dan past bo'lsa ortda qolish.
-- Inflyatsiya sohasida teskari: amaldagi qiymat rejadan YUQORI bo'lsa — bu yomon.
-- Holatlar: completed (bajarilgan), in_progress (jarayonda), at_risk (xavf ostida), critical (kritik).
-- Kontekstdagi `izoh` — admin kiritgan muammo tavsifi. Sabab so'ralganda avval shunga tayan.
+## Ma'lumotning tabiati — DIQQAT
+Bu manba rasmiy statistika, unda REJA YO'Q. Shuning uchun "reja bajarilishi", "KPI", "chetlanish" haqida gapirma — bunday ma'lumot yo'q. O'lchanadigan narsalar:
+- `kólemi` — davr ichidagi hajm (mlrd so'm, ming tonna va h.k.);
+- `ósiw` — o'tgan yilning AYNAN SHU davriga nisbatan o'zgarish, foizda;
+- `úlesi` — respublika yig'indisidagi ulush, foizda;
+- `orın` — hajm bo'yicha 17 hudud orasidagi o'rin.
+
+Davr ikki xil bo'ladi: to'liq yil va yil boshidan yig'indi ("yanvar–iyun"). Yarim yilni to'liq yil bilan solishtirish MUMKIN EMAS — kontekstda o'sish `—` deb berilgan bo'lsa, sababi shu; uni o'zing hisoblab chiqarma.
+
+Hududlar qamrovi yillar bo'yicha o'zgargan (2010-yilda 15 ta, 2019-yildan 17 ta). Respublika bo'yicha o'sish faqat umumiy hududlar kesimida hisoblangan.
 
 ## Grafiklar
 `charts` maydonida javobingni qo'llab-quvvatlaydigan 1–3 ta grafik so'ra. Grafik raqamlarini O'ZING yozmaysan — faqat turini va kesimini ko'rsatasan, raqamlarni tizim bazadan quradi.
-- dynamics — bir soha bo'yicha oylik reja/amalda dinamikasi
-- quarters — choraklar kesimi
-- deviation — tumanlarning rejadan chetlanishi (muammoli sohalar uchun eng mos)
-- comparison — tumanlar reytingi
-- structure — sohalar tarkibi
-- growth — yillik o'sish sur'ati
-- profile — bitta tumanni respublika o'rtachasi bilan solishtirish
+- dynamics — bir soha bo'yicha yillar kesimidagi dinamika (2010–2026)
+- ranking — hududlarning hajm bo'yicha reytingi
+- growth — hududlarning o'sish sur'ati (muammoli kesimlar uchun eng mos)
+- share — bitta hududning tarmoq tarkibi (district_id majburiy)
+- structure — sohalar bo'yicha o'sish
+- compare — bitta hududni respublika o'rtachasi bilan solishtirish (district_id majburiy)
 
 ## Tavsiyalar
-`recommendations` maydonini FAQAT foydalanuvchi tavsiya, yechim yoki harakat rejasi so'raganda to'ldir. To'ldirganda aynan 3 ta bosqich bo'lsin: short (1–3 oy), mid (6 oy), long (1 yil). Har biri kontekstdagi aniq muammoga bog'langan, bajarilishi mumkin bo'lgan qadamlardan iborat bo'lsin.
+`recommendations` maydonini FAQAT foydalanuvchi tavsiya, yechim yoki harakat rejasi so'raganda to'ldir. To'ldirganda aynan 3 ta bosqich bo'lsin: short (1–3 oy), mid (6 oy), long (1 yil). Har biri kontekstdagi aniq raqamga bog'langan, bajarilishi mumkin bo'lgan qadamlardan iborat bo'lsin.
 
-`highlight_districts` — javobda tilga olingan, xaritada yoritilishi kerak bo'lgan tuman kodlari."""
+`severity` — o'sish sur'atidan kelib chiq: pasayish −5% dan katta bo'lsa critical, pasayish bo'lsa at_risk, 0–5% oralig'ida in_progress, 5% dan yuqori o'sishda completed.
+
+`highlight_districts` — javobda tilga olingan, xaritada yoritilishi kerak bo'lgan hudud kodlari."""
 
 
 def _module_catalog(db: Session) -> str:
     lines = []
-    for mid, m in an.module_map(db).items():
-        direction = "pasayishi yaxshi" if m.lower_is_better else "o'sishi yaxshi"
-        lines.append(f"- `{mid}` — {m.name} ({m.unit}, {direction})")
+    for module, ind in st.primary_indicators(db).items():
+        meta = st.MODULE_META.get(module)
+        if meta is None:
+            continue
+        lines.append(f"- `{module}` — {meta[0]} ({ind.unit})")
     return "\n".join(lines)
 
 
 def _district_catalog(db: Session) -> str:
     return "\n".join(
         f"- `{did}` — {d.name} (markaz: {d.center}, aholi {d.population:g} ming)"
-        for did, d in an.district_map(db).items()
+        for did, d in st.district_names(db).items()
     )
+
+
+def _num(value: float | None, digits: int = 1) -> str:
+    return "—" if value is None else f"{value:.{digits}f}"
 
 
 def retrieve_context(
@@ -157,71 +160,79 @@ def retrieve_context(
     *,
     year: int,
     district_id: str | None,
-    module_id: str | None,
+    module: str | None,
 ) -> tuple[str, int]:
-    """Bazadan ixcham, o'qishga qulay kontekst yig'adi.
-
-    17 tuman × 8 soha × 12 oy = juda ko'p. Shuning uchun tuman×soha darajasiga
-    agregatlanadi, ustiga izohlar va ortda qolgan kesimlar qo'shiladi.
     """
-    mods = an.module_map(db)
-    dists = an.district_map(db)
-    rows = an.fetch(db, year=year)
+    Bazadan ixcham, o'qishga qulay kontekst yig'adi.
 
-    grouped: dict[tuple[str, str], list] = {}
-    for r in rows:
-        grouped.setdefault((r.district_id, r.module_id), []).append(r)
-
+    Bazada 1000 dan ortiq ko'rsatkich bor — hammasini kontekstga solib
+    bo'lmaydi. Shuning uchun tayanch sohalar (7 ta) × hududlar (17 ta)
+    kesimi beriladi, ustiga tanlangan sohaning yillar qatori qo'shiladi.
+    """
+    primary = st.primary_indicators(db)
     lines: list[str] = []
-    lines.append(f"## {year}-yil bo'yicha jamlangan ko'rsatkichlar")
-    lines.append("Format: tuman | soha | reja | amalda | bajarilish % | holat")
-    lines.append("")
+    rows_used = 0
 
-    for (did, mid), group in sorted(grouped.items()):
-        m = mods[mid]
-        agg = an.rollup(group, m.lower_is_better)
-        lines.append(
-            f"{dists[did].name} | {m.name} | {agg.plan:g} | {agg.fact:g} "
-            f"{m.unit} | {agg.performance * 100:.1f}% | {agg.status}"
-        )
+    lines.append(f"## {year}-yil · hududlar kesimi")
+    lines.append("Format: hudud | kólemi | ósiw % | úlesi % | orın")
 
-    notes = [r for r in rows if r.note]
-    if notes:
+    for mod, ind in primary.items():
+        meta = st.MODULE_META.get(mod)
+        if meta is None or not ind.has_districts:
+            continue
+        layer = st.map_layer(db, ind, year)
+        rows = [d for d in layer["districts"] if d["value"] is not None]
+        if not rows:
+            continue
+        rows_used += len(rows)
+
+        period = layer["period_caption"] if layer["partial"] else "to'liq yil"
         lines.append("")
-        lines.append("## Admin kiritgan izohlar (muammo sabablari)")
-        seen: set[tuple[str, str, str]] = set()
-        for r in notes:
-            key = (r.district_id, r.module_id, r.note or "")
-            if key in seen:
-                continue
-            seen.add(key)
-            lines.append(f"- {dists[r.district_id].name} · {mods[r.module_id].name}: {r.note}")
-
-    spots = an.weak_spots(db, year, limit=12)
-    if spots:
-        lines.append("")
-        lines.append("## Rejadan eng ko'p ortda qolgan kesimlar")
-        for s in spots:
+        lines.append(f"### {meta[0]} ({ind.unit}, davr: {period})")
+        if not layer["comparable"]:
             lines.append(
-                f"- {s['district_name']} · {s['module_name']}: "
-                f"{s['performance'] * 100:.1f}% ({s['status']})"
+                f"_{year - 1}-yilda shu davr yo'q — o'sish hisoblanmagan._"
+            )
+        for r in rows:
+            lines.append(
+                f"{r['name']} | {_num(r['value'])} | {_num(r['yoy'])} | "
+                f"{_num(r['share'])} | {r['rank']}"
             )
 
+    overview = st.overview(db, year)
     lines.append("")
-    lines.append("## Yillik o'sish sur'ati (o'tgan yilga nisbatan, %)")
-    for mid, m in mods.items():
-        lines.append(f"- {m.name}: {an.yoy_growth(db, mid):+.1f}%")
+    lines.append("## Respublika bo'yicha yakun")
+    for card in overview["modules"]:
+        lines.append(
+            f"- {card['full_name']}: {_num(card['value'])} {card['unit']} "
+            f"({_num(card['yoy'])}%)"
+        )
 
-    if module_id and module_id in mods:
-        series = an.monthly_series(db, module_id, district_id, year)
-        if series:
-            where = dists[district_id].name if district_id else "Respublika"
+    # Tanlangan soha bo'yicha uzun qator — trendni ko'rish uchun
+    target = primary.get(module or "")
+    if target is not None:
+        where = st.district_names(db)[district_id].name if district_id else "Respublika"
+        points = st.series(db, target, district_id=district_id, year_to=year)
+        if points:
             lines.append("")
-            lines.append(f"## {mods[module_id].name} — oylik dinamika ({where})")
-            for p in series:
-                lines.append(f"- {p['label']}: reja {p['plan']:g}, amalda {p['fact']:g}")
+            lines.append(f"## {target.name_kaa} — yillar qatori ({where})")
+            for p in points:
+                mark = f" [{p['caption']}]" if p["partial"] else ""
+                lines.append(f"- {p['year']}{mark}: {_num(p['value'])} ({_num(p['yoy'])}%)")
 
-    return "\n".join(lines), len(rows)
+    if district_id:
+        profile = st.district_profile(db, district_id, year)
+        if profile:
+            lines.append("")
+            lines.append(f"## {profile['district']['name']} — tarmoq tarkibi")
+            for m in profile["modules"]:
+                lines.append(
+                    f"- {m['full_name']}: {_num(m['value'])} {m['unit']}, "
+                    f"úlesi {_num(m['share'])}%, orın {m['rank']}/{m['of']}, "
+                    f"ósiw {_num(m['yoy'])}%"
+                )
+
+    return "\n".join(lines), rows_used
 
 
 def _build_charts(db: Session, requests: list[dict], year: int) -> list[ChartSpec]:
@@ -230,7 +241,7 @@ def _build_charts(db: Session, requests: list[dict], year: int) -> list[ChartSpe
         spec = ch.build(
             db,
             req.get("kind", ""),
-            module_id=(req.get("module_id") or None),
+            module=(req.get("module_id") or None),
             district_id=(req.get("district_id") or None),
             year=year,
         )
@@ -258,25 +269,26 @@ def ask(
         logger.warning("anthropic paketi o'rnatilmagan")
         return None
 
-    year = year or an.latest_year(db)
+    year = year or st.latest_year(db)
     if not year:
         return None
 
     context, sources = retrieve_context(
-        db, year=year, district_id=district_id, module_id=module_id
+        db, year=year, district_id=district_id, module=module_id
     )
 
+    districts = st.district_names(db)
     focus = []
-    if district_id:
-        focus.append(f"Foydalanuvchi hozir **{an.district_map(db)[district_id].name}** tumanini tanlagan.")
-    if module_id:
-        focus.append(f"Faol soha filtri: **{an.module_map(db)[module_id].name}**.")
+    if district_id and district_id in districts:
+        focus.append(f"Foydalanuvchi hozir **{districts[district_id].name}** hududini tanlagan.")
+    if module_id in st.MODULE_META:
+        focus.append(f"Faol soha filtri: **{st.MODULE_META[module_id][0]}**.")
 
     user_content = "\n\n".join(
         [
             "# Ma'lumotlar bazasi konteksti",
             f"### Sohalar kodlari\n{_module_catalog(db)}",
-            f"### Tumanlar kodlari\n{_district_catalog(db)}",
+            f"### Hududlar kodlari\n{_district_catalog(db)}",
             context,
             *( ["# Joriy holat\n" + " ".join(focus)] if focus else [] ),
             f"# Foydalanuvchi savoli\n{prompt}",

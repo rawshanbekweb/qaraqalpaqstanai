@@ -102,6 +102,16 @@ def periods_for(db: Session, indicator_id: int) -> dict[int, Period]:
 # ── Ko'rsatkichlar ───────────────────────────────────────────────────
 
 
+def short_unit(unit: str) -> str:
+    """
+    Matnda ishlatish uchun o'lchov birligi.
+
+    Manbada u uzun keladi: "ámeldegi baxalarda; mlrd. som". Jumla ichida
+    faqat oxirgi qismi kerak — narx bazasi izohi emas, o'lchovning o'zi.
+    """
+    return unit.split(";")[-1].strip(" -–—").strip()
+
+
 def is_volume(indicator: StatIndicator) -> bool:
     """Hajm ko'rsatkichimi yoki o'sish sur'atimi (foiz)."""
     text = f"{indicator.name_kaa} {indicator.unit}".lower()
@@ -142,7 +152,12 @@ def primary_indicators(db: Session) -> dict[str, StatIndicator]:
         )
         if key > cur_key:
             best[ind.module or ""] = ind
-    return best
+
+    # Tartib MODULE_META bo'yicha: birinchi element "sukut bo'yicha soha"
+    # sifatida ishlatiladi (soha aniqlanmagan so'rovlarda), shuning uchun
+    # u tasodifiy bo'lmasligi kerak.
+    order = {m: meta[3] for m, meta in MODULE_META.items()}
+    return dict(sorted(best.items(), key=lambda kv: order.get(kv[0], 99)))
 
 
 def resolve_indicator(

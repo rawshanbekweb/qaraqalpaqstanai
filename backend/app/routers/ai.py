@@ -4,8 +4,8 @@ from sqlalchemy.orm import Session
 from app.config import get_settings
 from app.database import get_db
 from app.schemas import ChatRequest, ChatResponse
-from app.services import analytics as an
 from app.services import claude, local_engine
+from app.services import stats as st
 
 router = APIRouter(prefix="/api/ai", tags=["ai"])
 
@@ -35,7 +35,7 @@ def chat(payload: ChatRequest, db: Session = Depends(get_db)) -> ChatResponse:
 @router.get("/insight", response_model=ChatResponse)
 def top_insight(year: int | None = None, db: Session = Depends(get_db)) -> ChatResponse:
     """Dashboard tepasidagi doimiy AI xulosasi (Claude'siz, tez)."""
-    return local_engine.answer(db, "Eng muammoli sohalarni ko'rsat", year=year)
+    return local_engine.answer(db, "Máseleli rayonlardı kórset", year=year)
 
 
 @router.get("/status")
@@ -44,8 +44,5 @@ def status(db: Session = Depends(get_db)) -> dict:
     return {
         "claude_enabled": bool(settings.anthropic_api_key),
         "model": settings.claude_model,
-        "indicator_years": sorted(
-            {i.year for i in an.fetch(db)},
-            reverse=True,
-        ),
+        "years": sorted(st.available_years(db), reverse=True),
     }

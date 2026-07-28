@@ -1,7 +1,10 @@
 """Claude API kalitisiz ishlaydigan zaxira analitik dvigatel.
 
-Xuddi Claude yo'lidagi kabi javob bazadagi yozuvlardan quriladi — farqi
+Xuddi Claude yo'lidagi kabi javob bazadagi o'lchovlardan quriladi — farqi
 shundaki, matn oldindan belgilangan shablonlar bo'yicha yig'iladi.
+
+Manba statistikada reja yo'q, shuning uchun "bajarilish %" haqida gap
+bora olmaydi. O'lchov birligi: hajm, o'sish, ulush va o'rin.
 """
 
 from __future__ import annotations
@@ -11,90 +14,95 @@ import re
 from sqlalchemy.orm import Session
 
 from app.schemas import AiInsight, ChatResponse, Recommendation
-from app.services import analytics as an
-from app.services import charts as ch
+from app.services import stat_charts as ch
+from app.services import stats as st
+from app.text import normalize
 
-MODULE_KEYWORDS = {
-    "inflation": ["inflyatsiya", "inflatsiya", "narx", "qimmatchilik"],
-    "industry": ["sanoat", "ishlab chiqarish", "zavod", "korxona"],
-    "agriculture": ["qishloq", "dehqon", "hosil", "ekin", "sug'orish", "paxta", "agro"],
-    "investment": ["investitsiya", "sarmoya", "investor"],
-    "export": ["eksport", "tashqi savdo", "xorij"],
-    "employment": ["bandlik", "ish o'rni", "ishsizlik", "mehnat"],
-    "construction": ["qurilish", "uy-joy", "obyekt"],
-    "services": ["xizmat", "turizm", "savdo"],
+MODULE_KEYWORDS: dict[str, list[str]] = {
+    "sanaat": ["sanaat", "sanoat", "zavod", "karxana", "korxona", "islep shigariw"],
+    "awil_xojaligi": [
+        "awil xojaligi", "awil", "qishloq", "diyxan", "dehqon", "egin", "paxta",
+        "hasil", "hosil", "agro", "suwgariw", "sugorish",
+    ],
+    "investitsiya": ["investitsiya", "sarmaya", "sarmoya", "investor", "kapital"],
+    "qurilis": ["qurilis", "qurilish", "jay", "uy-joy", "obekt", "obyekt"],
+    "xizmetler": ["xizmet", "xizmatlar", "turizm", "servis"],
+    "transport": ["transport", "juk", "yuk", "tasiw", "avtomobil", "jol"],
+    "sawda": ["sawda", "savdo", "satiw", "tovar", "baha", "narx", "bazar"],
 }
 
 INTENT_KEYWORDS: list[tuple[str, list[str]]] = [
-    ("recommend", ["tavsiya", "taklif", "nima qil", "yechim", "chora", "harakat rejasi"]),
-    ("weak", ["muammo", "zaif", "kritik", "ortda", "xavf", "past", "bajarilmagan"]),
-    ("compare", ["solishtir", "taqqosla", "reyting", "eng yaxshi", "qaysi tuman"]),
-    ("annual", ["yillik", "bir yil", "hisobot", "yakun", "umumiy tahlil"]),
+    ("recommend", ["usinis", "tavsiya", "taklif", "ne islew", "nima qil", "sheshim", "ilaj", "chora"]),
+    ("weak", ["mashqala", "muammo", "maseleli", "tomen", "past", "artta", "keyin qalgan", "hawip", "kritik", "zaif"]),
+    ("compare", ["salistir", "solishtir", "taqqosla", "reyting", "en jaqsi", "eng yaxshi", "qaysi rayon", "qaysi tuman"]),
+    ("annual", ["jilliq", "yillik", "dinamika", "juwmaq", "hisobot", "tariyx", "osiw pati"]),
 ]
 
+#: Sohaga bog'langan harakatlar rejasi. Ma'lumot bermaydi — nima
+#: qilishni taklif qiladi; raqamlar har doim bazadan qo'shiladi.
 PLAYBOOK: dict[str, list[Recommendation]] = {
-    "agriculture": [
+    "awil_xojaligi": [
         Recommendation(
             horizon="short",
-            title="Suvni tejash rejimiga o'tish (1–3 oy)",
+            title="Suwdı únemlew rejimine ótiw (1–3 ay)",
             actions=[
-                "Ko'p suv talab qiladigan maydonlarni inventarizatsiya qilish va limitni qayta taqsimlash",
-                "Tomchilatib sug'orish uskunalarini subsidiyalangan lizingga chiqarish",
-                "Kanallardagi filtratsiya yo'qotishlarini bartaraf etish",
+                "Kóp suw talap etetuǵın maydanlardı inventarizaciyalaw hám limitti qayta bólistiriw",
+                "Tamshılatıp suwǵarıw úskenelerin subsidiyalanǵan lizingge shıǵarıw",
+                "Kanallardaǵı filtraciya joǵaltıwların saplastırıw",
             ],
-            impact="Sug'orish suvi sarfini 12–18% ga qisqartirish",
+            impact="Suwǵarıw suwı sarpın 12–18% ke qısqartırıw",
         ),
         Recommendation(
             horizon="mid",
-            title="Ekin tuzilmasini qayta ko'rib chiqish (6 oy)",
+            title="Egin dúzilisin qayta kórip shıǵıw (6 ay)",
             actions=[
-                "Suvtalab ekinlarni sho'rga chidamli navlarga almashtirish",
-                "Kollektor-drenaj tarmog'ini tozalash grafigini tuzish",
-                "Fermerlar bilan kafolatlangan xarid shartnomalari",
+                "Suw talap etetuǵın eginlerdi sorǵa shıdamlı sortlarǵa almastırıw",
+                "Kollektor-drenaj tarmaǵın tazalaw grafigin dúziw",
+                "Fermerler menen kepillengen satıp alıw shártnamaları",
             ],
-            impact="1 gektardan olinadigan daromadni 15–20% ga oshirish",
+            impact="Bir gektardan alınatuǵın dáramattı 15–20% ke asırıw",
         ),
         Recommendation(
             horizon="long",
-            title="Qayta ishlash zanjirini qurish (1 yil)",
+            title="Qayta islew shınjırın qurıw (1 jıl)",
             actions=[
-                "Quritish va konservalash sexlarini ishga tushirish",
-                "Sovutgichli omborxonalar tarmog'ini kengaytirish",
-                "Organik sertifikatlash orqali eksport bozoriga chiqish",
+                "Qurıtıw hám konservalaw sexlerin iske túsiriw",
+                "Muzlatqısh ambarlar tarmaǵın keńeytiw",
+                "Organikalıq sertifikatlaw arqalı eksport bazarına shıǵıw",
             ],
-            impact="Qo'shilgan qiymatni va eksport narxini oshirish",
+            impact="Qosılǵan qunnı hám eksport bahasın asırıw",
         ),
     ],
-    "export": [
+    "sanaat": [
         Recommendation(
             horizon="short",
-            title="Logistika xarajatlarini pasaytirish (1–3 oy)",
+            title="Quwatlardı tolıq júklew (1–3 ay)",
             actions=[
-                "Kichik eksportchilarni birlashtirib konsolidatsiyalangan jo'natish",
-                "Bojxona rasmiylashtiruvi muddatlarini qisqartirish",
-                "Sertifikatlashda «yagona darcha» xizmatini kengaytirish",
+                "Toqtap turǵan liniyalardı hám sebeplerin anıqlaw",
+                "Shiyki zat jetkerip beriwdiń úzilislerin saplastırıw",
+                "Elektr támiyinatı grafigin kárxanalar menen kelisiw",
             ],
-            impact="Bir tonna yukning logistika tannarxini 8–12% ga kamaytirish",
+            impact="Ámeldegi quwattan paydalanıwdı arttırıw",
         ),
         Recommendation(
             horizon="mid",
-            title="Bozorlarni diversifikatsiya qilish (6 oy)",
+            title="Kishi sanaat zonaların keńeytiw (6 ay)",
             actions=[
-                "Yangi yo'nalishlarda savdo uylarini ochish",
-                "Eksportchilarga imtiyozli aylanma mablag' krediti",
-                "Xalqaro ko'rgazmalarda ishtirok",
+                "Boc turǵan maydanlardı investorlarǵa usınıw",
+                "Injenerlik infradúzilmesin jetkeriw",
+                "Kadrlardı qayta tayarlaw kursların shólkemlestiriw",
             ],
-            impact="Bitta bozorga bog'liqlikni 30% ga kamaytirish",
+            impact="Jańa jumıs orınları hám ónim kólemi",
         ),
         Recommendation(
             horizon="long",
-            title="Transport-logistika markazi (1 yil)",
+            title="Modernizaciya hám tereńlestirip qayta islew (1 jıl)",
             actions=[
-                "Zamonaviy logistika markazini qurish",
-                "Sovutgichli konteynerlar parkini shakllantirish",
-                "Ishlab chiqarish quvvatlarini kengaytirish",
+                "Eskirgen úskenelerdi almastırıw baǵdarlaması",
+                "Jergilikli shiyki zattı tereńlestirip qayta islew",
+                "Eksportqa baǵdarlanǵan ónim túrlerin ózlestiriw",
             ],
-            impact="Yillik eksport hajmini 20–25% ga oshirish",
+            impact="Qosılǵan qunnıń úlesin asırıw",
         ),
     ],
 }
@@ -102,67 +110,73 @@ PLAYBOOK: dict[str, list[Recommendation]] = {
 DEFAULT_PLAYBOOK = [
     Recommendation(
         horizon="short",
-        title="Joriy holatni barqarorlashtirish (1–3 oy)",
+        title="Házirgi jaǵdaydı turaqlastırıw (1–3 ay)",
         actions=[
-            "Ortda qolish sabablarini kesim bo'yicha aniqlash va mas'ul belgilash",
-            "Haftalik monitoring jadvalini yo'lga qo'yish",
-            "Zaxira resurslarni eng muammoli yo'nalishga yo'naltirish",
+            "Tómenlew sebeplerin kesim boyınsha anıqlaw hám juwapkerni belgilew",
+            "Háptelik monitoring grafigin jolǵa qoyıw",
+            "Rezerv resurslardı eń máseleli baǵdarǵa jóneltiw",
         ],
-        impact="Ko'rsatkichning keyingi pasayishini to'xtatish",
+        impact="Kórsetkishtiń keyingi tómenlewin toqtatıw",
     ),
     Recommendation(
         horizon="mid",
-        title="Tizimli chora-tadbirlar (6 oy)",
+        title="Sistemalı ilajlar (6 ay)",
         actions=[
-            "Sohaga yo'naltirilgan qo'llab-quvvatlash dasturini ishga tushirish",
-            "Kadrlar va texnik ta'minotni kuchaytirish",
-            "Xususiy sektor bilan hamkorlik loyihalarini boshlash",
+            "Tarawǵa baǵdarlanǵan qollap-quwatlaw baǵdarlamasın iske túsiriw",
+            "Kadrlar hám texnikalıq támiynattı kúsheytiw",
+            "Jeke sektor menen sheriklik joybarların baslaw",
         ],
-        impact="Reja bajarilishini 90% dan yuqori darajaga chiqarish",
+        impact="Ósiw pátin respublika ortashasına shıǵarıw",
     ),
     Recommendation(
         horizon="long",
-        title="Barqaror o'sish asosini yaratish (1 yil)",
+        title="Turaqlı ósiw tiykarın jaratıw (1 jıl)",
         actions=[
-            "Infratuzilma va modernizatsiya loyihalarini yakunlash",
-            "Investitsiya jalb qilish bo'yicha aniq maqsadli ish",
-            "Natijalarni yillik hisobotda mustahkamlash",
+            "Infradúzilme hám modernizaciya joybarların juwmaqlaw",
+            "Investiciya tartıw boyınsha anıq maqsetli jumıs",
+            "Nátiyjelerdi jıllıq esabatta bekkemlew",
         ],
-        impact="Sohani barqaror o'sish traektoriyasiga olib chiqish",
+        impact="Tarawdı turaqlı ósiw trayektoriyasına alıp shıǵıw",
     ),
 ]
 
 
-def _normalize(s: str) -> str:
-    return re.sub(r"\s+", " ", s.lower().replace("ʻ", "'").replace("ʼ", "'")).strip()
-
-
-def _unique_districts(spots: list[dict], limit: int) -> list[str]:
+def severity_from_growth(yoy: float | None) -> str:
     """
-    Zaif kesimlar ro'yxatidan takrorlanmaydigan tuman kodlari.
+    O'sish sur'atidan holat kodi.
 
-    Bitta tuman haqidagi so'rovda `spots` o'sha tumanning bir necha sohasidan
-    iborat bo'ladi — tuman kodi bir necha marta takrorlanadi. Frontend esa
-    "javob bitta hududga tegishlimi?" degan qarorni shu ro'yxat uzunligiga
-    qarab qabul qiladi, shuning uchun takrorlar bu yerda olib tashlanadi.
+    Manbada reja yo'q, shuning uchun holat yagona mavjud signaldan —
+    o'tgan yilga nisbatan o'zgarishdan chiqariladi. Frontend'dagi status
+    ranglari va yorliqlari shu qiymatlarga tayanadi.
     """
-    return list(dict.fromkeys(s["district_id"] for s in spots))[:limit]
+    if yoy is None:
+        return "in_progress"
+    if yoy < -5:
+        return "critical"
+    if yoy < 0:
+        return "at_risk"
+    if yoy < 5:
+        return "in_progress"
+    return "completed"
 
 
 def parse(db: Session, prompt: str) -> tuple[str, str | None, str | None]:
-    q = _normalize(prompt)
+    """So'rovdan niyat, hudud va sohani ajratadi."""
+    q = re.sub(r"\s+", " ", normalize(prompt)).strip()
 
     district_id = None
-    for did, d in an.district_map(db).items():
-        stem = _normalize(d.name).replace("'", "")[:5]
-        if stem and stem in q.replace("'", ""):
+    for did, d in st.district_names(db).items():
+        # Nomning boshi yetarli: "Mo'ynoqda", "Mo'ynoqning" kabi
+        # qo'shimchali shakllar ham topilsin
+        stem = normalize(d.name)[:5]
+        if stem and stem in q:
             district_id = did
             break
 
-    module_id = None
+    module = None
     for mid, keys in MODULE_KEYWORDS.items():
         if any(k in q for k in keys):
-            module_id = mid
+            module = mid
             break
 
     intent = "overview"
@@ -173,10 +187,21 @@ def parse(db: Session, prompt: str) -> tuple[str, str | None, str | None]:
     if intent == "overview":
         if district_id:
             intent = "district"
-        elif module_id:
+        elif module:
             intent = "module"
 
-    return intent, district_id, module_id
+    return intent, district_id, module
+
+
+def _fmt(value: float | None) -> str:
+    """Ming ajratgichi — uzilmas probel, kasr — bitta belgi."""
+    if value is None:
+        return "—"
+    return f"{value:,.1f}".replace(",", " ").removesuffix(".0")
+
+
+def _pct(value: float | None) -> str:
+    return "—" if value is None else f"{value:+.1f}%"
 
 
 def answer(
@@ -187,180 +212,225 @@ def answer(
     module_id: str | None = None,
     year: int | None = None,
 ) -> ChatResponse:
-    year = year or an.latest_year(db)
+    year = year or st.latest_year(db)
     intent, parsed_district, parsed_module = parse(db, prompt)
     district_id = parsed_district or district_id
-    module_id = parsed_module or module_id
+    module = parsed_module or (module_id if module_id in st.MODULE_META else None)
 
-    mods = an.module_map(db)
-    dists = an.district_map(db)
-    sources = len(an.fetch(db, year=year))
-    spots = an.weak_spots(db, year, module_id=module_id, district_id=district_id, limit=8)
+    # Savolda hudud atalmagan bo'lsa ham, foydalanuvchi xaritada bittasini
+    # tanlab turgan bo'lishi mumkin — "Jaǵday qalay?" o'sha hudud haqida.
+    if intent == "overview":
+        if district_id:
+            intent = "district"
+        elif module:
+            intent = "module"
+
+    primary = st.primary_indicators(db)
+    indicator = primary.get(module or "") or next(iter(primary.values()), None)
+    if indicator is None:
+        return ChatResponse(
+            text="Bazada statistika tabılmadı. Aldın maǵlıwmattı júklew kerek.",
+            sources=0,
+            engine="local",
+        )
+    module = indicator.module or module
+    meta = st.MODULE_META.get(module or "", ("", "", "#38bdf8", 0))
+    unit = st.short_unit(indicator.unit)
+
+    layer = st.map_layer(db, indicator, year)
+    rows = [d for d in layer["districts"] if d["value"] is not None]
+    with_growth = sorted(
+        (d for d in rows if d["yoy"] is not None), key=lambda d: d["yoy"], reverse=True
+    )
+    declining = [d for d in with_growth if d["yoy"] < 0]
+    period = f"{year}-jıl" + (f" ({layer['period_caption']})" if layer["partial"] else "")
 
     charts = []
     recommendations: list[Recommendation] = []
     insight = None
+    highlight: list[str] = []
 
     if intent == "recommend":
-        target = spots[0] if spots else None
-        mid = module_id or (target["module_id"] if target else next(iter(mods)))
-        where = dists[district_id].name + " tumani" if district_id else "respublika"
-        perf = f"{target['performance'] * 100:.1f}%" if target else "—"
+        target = declining[-1] if declining else (with_growth[-1] if with_growth else None)
+        where = target["name"] if target and not district_id else None
+        if district_id:
+            where = st.district_names(db)[district_id].name
+            target = next((d for d in rows if d["district_id"] == district_id), target)
+
         text = (
-            f"**{where} · {mods[mid].name} — harakatlar rejasi**\n\n"
+            f"**{where or 'Respublika'} · {meta[0]} — háreket rejesi**\n\n"
             + (
-                f"Joriy holat: bajarilish **{perf}**."
-                + (f" Bazadagi izoh: _{target['note']}_" if target and target.get("note") else "")
+                f"Házirgi jaǵday: **{_fmt(target['value'])} {unit}**, "
+                f"ótken jılǵa salıstırǵanda **{_pct(target['yoy'])}**"
+                + (f", respublikada **{target['rank']}-orın**." if target.get("rank") else ".")
                 if target
-                else "Joriy holat baza ma'lumotlariga ko'ra reja doirasida."
+                else "Bul kesim boyınsha bul jılı maǵlıwmat joq."
             )
-            + "\n\nQuyida bazadagi ko'rsatkichlar asosida 3 bosqichli reja keltirilgan."
+            + "\n\nTómende bazadaǵı kórsetkishler tiykarında 3 basqıshlı reje berilgen."
         )
-        recommendations = PLAYBOOK.get(mid, DEFAULT_PLAYBOOK)
+        recommendations = PLAYBOOK.get(module or "", DEFAULT_PLAYBOOK)
+        highlight = [target["district_id"]] if target else []
         charts = [
             c
             for c in [
-                ch.build(db, "dynamics", module_id=mid, district_id=district_id, year=year),
-                ch.build(db, "profile", module_id=mid, district_id=district_id, year=year)
-                if district_id
-                else ch.build(db, "deviation", module_id=mid, district_id=None, year=year),
+                ch.dynamics_chart(db, indicator, target["district_id"] if target else None, year),
+                ch.growth_chart(db, indicator, year),
             ]
             if c
         ]
 
     elif intent == "weak":
-        if spots:
+        if declining:
             lines = "\n".join(
-                f"{i + 1}. **{s['district_name']}** — {s['module_name'].lower()}: "
-                f"bajarilish **{s['performance'] * 100:.1f}%**"
-                + (f"\n   ↳ _{s['note']}_" if s.get("note") else "")
-                for i, s in enumerate(spots[:6])
+                f"{i + 1}. **{d['name']}** — {_fmt(d['value'])} {unit}, "
+                f"ósiw **{_pct(d['yoy'])}**"
+                for i, d in enumerate(reversed(declining[-6:]))
             )
-            critical = sum(1 for s in spots if s["status"] == "critical")
+            worst = declining[-1]
             text = (
-                f"**Muammoli sohalar — {year}-yil**\n\n"
-                f"Reja va amaldagi ko'rsatkichlarni solishtirish natijasida **{len(spots)} ta** "
-                f"ortda qolayotgan kesim aniqlandi, shundan **{critical} tasi kritik** holatda.\n\n"
-                f"{lines}"
+                f"**{meta[0]} — tómenlew gúzetilgen rayonlar ({period})**\n\n"
+                f"Ótken jıl menen salıstırıwda **{len(declining)} rayonda** kólem "
+                f"tómenlegen.\n\n{lines}"
             )
             insight = AiInsight(
-                headline=f"{spots[0]['district_name']} tumanida {spots[0]['module_name'].lower()} xavf ostida",
-                body=spots[0].get("note") or f"Bajarilish {spots[0]['performance'] * 100:.1f}%.",
-                severity=spots[0]["status"],
-                districts=[s["district_id"] for s in spots[:5]],
-                module_id=spots[0]["module_id"],
+                headline=f"{worst['name']}: {meta[1].lower()} {_pct(worst['yoy'])}",
+                body=f"Kólemi {_fmt(worst['value'])} {unit}, respublikada {worst['rank']}-orın.",
+                severity=severity_from_growth(worst["yoy"]),
+                districts=[d["district_id"] for d in reversed(declining[-5:])],
+                module_id=module,
             )
+            highlight = [d["district_id"] for d in reversed(declining[-5:])]
+        elif not layer["comparable"]:
+            # 2026 ning yarmi 2025 ning tolig'i bilan solishtirilmaydi
+            text = (
+                f"**{meta[0]} — {period}**\n\n"
+                f"Bul dáwir ushın ósiw esaplanbaydı: manbada {year - 1}-jıldıń usı "
+                f"dáwiri joq, tolıq jıl menen salıstırıw nadurıs bolar edi. "
+                f"Kólem boyınsha eń tómen rayon — **{rows[-1]['name']}** "
+                f"({_fmt(rows[-1]['value'])} {unit})."
+            )
+            highlight = [rows[-1]["district_id"]] if rows else []
         else:
-            text = f"{year}-yil bo'yicha rejadan sezilarli ortda qolgan yo'nalish topilmadi."
-        charts = [
-            c
-            for c in [
-                ch.build(db, "deviation", module_id=module_id, district_id=None, year=year),
-                ch.build(
-                    db,
-                    "dynamics",
-                    module_id=spots[0]["module_id"] if spots else module_id,
-                    district_id=spots[0]["district_id"] if spots else district_id,
-                    year=year,
-                ),
-            ]
-            if c
-        ]
+            text = f"**{meta[0]} — {period}**\n\nBarlıq rayonlarda kólem óskan."
+        charts = [c for c in [ch.growth_chart(db, indicator, year), ch.ranking_chart(db, indicator, year)] if c]
 
     elif intent == "compare":
-        rank = an.district_scores(db, module_id, year)
-        top = rank[:3]
-        bottom = list(reversed(rank[-3:]))
+        top = rows[:3]
+        bottom = list(reversed(rows[-3:]))
         text = (
-            f"**Tumanlar reytingi — {year}-yil**\n\n**Yetakchilar:**\n"
-            + "\n".join(f"{i + 1}. {t['name']} — **{t['performance'] * 100:.1f}%**" for i, t in enumerate(top))
-            + "\n\n**Ortda qolayotganlar:**\n"
-            + "\n".join(f"{i + 1}. {t['name']} — **{t['performance'] * 100:.1f}%**" for i, t in enumerate(bottom))
+            f"**{meta[0]} — rayonlar reytingi ({period})**\n\n**Aldıńǵılar:**\n"
+            + "\n".join(
+                f"{i + 1}. {r['name']} — **{_fmt(r['value'])} {unit}** "
+                f"(úlesi {r['share']:.1f}%)"
+                for i, r in enumerate(top)
+            )
+            + "\n\n**Artta qalǵanlar:**\n"
+            + "\n".join(
+                f"{i + 1}. {r['name']} — **{_fmt(r['value'])} {unit}** "
+                f"(úlesi {r['share']:.1f}%)"
+                for i, r in enumerate(bottom)
+            )
         )
-        charts = [
-            c
-            for c in [
-                ch.build(db, "deviation", module_id=module_id, district_id=None, year=year),
-                ch.build(db, "comparison", module_id=module_id, district_id=None, year=year)
-                if module_id
-                else ch.build(db, "structure", module_id=None, district_id=None, year=year),
-            ]
-            if c
-        ]
+        highlight = [r["district_id"] for r in top]
+        charts = [c for c in [ch.ranking_chart(db, indicator, year), ch.growth_chart(db, indicator, year)] if c]
 
     elif intent == "district" and district_id:
-        p = an.district_profile(db, district_id, year)
-        ordered = sorted(p["modules"], key=lambda m: m["performance"])
-        worst, best = ordered[0], ordered[-1]
-        text = (
-            f"**{p['district']['name']} — {year}-yil kesimi**\n\n"
-            f"Markaz: {p['district']['center']} · Aholi: {p['district']['population']:g} ming\n\n"
-            f"Umumiy bajarilish **{p['overall'] * 100:.1f}%**. Eng kuchli yo'nalish — "
-            f"**{best['name'].lower()}** ({best['performance'] * 100:.1f}%), eng zaif — "
-            f"**{worst['name'].lower()}** ({worst['performance'] * 100:.1f}%)."
-        )
-        insight = AiInsight(
-            headline=f"{p['district']['name']}: {worst['name'].lower()} bo'yicha {worst['performance'] * 100:.1f}%",
-            body=f"Umumiy bajarilish {p['overall'] * 100:.1f}%.",
-            severity=p["status"],
-            districts=[district_id],
-            module_id=worst["module_id"],
-        )
+        profile = st.district_profile(db, district_id, year)
+        if profile and profile["modules"]:
+            ordered = sorted(profile["modules"], key=lambda m: m["share"] or 0)
+            best, worst = ordered[-1], ordered[0]
+            d = profile["district"]
+            text = (
+                f"**{d['name']} — {period}**\n\n"
+                f"Orayı: {d['center']} · Xalıq: {d['population']:g} mıń\n\n"
+                f"Eń úlken úles — **{best['name'].lower()}** "
+                f"({best['share']:.1f}%, {_fmt(best['value'])} {st.short_unit(best['unit'])}), "
+                f"eń kishisi — **{worst['name'].lower()}** ({worst['share']:.1f}%). "
+                f"Tarawlar boyınsha ortasha ósiw **{_pct(profile['avg_growth'])}**."
+            )
+            insight = AiInsight(
+                headline=f"{d['name']}: ortasha ósiw {_pct(profile['avg_growth'])}",
+                body=f"Eń úlken taraw — {best['name'].lower()} ({best['share']:.1f}%).",
+                severity=severity_from_growth(profile["avg_growth"]),
+                districts=[district_id],
+                module_id=best["module"],
+            )
+        else:
+            text = f"**{period}** ushın bul aymaq boyınsha maǵlıwmat tabılmadı."
+        highlight = [district_id]
         charts = [
             c
             for c in [
-                ch.build(db, "profile", module_id=None, district_id=district_id, year=year),
-                ch.build(db, "dynamics", module_id=worst["module_id"], district_id=district_id, year=year),
+                ch.share_chart(db, district_id, year),
+                ch.dynamics_chart(db, indicator, district_id, year),
             ]
             if c
         ]
 
-    elif intent == "module" and module_id:
-        m = mods[module_id]
-        agg = an.rollup(an.fetch(db, module_id=module_id, district_id=district_id, year=year), m.lower_is_better)
-        growth = an.yoy_growth(db, module_id, district_id)
-        where = dists[district_id].name + " tumani" if district_id else "Respublika"
+    elif intent == "module":
+        points = st.series(db, indicator, district_id=district_id, year_to=year)
+        current = next((p for p in reversed(points) if p["year"] == year), None)
+        where = st.district_names(db)[district_id].name if district_id else "Respublika"
         text = (
-            f"**{m.name} — {where}, {year}-yil**\n\n"
-            f"Amaldagi hajm **{agg.fact:g} {m.unit}**, reja **{agg.plan:g} {m.unit}** — "
-            f"bajarilish **{agg.ratio * 100:.1f}%**.\n\n"
-            f"O'tgan yilga nisbatan o'zgarish: **{growth:+.1f}%**."
+            f"**{meta[0]} — {where}, {period}**\n\n"
+            f"Kólemi **{_fmt(current['value'] if current else None)} {unit}**, "
+            f"ótken jılǵa salıstırǵanda **{_pct(current['yoy'] if current else None)}**.\n\n"
+            f"Aldıńǵı rayon — **{rows[0]['name']}** ({rows[0]['share']:.1f}%), "
+            f"eń tómeni — **{rows[-1]['name']}** ({rows[-1]['share']:.1f}%)."
+            if rows
+            else f"**{meta[0]}** boyınsha bul jılı maǵlıwmat joq."
         )
+        highlight = [rows[0]["district_id"]] if rows else []
         charts = [
             c
             for c in [
-                ch.build(db, "dynamics", module_id=module_id, district_id=district_id, year=year),
-                ch.build(db, "comparison", module_id=module_id, district_id=None, year=year),
+                ch.dynamics_chart(db, indicator, district_id, year),
+                ch.ranking_chart(db, indicator, year),
             ]
             if c
         ]
 
     else:  # annual / overview
-        stats = an.headline_stats(db, module_id, year)
-        rank = an.district_scores(db, module_id, year)
-        text = (
-            f"**Qoraqalpog'iston Respublikasi — {year}-yil umumiy manzara**\n\n"
-            f"Bazada {stats['records']} ta ko'rsatkich yozuvi mavjud. "
-            f"O'rtacha bajarilish **{stats['performance'] * 100:.1f}%**, "
-            f"real sektorda o'sish **{stats['growth']:+.1f}%**.\n\n"
-            f"Yetakchi — **{rank[0]['name']}** ({rank[0]['performance'] * 100:.1f}%), "
-            f"ortda — **{rank[-1]['name']}** ({rank[-1]['performance'] * 100:.1f}%). "
-            f"Kritik kesimlar: **{stats['critical']} ta**, xavf ostida: **{stats['at_risk']} ta**."
+        overview = st.overview(db, year)
+        cards = overview["modules"]
+        grown = sorted(
+            (c for c in cards if c["yoy"] is not None), key=lambda c: c["yoy"], reverse=True
         )
-        if spots:
-            insight = AiInsight(
-                headline=f"{spots[0]['district_name']} tumanida {spots[0]['module_name'].lower()} xavf ostida",
-                body=spots[0].get("note") or "Reja bajarilishi 90% dan past.",
-                severity=spots[0]["status"],
-                districts=_unique_districts(spots, 4),
-                module_id=spots[0]["module_id"],
+        text = (
+            f"**Qaraqalpaqstan Respublikası — {period} ulıwma kórinisi**\n\n"
+            f"Bazada {len(cards)} tiykarǵı taraw boyınsha maǵlıwmat bar. "
+            + (
+                f"Ortasha ósiw **{_pct(overview['avg_growth'])}**: "
+                f"**{overview['growing']} tarawda** ósiw, "
+                f"**{overview['declining']} tarawda** tómenlew.\n\n"
+                f"Eń tez ósken — **{grown[0]['name']}** ({_pct(grown[0]['yoy'])}), "
+                f"eń páseń — **{grown[-1]['name']}** ({_pct(grown[-1]['yoy'])})."
+                if grown
+                else f"Bul dáwir ushın ósiw esaplanbaydı — {year - 1}-jıldıń usı dáwiri manbada joq."
             )
+            + (
+                f"\n\n{meta[1]} boyınsha aldıńǵı rayon — **{rows[0]['name']}** "
+                f"(respublikanıń {rows[0]['share']:.1f}% i)."
+                if rows
+                else ""
+            )
+        )
+        if declining:
+            worst = declining[-1]
+            insight = AiInsight(
+                headline=f"{worst['name']}: {meta[1].lower()} {_pct(worst['yoy'])}",
+                body=f"Kólemi {_fmt(worst['value'])} {unit}.",
+                severity=severity_from_growth(worst["yoy"]),
+                districts=[d["district_id"] for d in reversed(declining[-4:])],
+                module_id=module,
+            )
+            highlight = [d["district_id"] for d in reversed(declining[-4:])]
         charts = [
             c
             for c in [
-                ch.build(db, "structure", module_id=None, district_id=None, year=year),
-                ch.build(db, "growth", module_id=None, district_id=None, year=year),
-                ch.build(db, "deviation", module_id=None, district_id=None, year=year),
+                ch.structure_chart(db, year),
+                ch.ranking_chart(db, indicator, year),
+                ch.growth_chart(db, indicator, year),
             ]
             if c
         ]
@@ -370,7 +440,7 @@ def answer(
         charts=charts,
         insight=insight,
         recommendations=recommendations,
-        sources=sources,
-        highlight=_unique_districts(spots, 5),
+        sources=len(rows),
+        highlight=list(dict.fromkeys(highlight))[:5],
         engine="local",
     )

@@ -12,7 +12,7 @@ import {
   VolumeX,
 } from "lucide-react";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { SUGGESTED_PROMPTS } from "@/lib/ai-engine";
+import { SUGGESTED_PROMPTS } from "@/lib/prompts";
 import { askAi } from "@/lib/api";
 import { speak, startListening, stopSpeaking, recognitionSupported } from "@/lib/speech";
 import { useDashboard } from "@/lib/store";
@@ -25,9 +25,9 @@ import { StatusPill, ThinkingDots } from "@/components/ui/primitives";
 const NO_SUBSCRIBE = () => () => {};
 
 const HORIZON_META: Record<Recommendation["horizon"], { label: string; color: string }> = {
-  short: { label: "Qisqa muddat · 1–3 oy", color: "#0891b2" },
-  mid: { label: "O'rta muddat · 6 oy", color: "#8b5cf6" },
-  long: { label: "Uzoq muddat · 1 yil", color: "#059669" },
+  short: { label: "Qısqa múddet · 1–3 ay", color: "#0891b2" },
+  mid: { label: "Orta múddet · 6 ay", color: "#8b5cf6" },
+  long: { label: "Uzaq múddet · 1 jıl", color: "#059669" },
 };
 
 export function ChatPanel() {
@@ -177,7 +177,7 @@ export function ChatPanel() {
         <div className="min-w-0 flex-1">
           <h2 className="truncate text-[13px] font-bold tracking-tight text-ink">AI Analitik</h2>
           <p className="truncate text-[10.5px] text-ink-3">
-            {speaking ? "Gapirmoqda…" : listening ? "Tinglamoqda…" : "Bazadagi ma'lumotlar asosida"}
+            {speaking ? "Sóylep atır…" : listening ? "Tıńlap atır…" : "Bazadaǵı maǵlıwmatlar tiykarında"}
           </p>
         </div>
         <button
@@ -194,7 +194,7 @@ export function ChatPanel() {
               ? "bg-cyan/15 text-cyan ring-cyan/40"
               : "bg-abyss/60 text-ink-3 ring-edge/50 hover:text-ink-2",
           )}
-          title={voiceEnabled ? "Ovozni o'chirish" : "Ovozni yoqish"}
+          title={voiceEnabled ? "Dawıstı óshiriw" : "Dawıstı qosıw"}
           aria-pressed={voiceEnabled}
         >
           {voiceEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
@@ -207,7 +207,7 @@ export function ChatPanel() {
               setSpeaking(false);
             }}
             className="grid size-8 place-items-center rounded-lg bg-abyss/60 text-ink-3 ring-1 ring-edge/50 transition hover:text-coral"
-            title="Suhbatni tozalash"
+            title="Sáwbetti tazalaw"
           >
             <Trash2 size={14} />
           </button>
@@ -231,7 +231,7 @@ export function ChatPanel() {
               className="glass inline-flex items-center gap-2.5 rounded-2xl px-3.5 py-2.5"
             >
               <ThinkingDots />
-              <span className="text-[11.5px] text-ink-3">Baza tahlil qilinmoqda…</span>
+              <span className="text-[11.5px] text-ink-3">Baza analiz etilip atır…</span>
             </motion.div>
           )}
         </AnimatePresence>
@@ -255,7 +255,7 @@ export function ChatPanel() {
               }
             }}
             rows={1}
-            placeholder="Savolingizni yozing…"
+            placeholder="Sorawıńızdı jazıń…"
             className="thin-scroll max-h-24 min-h-[36px] flex-1 resize-none bg-transparent px-2 py-2 text-[12.5px] text-ink outline-none placeholder:text-ink-3/80"
           />
 
@@ -268,7 +268,7 @@ export function ChatPanel() {
                   ? "bg-crimson/20 text-crimson"
                   : "bg-abyss/60 text-ink-3 hover:text-cyan",
               )}
-              title={listening ? "To'xtatish" : "Ovoz bilan so'rash"}
+              title={listening ? "Toqtatıw" : "Dawıs penen soraw"}
             >
               {listening && (
                 <motion.span
@@ -288,7 +288,7 @@ export function ChatPanel() {
                 setSpeaking(false);
               }}
               className="grid size-9 shrink-0 place-items-center rounded-xl bg-crimson/20 text-crimson transition hover:bg-crimson/30"
-              title="O'qishni to'xtatish"
+              title="Oqıwdı toqtatıw"
             >
               <Square size={13} />
             </button>
@@ -297,7 +297,7 @@ export function ChatPanel() {
               onClick={() => void send(draft)}
               disabled={!draft.trim() || thinking}
               className="grid size-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-cyan to-iris text-void transition disabled:opacity-35 enabled:hover:brightness-110"
-              title="Yuborish"
+              title="Jiberiw"
             >
               <ArrowUp size={16} strokeWidth={2.6} />
             </button>
@@ -318,10 +318,10 @@ function EmptyState({ onPick }: { onPick: (t: string) => void }) {
       >
         <Sparkles size={22} className="text-cyan" />
       </motion.div>
-      <h3 className="text-[13.5px] font-bold text-ink">Iqtisodiy tahlil yordamchisi</h3>
+      <h3 className="text-[13.5px] font-bold text-ink">Ekonomikalıq analiz járdemshisi</h3>
       <p className="mt-1 max-w-[240px] text-[11.5px] leading-relaxed text-ink-3">
-        Faqat bazaga kiritilgan ko&apos;rsatkichlar asosida javob beradi — grafiklar va tavsiyalar
-        bilan.
+        Tek ǵana bazadaǵı statistika tiykarında juwap beredi — grafikler hám usınıslar
+        menen.
       </p>
       <div className="mt-4 flex w-full flex-wrap justify-center gap-1.5">
         {SUGGESTED_PROMPTS.map((p, i) => (
@@ -370,7 +370,7 @@ function Message({ m }: { m: ChatMessage }) {
         {m.sources !== undefined && (
           <div className="mt-2.5 flex items-center gap-1.5 border-t border-hairline/60 pt-2 text-[10px] text-ink-3">
             <Database size={10} />
-            <span>{m.sources} ta baza yozuvi kontekstga olindi</span>
+            <span>{m.sources} jazıw kontekstke alındı</span>
           </div>
         )}
       </div>
