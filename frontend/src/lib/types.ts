@@ -1,54 +1,8 @@
 // Platformaning umumiy domen modeli. Backend (FastAPI) shu shakllarni qaytaradi.
 
-export type ModuleId =
-  | "inflation"
-  | "industry"
-  | "agriculture"
-  | "investment"
-  | "export"
-  | "employment"
-  | "construction"
-  | "services";
-
 export type StatusId = "completed" | "in_progress" | "at_risk" | "critical";
 
-export type PeriodType = "month" | "quarter" | "year";
-
 export type Role = "admin" | "viewer";
-
-/** Bir tuman + bir modul + bir davr kesimidagi ko'rsatkich. */
-export interface Indicator {
-  id: string;
-  moduleId: ModuleId;
-  districtId: string;
-  year: number;
-  /** 1..12 — yillik yozuvda null */
-  month: number | null;
-  /** 1..4 — hisoblab chiqariladi */
-  quarter: number | null;
-  /** Rejalashtirilgan ko'rsatkich (KPI) */
-  plan: number;
-  /** Amaldagi ko'rsatkich */
-  fact: number;
-  unit: string;
-  status: StatusId;
-  /** Admin qoldirgan izoh — AI kontekstiga tushadi */
-  note?: string;
-}
-
-/** Iqtisodiy topshiriq / loyiha. */
-export interface EconomicTask {
-  id: string;
-  title: string;
-  moduleId: ModuleId;
-  districtId: string;
-  status: StatusId;
-  progress: number;
-  deadline: string;
-  assignee: string;
-  description?: string;
-  createdAt: string;
-}
 
 /** AI qaytaradigan grafik spetsifikatsiyasi — chat javobida chizmalar shundan yasaladi. */
 /**
@@ -89,7 +43,8 @@ export interface AiInsight {
   body: string;
   severity: StatusId;
   districts: string[];
-  moduleId?: ModuleId;
+  /** Tayanch soha kodi (`sanaat`, `awil_xojaligi`, ...) */
+  moduleId?: string;
 }
 
 export interface ChatMessage {

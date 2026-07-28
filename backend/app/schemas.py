@@ -33,42 +33,6 @@ class ModuleOut(BaseModel):
     color: str
 
 
-# ── Ko'rsatkichlar ───────────────────────────────────────────────────
-
-
-class IndicatorIn(BaseModel):
-    district_id: str
-    module_id: str
-    year: int = Field(ge=2000, le=2100)
-    month: int | None = Field(default=None, ge=1, le=12)
-    plan: float
-    fact: float
-    status: StatusId | None = None
-    note: str | None = None
-
-
-class IndicatorOut(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
-    id: int
-    district_id: str
-    module_id: str
-    year: int
-    month: int | None
-    quarter: int | None
-    plan: float
-    fact: float
-    unit: str
-    status: str
-    note: str | None
-
-
-class BulkImportResult(BaseModel):
-    imported: int
-    updated: int
-    errors: list[str]
-
-
 # ── Topshiriqlar ─────────────────────────────────────────────────────
 
 
@@ -106,38 +70,6 @@ class TaskOut(BaseModel):
     progress: int
     deadline: date
     assignee: str
-
-
-# ── Analitika ────────────────────────────────────────────────────────
-
-
-class Rollup(BaseModel):
-    plan: float
-    fact: float
-    ratio: float
-    performance: float
-    status: StatusId
-    count: int
-
-
-class DistrictScore(BaseModel):
-    district_id: str
-    name: str
-    plan: float
-    fact: float
-    performance: float
-    status: StatusId
-
-
-class WeakSpot(BaseModel):
-    district_id: str
-    district_name: str
-    module_id: str
-    module_name: str
-    performance: float
-    gap: float
-    status: StatusId
-    note: str | None = None
 
 
 # ── Grafiklar (frontend ChartSpec bilan bir xil shakl) ────────────────
