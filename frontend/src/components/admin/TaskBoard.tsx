@@ -10,7 +10,7 @@ import type { EconomicTask, ModuleId, StatusId } from "@/lib/types";
 import { cn, daysLeft, formatDate, trim, uid } from "@/lib/utils";
 import { Button, Field, Input, Meter, Segmented, Select, StatusPill, Textarea } from "@/components/ui/primitives";
 
-/** TT 2.2 — iqtisodiy topshiriqlar va loyihalar boshqaruvi. */
+/** Iqtisodiy topshiriqlar va loyihalar boshqaruvi. */
 export function TaskBoard() {
   const [tasks, setTasks] = useState<EconomicTask[]>(TASKS);
   const [filter, setFilter] = useState<StatusId | "all">("all");
@@ -39,7 +39,7 @@ export function TaskBoard() {
           value={filter}
           onChange={setFilter}
           options={[
-            { value: "all", label: `Barchasi (${counts.all})` },
+            { value: "all", label: `Barlıǵı (${counts.all})` },
             ...Object.values(STATUS_BY_ID).map((s) => ({
               value: s.id,
               label: `${s.name} (${counts[s.id] ?? 0})`,
@@ -50,7 +50,7 @@ export function TaskBoard() {
         <div className="flex-1" />
         <Button type="button" onClick={() => setCreating((v) => !v)} variant={creating ? "outline" : "solid"}>
           {creating ? <X size={14} /> : <Plus size={14} />}
-          {creating ? "Bekor qilish" : "Yangi topshiriq"}
+          {creating ? "Biykarlaw" : "Jańa tapsırma"}
         </Button>
       </div>
 
@@ -106,7 +106,7 @@ export function TaskBoard() {
 
       {visible.length === 0 && (
         <div className="rounded-2xl bg-abyss/50 px-4 py-10 text-center text-[12.5px] text-ink-3 ring-1 ring-edge/40">
-          Tanlangan holatda topshiriq yo&apos;q.
+          Saylanǵan halatta tapsırma joq.
         </div>
       )}
     </div>
@@ -151,7 +151,7 @@ function TaskCard({
 
       <div>
         <div className="mb-1.5 flex items-baseline justify-between">
-          <span className="text-[10.5px] text-ink-3">Bajarilish</span>
+          <span className="text-[10.5px] text-ink-3">Orınlanıwı</span>
           <span className="tnum text-[11.5px] font-semibold text-ink">{trim(task.progress, 0)}%</span>
         </div>
         <Meter value={task.progress / 100} color={STATUS_BY_ID[task.status].color} />
@@ -162,7 +162,7 @@ function TaskCard({
           value={task.progress}
           onChange={(e) => onProgress(Number(e.target.value))}
           className="mt-2 w-full accent-cyan"
-          aria-label={`${task.title} bajarilish foizi`}
+          aria-label={`${task.title} orınlanıw procenti`}
         />
       </div>
 
@@ -172,7 +172,7 @@ function TaskCard({
         <CalendarClock size={11} className={cn("shrink-0", overdue ? "text-crimson" : "text-ink-3")} />
         <span className={cn("tnum", overdue ? "font-semibold text-crimson" : "text-ink-2")}>
           {formatDate(task.deadline)}
-          {overdue ? ` (${Math.abs(left)} kun kechikdi)` : ""}
+          {overdue ? ` (${Math.abs(left)} kún keshikti)` : ""}
         </span>
       </div>
     </motion.article>
@@ -200,24 +200,24 @@ function NewTaskForm({ onCreate }: { onCreate: (t: EconomicTask) => void }) {
           status: "in_progress",
           progress: 0,
           deadline,
-          assignee: assignee.trim() || "Belgilanmagan",
+          assignee: assignee.trim() || "Belgilenbegen",
           description: description.trim() || undefined,
           createdAt: "2026-07-27",
         });
       }}
       className="glass space-y-3.5 rounded-2xl p-4"
     >
-      <Field label="Topshiriq nomi">
+      <Field label="Tapsırma atı">
         <Input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="O'ng qirg'oq tumanlarida tomchilab sug'orishni 20% ga oshirish"
+          placeholder="Oń jaǵa rayonlarında tamshılatıp suwǵarıwdı 20% ke asırıw"
           required
         />
       </Field>
 
       <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
-        <Field label="Soha">
+        <Field label="Taraw">
           <Select value={moduleId} onChange={(e) => setModuleId(e.target.value as ModuleId)}>
             {MODULES.map((m) => (
               <option key={m.id} value={m.id}>
@@ -226,7 +226,7 @@ function NewTaskForm({ onCreate }: { onCreate: (t: EconomicTask) => void }) {
             ))}
           </Select>
         </Field>
-        <Field label="Hudud">
+        <Field label="Aymaq">
           <Select value={districtId} onChange={(e) => setDistrictId(e.target.value)}>
             {DISTRICTS.map((d) => (
               <option key={d.id} value={d.id}>
@@ -235,30 +235,30 @@ function NewTaskForm({ onCreate }: { onCreate: (t: EconomicTask) => void }) {
             ))}
           </Select>
         </Field>
-        <Field label="Muddat">
+        <Field label="Múddet">
           <Input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
         </Field>
-        <Field label="Mas'ul ijrochi">
+        <Field label="Juwapker">
           <Input
             value={assignee}
             onChange={(e) => setAssignee(e.target.value)}
-            placeholder="F.I.Sh."
+            placeholder="A.Á.T."
           />
         </Field>
       </div>
 
-      <Field label="Tavsif">
+      <Field label="Tákirarlaw">
         <Textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={2}
-          placeholder="Topshiriq mazmuni va kutilayotgan natija"
+          placeholder="Tapsırma mazmunı hám kútilgen nátiyje"
         />
       </Field>
 
       <Button type="submit">
         <Plus size={14} />
-        Topshiriqni yaratish
+        Tapsırma jaratıw
       </Button>
     </form>
   );

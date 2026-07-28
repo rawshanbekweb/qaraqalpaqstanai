@@ -14,8 +14,8 @@ export interface ModuleMeta {
 export const MODULES: ModuleMeta[] = [
   {
     id: "inflation",
-    name: "Inflyatsiya",
-    short: "Inflyatsiya",
+    name: "Inflyaciya",
+    short: "Inflyaciya",
     unit: "%",
     lowerIsBetter: true,
     color: "#e11d48",
@@ -23,8 +23,8 @@ export const MODULES: ModuleMeta[] = [
   },
   {
     id: "industry",
-    name: "Sanoat ishlab chiqarish",
-    short: "Sanoat",
+    name: "Sanaat ónimi",
+    short: "Sanaat",
     unit: "mlrd so'm",
     lowerIsBetter: false,
     color: "#0284c7",
@@ -32,8 +32,8 @@ export const MODULES: ModuleMeta[] = [
   },
   {
     id: "agriculture",
-    name: "Qishloq xo'jaligi",
-    short: "Qishloq x/j",
+    name: "Awıl xojalıǵı",
+    short: "Awıl xojalıǵı",
     unit: "mlrd so'm",
     lowerIsBetter: false,
     color: "#65a30d",
@@ -41,8 +41,8 @@ export const MODULES: ModuleMeta[] = [
   },
   {
     id: "investment",
-    name: "Investitsiyalar",
-    short: "Investitsiya",
+    name: "Investiciyalar",
+    short: "Investiciya",
     unit: "mlrd so'm",
     lowerIsBetter: false,
     color: "#8b5cf6",
@@ -50,7 +50,7 @@ export const MODULES: ModuleMeta[] = [
   },
   {
     id: "export",
-    name: "Eksport hajmi",
+    name: "Eksport kólemi",
     short: "Eksport",
     unit: "mln $",
     lowerIsBetter: false,
@@ -59,8 +59,8 @@ export const MODULES: ModuleMeta[] = [
   },
   {
     id: "employment",
-    name: "Bandlik",
-    short: "Bandlik",
+    name: "Bántlik",
+    short: "Bántlik",
     unit: "ming kishi",
     lowerIsBetter: false,
     color: "#d97706",
@@ -68,8 +68,8 @@ export const MODULES: ModuleMeta[] = [
   },
   {
     id: "construction",
-    name: "Qurilish",
-    short: "Qurilish",
+    name: "Qurılıs",
+    short: "Qurılıs",
     unit: "mlrd so'm",
     lowerIsBetter: false,
     color: "#c026d3",
@@ -77,8 +77,8 @@ export const MODULES: ModuleMeta[] = [
   },
   {
     id: "services",
-    name: "Xizmatlar sohasi",
-    short: "Xizmatlar",
+    name: "Xızmetler tarawı",
+    short: "Xızmetler",
     unit: "mlrd so'm",
     lowerIsBetter: false,
     color: "#059669",
@@ -105,10 +105,10 @@ export interface StatusMeta {
  * birga chiqadi, ya'ni ma'no faqat rangga tayanmaydi.
  */
 export const STATUSES: StatusMeta[] = [
-  { id: "completed", name: "Bajarilgan", color: "#0ca30c", threshold: 1.0 },
-  { id: "in_progress", name: "Jarayonda", color: "#8fa3d4", threshold: 0.9 },
-  { id: "at_risk", name: "Xavf ostida", color: "#fab219", threshold: 0.75 },
-  { id: "critical", name: "Kritik", color: "#d03b3b", threshold: 0 },
+  { id: "completed", name: "Ósiw", color: "#0ca30c", threshold: 1.0 },
+  { id: "in_progress", name: "Turaqlı", color: "#8fa3d4", threshold: 0.9 },
+  { id: "at_risk", name: "Tómenlew", color: "#fab219", threshold: 0.75 },
+  { id: "critical", name: "Keskin tómenlew", color: "#d03b3b", threshold: 0 },
 ];
 
 export const STATUS_BY_ID = Object.fromEntries(STATUSES.map((s) => [s.id, s])) as Record<

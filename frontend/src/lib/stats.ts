@@ -9,7 +9,7 @@
  * va o'rin.
  */
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const BASE = process.env.NEXT_PUBLIC_API_URL ?? "";
 
@@ -283,9 +283,12 @@ export function useSeries(
   });
 }
 
-/** Keshni tozalash — admin ma'lumotni qayta yuklaganidan keyin kerak. */
-export function useStatsRefresh() {
-  return useCallback(() => cache.clear(), []);
+/**
+ * Keshni tozalash — admin ma'lumotni o'zgartirgandan keyin majburiy,
+ * aks holda panel eski javoblarni ko'rsatib turaveradi.
+ */
+export function clearStatsCache(): void {
+  cache.clear();
 }
 
 // ── Formatlash ───────────────────────────────────────────────────────

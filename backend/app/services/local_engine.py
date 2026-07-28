@@ -165,8 +165,14 @@ def parse(db: Session, prompt: str) -> tuple[str, str | None, str | None]:
     q = re.sub(r"\s+", " ", normalize(prompt)).strip()
 
     district_id = None
-    for did, d in st.district_names(db).items():
-        # Nomning boshi yetarli: "Mo'ynoqda", "Mo'ynoqning" kabi
+    # Uzun nomlar oldin tekshiriladi: "Nókis qalası" va "Nókis rayonı"
+    # bir xil boshlanadi, qisqasi oldin kelsa shahar hech qachon
+    # tanilmasdi.
+    by_length = sorted(
+        st.district_names(db).items(), key=lambda kv: len(kv[1].name), reverse=True
+    )
+    for did, d in by_length:
+        # Nomning boshi yetarli: "Moynaqta", "Moynaqtıń" kabi
         # qo'shimchali shakllar ham topilsin
         stem = normalize(d.name)[:5]
         if stem and stem in q:

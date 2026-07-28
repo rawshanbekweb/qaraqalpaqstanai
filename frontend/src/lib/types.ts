@@ -109,4 +109,10 @@ export interface SessionUser {
   username: string;
   fullName: string;
   role: Role;
+  /**
+   * Backend bergan JWT. Admin yozuv amallari (Excel yuklash, ko'rsatkichni
+   * tayanch sohaga biriktirish) shusiz ishlamaydi — backend ulanmaganda
+   * bo'sh qoladi.
+   */
+  token?: string;
 }

@@ -17,6 +17,7 @@ sonni float qilib beradi), "2025 jıl yanvar-dekabr" (to'liq yil) va
 from __future__ import annotations
 
 import datetime as dt
+import io
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -322,19 +323,32 @@ def parse_sheet(df: pd.DataFrame, *, category: str, source: str) -> Iterator[Rec
             )
 
 
-def parse_workbook(path: Path, *, category: str | None = None) -> Iterator[Record]:
-    """Fayldagi barcha varaqlarni o'qiydi."""
-    cat = category or path.parent.name
-    try:
-        xl = pd.ExcelFile(path)
-    except Exception:  # noqa: BLE001 — buzuq fayl butun yuklashni to'xtatmasin
-        return
+def _parse_excel(xl: pd.ExcelFile, *, category: str, filename: str) -> Iterator[Record]:
     for sheet in xl.sheet_names:
         try:
             df = xl.parse(sheet, header=None)
         except Exception:  # noqa: BLE001
             continue
-        yield from parse_sheet(df, category=cat, source=f"{path.name}#{sheet}")
+        yield from parse_sheet(df, category=category, source=f"{filename}#{sheet}")
+
+
+def parse_workbook(path: Path, *, category: str | None = None) -> Iterator[Record]:
+    """Fayldagi barcha varaqlarni o'qiydi."""
+    try:
+        xl = pd.ExcelFile(path)
+    except Exception:  # noqa: BLE001 — buzuq fayl butun yuklashni to'xtatmasin
+        return
+    yield from _parse_excel(xl, category=category or path.parent.name, filename=path.name)
+
+
+def parse_bytes(data: bytes, *, category: str, filename: str) -> Iterator[Record]:
+    """
+    Yuklangan faylni diskka yozmasdan o'qiydi.
+
+    Kategoriya papka nomidan kelmaydi, shuning uchun ochiq beriladi —
+    admin uni yuklash formasida tanlaydi.
+    """
+    yield from _parse_excel(pd.ExcelFile(io.BytesIO(data)), category=category, filename=filename)
 
 
 def parse_tree(root: Path) -> Iterator[Record]:

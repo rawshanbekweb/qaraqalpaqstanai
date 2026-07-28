@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Qoraqalpog'iston — Iqtisodiy monitoring va AI analitika",
-    template: "%s · Qoraqalpog'iston Monitoring",
+    default: "Qaraqalpaqstan — Ekonomikalıq monitoring hám AI analitika",
+    template: "%s · Qaraqalpaqstan Monitoring",
   },
   description:
-    "Qoraqalpog'iston Respublikasi tumanlari kesimidagi iqtisodiy ko'rsatkichlarni vizual monitoring qilish va sun'iy intellekt orqali tahlil qilish platformasi.",
+    "Qaraqalpaqstan Respublikası rayonları keseginde ekonomikalıq kórsetkishlerdi vizual monitoring etiw hám jasalma intellekt arqalı analiz etiw platforması.",
 };
 
 export const viewport: Viewport = {
@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uz" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="kaa" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full">{children}</body>
     </html>
   );

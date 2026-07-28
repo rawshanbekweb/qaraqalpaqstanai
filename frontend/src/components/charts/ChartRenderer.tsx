@@ -108,7 +108,7 @@ function TableView({ spec }: { spec: ChartSpec }) {
       <table className="w-full border-collapse text-[11px]">
         <thead className="sticky top-0 bg-deep/95 backdrop-blur">
           <tr>
-            <th className="px-2.5 py-1.5 text-left font-semibold text-ink-2">Davr</th>
+            <th className="px-2.5 py-1.5 text-left font-semibold text-ink-2">Dáwir</th>
             {spec.series.map((s) => (
               <th key={s.key} className="px-2.5 py-1.5 text-right font-semibold text-ink-2">
                 {s.label}
@@ -471,7 +471,7 @@ export function ChartRenderer({
               ? "bg-cyan/15 text-cyan ring-cyan/40"
               : "bg-abyss/50 text-ink-3 ring-edge/50 hover:text-ink-2",
           )}
-          title={asTable ? "Grafik ko'rinishi" : "Jadval ko'rinishi"}
+          title={asTable ? "Grafik kórinisi" : "Keste kórinisi"}
           aria-pressed={asTable}
         >
           {asTable ? <TrendingUp size={13} /> : <Table2 size={13} />}

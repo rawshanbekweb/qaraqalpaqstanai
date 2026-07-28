@@ -111,13 +111,20 @@ def core_module(name: str) -> str | None:
     return None
 
 
-def load(data_root: Path, db: Session) -> dict[str, int]:
-    records = [
-        r for r in parse_tree(data_root)
-        if r.category not in SKIP_DIRS and r.category in CATEGORIES
-    ]
+def load_records(
+    records: list[Record], db: Session, *, replace_all: bool = True
+) -> dict[str, int]:
+    """
+    Yozuvlar oqimini bazaga yozadi.
+
+    `replace_all=True` — to'liq qayta yuklash (butun `data/` papkasi):
+    barcha o'lchovlar tozalanadi. Admin bitta fayl yuklaganda esa FALSE
+    bo'ladi va faqat SHU fayl tegib o'tgan ko'rsatkichlarning o'lchovlari
+    almashtiriladi — aks holda bitta fayl yuklash butun bazani o'chirib
+    yuborardi.
+    """
     if not records:
-        raise SystemExit(f"'{data_root}' ichidan yozuv topilmadi")
+        return {"kategoriya": 0, "korsetkish": 0, "olshov": 0, "otkazib_yuborilgan": 0}
 
     known_districts = {d.id for d in db.scalars(select(District))}
     if not known_districts:
@@ -154,7 +161,14 @@ def load(data_root: Path, db: Session) -> dict[str, int]:
         indicator_ids[slug] = ind.id
 
     # ── O'lchovlar: eski qiymatlarni tozalab, yangidan yozamiz ──
-    db.execute(delete(StatObservation))
+    if replace_all:
+        db.execute(delete(StatObservation))
+    else:
+        db.execute(
+            delete(StatObservation).where(
+                StatObservation.indicator_id.in_(list(indicator_ids.values()))
+            )
+        )
     db.flush()
 
     seen: set[tuple] = set()
@@ -177,11 +191,26 @@ def load(data_root: Path, db: Session) -> dict[str, int]:
 
     db.commit()
     return {
-        "kategoriya": db.scalar(select(StatCategory.id).limit(1)) is not None and len({r.category for r in records}),
+        "kategoriya": len({r.category for r in records}),
         "korsetkish": len(indicator_ids),
         "olshov": added,
         "otkazib_yuborilgan": skipped,
     }
+
+
+def keep_known(records) -> list[Record]:
+    """Ma'lum kategoriyaga tegishli va takrorlanmagan yozuvlar."""
+    return [
+        r for r in records
+        if r.category not in SKIP_DIRS and r.category in CATEGORIES
+    ]
+
+
+def load(data_root: Path, db: Session) -> dict[str, int]:
+    records = keep_known(parse_tree(data_root))
+    if not records:
+        raise SystemExit(f"'{data_root}' ichidan yozuv topilmadi")
+    return load_records(records, db, replace_all=True)
 
 
 def main() -> None:

@@ -4,9 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { AlertCircle, ArrowRight, Eye, EyeOff, Loader2, Lock, Radio, User } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
-import { CURRENT_YEAR } from "@/data/dataset";
 import { DISTRICTS } from "@/data/districts";
-import { MODULES } from "@/data/modules";
 import { authenticate, DEMO_CREDENTIALS, saveSession } from "@/lib/session";
 import { AuroraBackground } from "@/components/ui/AuroraBackground";
 import { Button, Field, Input } from "@/components/ui/primitives";
@@ -34,12 +32,10 @@ function LoginView() {
     setError(null);
     setBusy(true);
 
-    await new Promise((r) => setTimeout(r, 550));
-
-    const user = authenticate(username, password);
+    const user = await authenticate(username, password);
     if (!user) {
       setBusy(false);
-      setError("Login yoki parol noto'g'ri. Quyidagi demo hisoblardan foydalaning.");
+      setError("Login yamasa parol qáte. Tómendegi demo esaplardan paydalanıń.");
       return;
     }
 
@@ -71,29 +67,29 @@ function LoginView() {
             </div>
             <div>
               <div className="text-[11px] font-semibold tracking-[0.2em] text-cyan uppercase">
-                Qoraqalpog&apos;iston Respublikasi
+                Qaraqalpaqstan Respublikası
               </div>
-              <div className="text-[13px] text-ink-3">Vazirlar Kengashi monitoringi</div>
+              <div className="text-[13px] text-ink-3">Ministrler Keńesi monitoringi</div>
             </div>
           </div>
 
           <h1 className="text-[42px] leading-[1.06] font-bold tracking-tight text-ink">
-            Iqtisodiy monitoring va
+            Ekonomikalıq monitoring hám
             <br />
-            <span className="text-gradient">AI analitika platformasi</span>
+            <span className="text-gradient">AI analitika platforması</span>
           </h1>
 
           <p className="mt-4 max-w-lg text-[14px] leading-relaxed text-ink-2">
-            17 tuman va 8 iqtisodiy soha kesimidagi reja va amaldagi ko&apos;rsatkichlar yagona
-            bazada. Sun&apos;iy intellekt aynan shu ma&apos;lumotlar asosida tahlil qiladi, ortda
-            qolayotgan yo&apos;nalishlarni topadi va bosqichma-bosqich harakat rejasini beradi.
+            17 rayon hám 7 tiykarǵı taraw boyınsha 2010–2026 jıllardıń rásmiy statistikası bir
+            bazada. Jasalma intellekt tap sol maǵlıwmatlar tiykarında analiz etedi, artta qalıp
+            atırǵan baǵdarlardı tabadı hám basqıshpa-basqısh háreket rejesin beredi.
           </p>
 
           <div className="mt-8 grid max-w-lg grid-cols-3 gap-3">
             {[
-              { v: DISTRICTS.length, l: "tuman va shahar" },
-              { v: MODULES.length, l: "iqtisodiy soha" },
-              { v: CURRENT_YEAR, l: "joriy hisobot yili" },
+              { v: DISTRICTS.length, l: "rayon hám qala" },
+              { v: 7, l: "tiykarǵı taraw" },
+              { v: "2010–2026", l: "esabat jılları" },
             ].map((s, i) => (
               <motion.div
                 key={s.l}
@@ -121,11 +117,11 @@ function LoginView() {
               <div className="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-cyan via-iris to-magenta">
                 <Radio size={17} className="text-void" strokeWidth={2.4} />
               </div>
-              <span className="text-[13px] font-bold text-ink">Qoraqalpog&apos;iston Monitoring</span>
+              <span className="text-[13px] font-bold text-ink">Qaraqalpaqstan Monitoring</span>
             </div>
-            <h2 className="text-[22px] font-bold tracking-tight text-ink">Tizimga kirish</h2>
+            <h2 className="text-[22px] font-bold tracking-tight text-ink">Sistemaǵa kiriw</h2>
             <p className="mt-1 text-[12.5px] text-ink-3">
-              Panelga kirish uchun hisob ma&apos;lumotlaringizni kiriting
+              Panelge kiriw ushın esap maǵlıwmatlarıńızdı kiritiń
             </p>
           </div>
 
@@ -166,7 +162,7 @@ function LoginView() {
                   type="button"
                   onClick={() => setShowPass((v) => !v)}
                   className="absolute top-1/2 right-2.5 -translate-y-1/2 rounded p-1 text-ink-3 transition hover:text-ink-2"
-                  aria-label={showPass ? "Parolni yashirish" : "Parolni ko'rsatish"}
+                  aria-label={showPass ? "Paroldı jasırıw" : "Paroldı kórsetiw"}
                 >
                   {showPass ? <EyeOff size={15} /> : <Eye size={15} />}
                 </button>
@@ -193,11 +189,11 @@ function LoginView() {
               {busy ? (
                 <>
                   <Loader2 size={15} className="animate-spin" />
-                  Tekshirilmoqda…
+                  Tekserilip atır…
                 </>
               ) : (
                 <>
-                  Kirish
+                  Kiriw
                   <ArrowRight size={15} />
                 </>
               )}
@@ -205,7 +201,7 @@ function LoginView() {
 
             <div className="pt-1">
               <div className="mb-2 text-center text-[10px] tracking-wider text-ink-3 uppercase">
-                Demo hisoblar
+                Demo esaplar
               </div>
               <div className="grid grid-cols-2 gap-2">
                 {DEMO_CREDENTIALS.map((c) => (

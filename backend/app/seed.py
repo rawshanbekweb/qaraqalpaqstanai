@@ -25,23 +25,23 @@ CURRENT_YEAR = 2026
 CURRENT_MONTH = 7
 
 DISTRICTS: list[tuple[str, str, str, str, int, float]] = [
-    ("amudaryo", "Amudaryo", "Амударья", "Mang'it", 2300, 200.3),
+    ("amudaryo", "Ámiwdárya", "Амударья", "Mańǵıt", 2300, 200.3),
     ("beruniy", "Beruniy", "Беруни", "Beruniy", 4000, 205.1),
-    ("bozatov", "Bo'zatov", "Бозатау", "Bo'zatov", 3000, 20.4),
-    ("chimboy", "Chimboy", "Чимбай", "Chimboy", 3000, 120.9),
-    ("ellikqala", "Ellikqal'a", "Элликкала", "Bo'ston", 4900, 155.8),
-    ("karaozak", "Qorao'zak", "Караузяк", "Qorao'zak", 5800, 60.3),
+    ("bozatov", "Bozataw", "Бозатау", "Bozataw", 3000, 20.4),
+    ("chimboy", "Shımbay", "Чимбай", "Shımbay", 3000, 120.9),
+    ("ellikqala", "Ellikqala", "Элликкала", "Bostan", 4900, 155.8),
+    ("karaozak", "Qaraózek", "Караузяк", "Qaraózek", 5800, 60.3),
     ("kegeyli", "Kegeyli", "Кегейли", "Kegeyli", 2200, 90.5),
-    ("moynoq", "Mo'ynoq", "Муйнак", "Mo'ynoq", 37600, 30.2),
-    ("nukus-shahri", "Nukus shahri", "город Нукус", "Nukus", 220, 335.8),
-    ("nukus-tumani", "Nukus tumani", "Нукусский район", "Oqmang'it", 2000, 55.7),
-    ("qanlikol", "Qanliko'l", "Канлыкуль", "Qanliko'l", 900, 45.6),
-    ("qongirot", "Qo'ng'irot", "Кунград", "Qo'ng'irot", 78700, 130.4),
-    ("shumanay", "Shumanay", "Шуманай", "Shumanay", 800, 55.1),
-    ("taxiatosh", "Taxiatosh", "Тахиаташ", "Taxiatosh", 200, 45.9),
-    ("taxtakopir", "Taxtako'pir", "Тахтакупыр", "Taxtako'pir", 20100, 40.7),
-    ("tortkol", "To'rtko'l", "Турткуль", "To'rtko'l", 7900, 220.6),
-    ("xojayli", "Xo'jayli", "Ходжейли", "Xo'jayli", 1300, 165.2),
+    ("moynoq", "Moynaq", "Муйнак", "Moynaq", 37600, 30.2),
+    ("nukus-shahri", "Nókis qalası", "город Нукус", "Nókis", 220, 335.8),
+    ("nukus-tumani", "Nókis rayonı", "Нукусский район", "Aqmańǵıt", 2000, 55.7),
+    ("qanlikol", "Qanlıkól", "Канлыкуль", "Qanlıkól", 900, 45.6),
+    ("qongirot", "Qońırat", "Кунград", "Qońırat", 78700, 130.4),
+    ("shumanay", "Shomanay", "Шуманай", "Shomanay", 800, 55.1),
+    ("taxiatosh", "Taqıyatas", "Тахиаташ", "Taqıyatas", 200, 45.9),
+    ("taxtakopir", "Taxtakópir", "Тахтакупыр", "Taxtakópir", 20100, 40.7),
+    ("tortkol", "Tórtkúl", "Турткуль", "Tórtkúl", 7900, 220.6),
+    ("xojayli", "Xojeli", "Ходжейли", "Xojeli", 1300, 165.2),
 ]
 
 MODULES: list[tuple[str, str, str, str, bool, str]] = [
@@ -203,9 +203,18 @@ def seasonality(module_id: str, month: int) -> float:
 
 
 def seed_reference(db) -> None:
+    """
+    Ma'lumotnomalarni bazaga sinxronlaydi.
+
+    Hududlar MAVJUD bo'lsa ham yangilanadi: nomlar o'zgarganda (masalan
+    o'zbekchadan qoraqalpoqchaga o'tishda) shunchaki "bor ekan" deb
+    o'tib ketilsa, baza eski nomlar bilan qolib ketardi. O'lchovlar
+    `district_id` ga bog'langani uchun bu xavfsiz.
+    """
     for row in DISTRICTS:
         did, name, name_ru, center, area, pop = row
-        if db.get(District, did) is None:
+        existing = db.get(District, did)
+        if existing is None:
             db.add(
                 District(
                     id=did,
@@ -216,6 +225,12 @@ def seed_reference(db) -> None:
                     population=pop,
                 )
             )
+        else:
+            existing.name = name
+            existing.name_ru = name_ru
+            existing.center = center
+            existing.area_km2 = area
+            existing.population = pop
     for mid, name, short, unit, lower, color in MODULES:
         if db.get(Module, mid) is None:
             db.add(

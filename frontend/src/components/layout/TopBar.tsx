@@ -141,7 +141,7 @@ export function AdminTopBar({ title }: { title: string }) {
         className="inline-flex items-center gap-1.5 rounded-xl bg-abyss/70 px-3 py-2 text-[11.5px] font-semibold text-ink-2 ring-1 ring-edge/60 transition hover:text-ink hover:ring-cyan/50"
       >
         <LayoutGrid size={13} />
-        <span className="hidden sm:inline">Dashboard</span>
+        <span className="hidden sm:inline">Bas bet</span>
       </Link>
       <button
         onClick={() => {
@@ -149,7 +149,7 @@ export function AdminTopBar({ title }: { title: string }) {
           router.push("/login");
         }}
         className="grid size-9 place-items-center rounded-xl bg-abyss/70 text-ink-3 ring-1 ring-edge/60 transition hover:text-coral"
-        title="Chiqish"
+        title="Shıǵıw"
       >
         <LogOut size={14} />
       </button>
