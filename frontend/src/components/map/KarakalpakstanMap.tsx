@@ -12,12 +12,11 @@ import {
 import { Crosshair, Layers, Minus, Plus, Locate, X } from "lucide-react";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { DISTRICTS, type District } from "@/data/districts";
-import { MODULE_BY_ID } from "@/data/modules";
-import { districtScores } from "@/lib/analytics";
 import { RAIL_LEFT, railRight, stageOffsetX } from "@/lib/layout";
-import { LEGEND_STOPS, performanceColor } from "@/lib/scale";
+import { VOLUME_LEGEND, volumeColor } from "@/lib/scale";
 import { useDashboard } from "@/lib/store";
-import { cn, trim } from "@/lib/utils";
+import { shortUnit, useMapLayer, type MapDistrict } from "@/lib/stats";
+import { cn, compact, trim } from "@/lib/utils";
 import { DistrictTooltip } from "@/components/map/DistrictTooltip";
 
 /*
@@ -134,7 +133,13 @@ export function KarakalpakstanMap() {
     return Math.min(size.w / VB_W, size.h / VB_H);
   }, [size]);
 
-  const scores = useMemo(() => districtScores(moduleId, year), [moduleId, year]);
+  const { data: layer } = useMapLayer(moduleId, year || null);
+  const cells = useMemo(() => {
+    const out: Record<string, MapDistrict> = {};
+    for (const d of layer?.districts ?? []) out[d.district_id] = d;
+    return out;
+  }, [layer]);
+
   const selected = useMemo(
     () => DISTRICTS.find((d) => d.id === selectedDistrict) ?? null,
     [selectedDistrict],
@@ -238,8 +243,6 @@ export function KarakalpakstanMap() {
     animate(camScale, 1, opts);
   }, [selectDistrict, reduce, camX, camY, camScale]);
 
-  const activeModule = moduleId === "all" ? null : MODULE_BY_ID[moduleId];
-
   // Suzuvchi boshqaruvlar panellar orasida qolishi uchun
   const chrome = isWide
     ? { left: RAIL_LEFT + 20, right: railRight(focusMode) + 20 }
@@ -275,7 +278,7 @@ export function KarakalpakstanMap() {
         className="absolute inset-0 size-full"
         preserveAspectRatio="xMidYMid meet"
         role="img"
-        aria-label="Qoraqalpog'iston Respublikasi tumanlari xaritasi"
+        aria-label="Qaraqalpaqstan Respublikası rayonları kartası"
       >
         <defs>
           <filter id="district-lift" x="-25%" y="-25%" width="150%" height="150%">
@@ -310,8 +313,7 @@ export function KarakalpakstanMap() {
         >
           {/* 1-qatlam — to'ldirish */}
           {DISTRICTS.map((d, i) => {
-            const s = scores[d.id];
-            const perf = s?.performance ?? 1;
+            const cell = cells[d.id];
             const isHover = hoveredDistrict === d.id;
             const isSelected = selectedDistrict === d.id;
             const isHighlighted = highlightSet.has(d.id);
@@ -326,8 +328,12 @@ export function KarakalpakstanMap() {
                 className="district-path"
                 tabIndex={0}
                 role="button"
-                aria-label={`${d.name}: bajarilish ${trim(perf * 100)}%`}
-                fill={performanceColor(perf, isHover || isSelected ? 0.95 : off ? 0.2 : 0.6)}
+                aria-label={
+                  cell?.value !== null && cell?.value !== undefined
+                    ? `${d.name}: ${trim(cell.value)} ${shortUnit(layer?.unit ?? "")}`
+                    : `${d.name}: maǵlıwmat joq`
+                }
+                fill={volumeColor(cell?.intensity, isHover || isSelected ? 0.95 : off ? 0.2 : 0.72)}
                 // Chuqur fokusda e'tibordan tashqaridagilar deyarli so'nadi
                 opacity={focusMode && off ? 0.3 : 1}
                 filter={isHover || isSelected ? "url(#district-lift)" : undefined}
@@ -358,7 +364,6 @@ export function KarakalpakstanMap() {
               tumanning to'ldirishi konturning yarmini yeb qo'yadi. */}
           <g>
             {DISTRICTS.map((d) => {
-              const perf = scores[d.id]?.performance ?? 1;
               const isActive = hoveredDistrict === d.id || selectedDistrict === d.id;
               const isHighlighted = highlightSet.has(d.id);
               return (
@@ -367,7 +372,7 @@ export function KarakalpakstanMap() {
                   <path
                     d={d.d}
                     className="district-edge"
-                    stroke={isActive || isHighlighted ? performanceColor(perf) : "#38bdf8"}
+                    stroke={isActive || isHighlighted ? "#7de2e7" : "#38bdf8"}
                     strokeWidth={isActive || isHighlighted ? 5 : 2.5}
                     opacity={isActive ? 0.55 : isHighlighted ? 0.4 : 0.12}
                     filter="url(#edge-halo)"
@@ -400,7 +405,7 @@ export function KarakalpakstanMap() {
 
           {/* Yoritilgan tumanlarda puls markerlari */}
           {DISTRICTS.filter((d) => highlightSet.has(d.id)).map((d) => {
-            const perf = scores[d.id]?.performance ?? 1;
+            const accent = volumeColor(cells[d.id]?.intensity ?? 1);
             return (
               <g key={`pulse-${d.id}`} pointerEvents="none">
                 <motion.circle
@@ -408,7 +413,7 @@ export function KarakalpakstanMap() {
                   cy={d.labelY}
                   r={5}
                   fill="none"
-                  stroke={performanceColor(perf)}
+                  stroke={accent}
                   style={{ strokeWidth: invScale }}
                   initial={{ scale: 0.5, opacity: 0.9 }}
                   animate={{ scale: [0.5, 3.2], opacity: [0.9, 0] }}
@@ -418,7 +423,7 @@ export function KarakalpakstanMap() {
                   cx={d.labelX}
                   cy={d.labelY}
                   r={2.6}
-                  fill={performanceColor(perf)}
+                  fill={accent}
                   style={{ scale: invScale, transformBox: "fill-box", transformOrigin: "center" }}
                 />
               </g>
@@ -504,7 +509,6 @@ export function KarakalpakstanMap() {
         x={pointer.x}
         y={pointer.y}
         year={year}
-        moduleId={moduleId}
         minX={isWide ? RAIL_LEFT : 0}
         maxX={isWide ? size.w - railRight(focusMode) : size.w}
       />
@@ -517,29 +521,32 @@ export function KarakalpakstanMap() {
         transition={SPRING}
       >
         {/* Sarlavha */}
-        <div className="glass-chip absolute top-3 left-1/2 flex max-w-[min(92%,460px)] -translate-x-1/2 items-center gap-2.5 rounded-full px-4 py-2">
+        <div className="glass-chip absolute top-3 left-1/2 flex max-w-[min(92%,520px)] -translate-x-1/2 items-center gap-2.5 rounded-full px-4 py-2">
           <span className="size-1.5 shrink-0 animate-pulse rounded-full bg-cyan" />
           <span className="truncate text-[12.5px] font-bold tracking-tight text-ink">
-            Qoraqalpog&apos;iston Respublikasi
+            Qaraqalpaqstan Respublikası
           </span>
           <span className="truncate text-[10.5px] text-ink-3">
-            {activeModule ? activeModule.name : "Barcha sohalar"} · {year}
+            {layer ? layer.indicator.module_name : "…"} · {year}
+            {/* Yil tugamagan bo'lsa qiymat qay davrga tegishli ekani yozilmasa,
+                joriy yil o'tgan yildan past ko'rinib chalg'itadi */}
+            {layer?.partial ? ` (${layer.period_caption})` : ""}
           </span>
         </div>
 
         {/* Masshtab boshqaruvlari */}
         <div className="glass-chip absolute top-1/2 right-2 flex -translate-y-1/2 flex-col gap-1 rounded-2xl p-1.5">
-          <MapBtn label="Yaqinlashtirish" onClick={() => zoomAt(1.25, size.w / 2, size.h / 2)}>
+          <MapBtn label="Jaqınlastırıw" onClick={() => zoomAt(1.25, size.w / 2, size.h / 2)}>
             <Plus size={15} />
           </MapBtn>
-          <MapBtn label="Uzoqlashtirish" onClick={() => zoomAt(1 / 1.25, size.w / 2, size.h / 2)}>
+          <MapBtn label="Uzaqlastırıw" onClick={() => zoomAt(1 / 1.25, size.w / 2, size.h / 2)}>
             <Minus size={15} />
           </MapBtn>
-          <MapBtn label="Boshlang'ich ko'rinish" onClick={resetCamera}>
+          <MapBtn label="Dáslepki kórinis" onClick={resetCamera}>
             <Locate size={15} />
           </MapBtn>
           <MapBtn
-            label="Nomlar"
+            label="Atamalar"
             active={showLabels}
             onClick={() => setShowLabels((v) => !v)}
           >
@@ -548,19 +555,23 @@ export function KarakalpakstanMap() {
         </div>
 
         {/* Legenda */}
-        <div className="glass-chip absolute bottom-3 left-1/2 flex max-w-[min(94%,520px)] -translate-x-1/2 items-center gap-3 rounded-full px-4 py-2">
+        <div className="glass-chip absolute bottom-3 left-1/2 flex max-w-[min(94%,560px)] -translate-x-1/2 items-center gap-3 rounded-full px-4 py-2">
           <Crosshair size={12} className="shrink-0 text-ink-3" />
           <span className="shrink-0 text-[9.5px] font-semibold tracking-wider text-ink-3 uppercase">
-            Reja bajarilishi
+            Kólemi{layer ? `, ${shortUnit(layer.unit)}` : ""}
           </span>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            {LEGEND_STOPS.map((s) => (
-              <span key={s.label} className="inline-flex items-center gap-1.5" title={s.hint}>
+            {VOLUME_LEGEND.map((s) => (
+              <span key={s.label} className="inline-flex items-center gap-1.5">
                 <span
                   className="size-2.5 rounded-[3px] ring-1 ring-void/70"
                   style={{ background: s.color }}
                 />
-                <span className="tnum text-[10.5px] text-ink-2">{s.label}</span>
+                {/* Rang yolg'iz ma'no tashimasligi uchun har bosqichda
+                    o'sha bosqichga to'g'ri keladigan qiymat yoziladi */}
+                <span className="tnum text-[10.5px] text-ink-2">
+                  {layer ? compact(layer.max * s.t) : s.label}
+                </span>
               </span>
             ))}
           </div>
@@ -611,8 +622,8 @@ function MapBtn({
 
 function SelectedCard({ district, onClose }: { district: District; onClose: () => void }) {
   const { year, moduleId } = useDashboard();
-  const scores = districtScores(moduleId, year);
-  const perf = scores[district.id]?.performance ?? 1;
+  const { data: layer } = useMapLayer(moduleId, year || null);
+  const cell = layer?.districts.find((d) => d.district_id === district.id);
 
   return (
     <motion.div
@@ -637,10 +648,20 @@ function SelectedCard({ district, onClose }: { district: District; onClose: () =
         </button>
       </div>
       <div className="flex items-end justify-between border-t border-hairline/60 px-3.5 py-2.5">
-        <span className="text-[10px] tracking-wider text-ink-3 uppercase">Bajarilish</span>
-        <span className="tnum text-2xl font-bold" style={{ color: performanceColor(perf) }}>
-          {trim(perf * 100)}
-          <span className="text-sm">%</span>
+        <div className="min-w-0">
+          <div className="text-[10px] tracking-wider text-ink-3 uppercase">
+            {layer?.indicator.module_name ?? "Kólemi"}
+          </div>
+          <div className="truncate text-[10px] text-ink-3">
+            {cell?.rank ? `${cell.rank}-orın · ` : ""}
+            {cell?.share !== null && cell?.share !== undefined ? `${trim(cell.share)}%` : "—"}
+          </div>
+        </div>
+        <span
+          className="tnum shrink-0 text-2xl font-bold"
+          style={{ color: volumeColor(cell?.intensity) }}
+        >
+          {cell?.value !== null && cell?.value !== undefined ? compact(cell.value) : "—"}
         </span>
       </div>
     </motion.div>

@@ -204,6 +204,9 @@ def meta(db: Session) -> dict:
         ind = primary.get(module)
         if ind is None:
             continue
+        # Har sohaning o'z yillar shkalasi bor — biri 2000 dan, boshqasi
+        # 2010 dan boshlanadi. Filtr shu ro'yxatga qarab quriladi.
+        module_years = sorted(periods_for(db, ind.id))
         modules.append(
             {
                 "id": module,
@@ -214,6 +217,8 @@ def meta(db: Session) -> dict:
                 "unit": ind.unit,
                 "indicator_id": ind.id,
                 "has_districts": ind.has_districts,
+                "years": module_years,
+                "latest_year": module_years[-1] if module_years else None,
             }
         )
 

@@ -4,14 +4,12 @@ import { motion } from "motion/react";
 import { LayoutGrid, LogOut, MapPin, Radio, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { BASE_YEAR, CURRENT_YEAR } from "@/data/dataset";
 import { DISTRICT_BY_ID } from "@/data/districts";
-import { MODULES, STATUSES } from "@/data/modules";
 import { useDashboard } from "@/lib/store";
-import type { ModuleId, StatusId } from "@/lib/types";
+import { useStatsMeta } from "@/lib/stats";
 import { clearSession, getSession } from "@/lib/session";
-import { Segmented } from "@/components/ui/primitives";
-import { useSyncExternalStore } from "react";
+import { Segmented, YearScale } from "@/components/ui/primitives";
+import { useEffect, useMemo, useSyncExternalStore } from "react";
 
 /** useSyncExternalStore uchun o'zgarmas "obuna bo'lmaslik" funksiyasi. */
 const NO_SUBSCRIBE = () => () => {};
@@ -20,23 +18,29 @@ const NO_SUBSCRIBE = () => () => {};
  * Yagona filtr qatori — u qamrab olgan HAMMA narsa (xarita, statistikalar,
  * grafiklar) shu bir kesimga qarab qayta chiziladi. Kartochkalar ichida
  * alohida filtr yo'q.
+ *
+ * Sohalar ro'yxati va yillar shkalasi bazadan keladi: qaysi ko'rsatkich
+ * qaysi yildan boshlanishi manbaga bog'liq, uni kodda qattiq yozib
+ * bo'lmaydi.
  */
 export function TopBar() {
-  const {
-    moduleId,
-    setModule,
-    status,
-    setStatus,
-    period,
-    setPeriod,
-    year,
-    setYear,
-    selectedDistrict,
-    selectDistrict,
-  } = useDashboard();
+  const { moduleId, setModule, year, setYear, selectedDistrict, selectDistrict } = useDashboard();
   const router = useRouter();
+  const { data: meta } = useStatsMeta();
   // Sessiya cookie'da — serverda o'qilmaydi, shuning uchun tashqi "store" sifatida
   const role = useSyncExternalStore(NO_SUBSCRIBE, () => getSession()?.role ?? null, () => null);
+
+  const modules = meta?.modules ?? [];
+  const active = modules.find((m) => m.id === moduleId) ?? modules[0];
+  // useEffect bog'liqligi — har renderda yangi massiv bo'lmasligi kerak
+  const years = useMemo(() => active?.years ?? [], [active]);
+
+  // Yil hali tanlanmagan yoki tanlangan soha shu yilni qamramaydi —
+  // eng yangi mavjud yilga tushamiz.
+  useEffect(() => {
+    if (years.length === 0) return;
+    if (!years.includes(year)) setYear(years[years.length - 1]);
+  }, [years, year, setYear]);
 
   return (
     <header className="relative z-30 flex shrink-0 flex-wrap items-center gap-3 border-b border-hairline/40 bg-abyss/35 px-4 py-2.5 backdrop-blur-2xl backdrop-saturate-150">
@@ -52,10 +56,10 @@ export function TopBar() {
         </div>
         <div className="hidden sm:block">
           <div className="text-[13px] leading-tight font-bold tracking-tight text-ink">
-            Qoraqalpog&apos;iston <span className="text-gradient">Monitoring</span>
+            Qaraqalpaqstan <span className="text-gradient">Monitoring</span>
           </div>
           <div className="text-[10px] leading-tight text-ink-3">
-            Iqtisodiy monitoring va AI analitika
+            Ekonomikalıq monitoring hám AI analitika
           </div>
         </div>
       </Link>
@@ -64,50 +68,17 @@ export function TopBar() {
 
       {/* Filtrlar */}
       <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">
-        <Segmented<ModuleId | "all">
-          layoutId="module-filter"
-          size="sm"
-          value={moduleId}
-          onChange={setModule}
-          options={[
-            { value: "all", label: "Barchasi" },
-            ...MODULES.map((m) => ({ value: m.id, label: m.short, color: m.color })),
-          ]}
-        />
+        {modules.length > 0 && (
+          <Segmented<string>
+            layoutId="module-filter"
+            size="sm"
+            value={active?.id ?? moduleId}
+            onChange={setModule}
+            options={modules.map((m) => ({ value: m.id, label: m.short, color: m.color }))}
+          />
+        )}
 
-        <Segmented<StatusId | "all">
-          layoutId="status-filter"
-          size="sm"
-          value={status}
-          onChange={setStatus}
-          options={[
-            { value: "all", label: "Har qanday" },
-            ...STATUSES.map((s) => ({ value: s.id, label: s.name, color: s.color })),
-          ]}
-        />
-
-        <Segmented<"month" | "quarter" | "year">
-          layoutId="period-filter"
-          size="sm"
-          value={period}
-          onChange={setPeriod}
-          options={[
-            { value: "month", label: "Oy" },
-            { value: "quarter", label: "Chorak" },
-            { value: "year", label: "Yil" },
-          ]}
-        />
-
-        <Segmented<string>
-          layoutId="year-filter"
-          size="sm"
-          value={String(year)}
-          onChange={(v) => setYear(Number(v))}
-          options={[
-            { value: String(BASE_YEAR), label: String(BASE_YEAR) },
-            { value: String(CURRENT_YEAR), label: String(CURRENT_YEAR) },
-          ]}
-        />
+        <YearScale years={years} value={year} onChange={setYear} />
 
         {selectedDistrict && (
           <motion.button
@@ -140,7 +111,7 @@ export function TopBar() {
             router.push("/login");
           }}
           className="grid size-9 place-items-center rounded-xl bg-abyss/70 text-ink-3 ring-1 ring-edge/60 transition hover:text-coral"
-          title="Chiqish"
+          title="Shıǵıw"
         >
           <LogOut size={14} />
         </button>
@@ -160,7 +131,7 @@ export function AdminTopBar({ title }: { title: string }) {
         <div>
           <div className="text-[13px] leading-tight font-bold tracking-tight text-ink">{title}</div>
           <div className="text-[10px] leading-tight text-ink-3">
-            Qoraqalpog&apos;iston Respublikasi
+            Qaraqalpaqstan Respublikası
           </div>
         </div>
       </Link>

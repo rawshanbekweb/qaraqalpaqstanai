@@ -202,6 +202,121 @@ export function Segmented<T extends string>({
   );
 }
 
+// ── Yillar shkalasi ──────────────────────────────────────────────────
+
+/**
+ * 2010–2026 oralig'idagi yil tanlagich.
+ *
+ * `Segmented` bu yerda yaramaydi: 17 ta yil bir qatorga sig'maydi va
+ * filtr qatorini butunlay egallab oladi. Shuning uchun yillar surilib
+ * ko'rinadigan tor tasma sifatida beriladi — tanlangan yil to'liq,
+ * qolganlari ikki xonali ko'rinishda.
+ */
+export function YearScale({
+  years,
+  value,
+  onChange,
+  className,
+}: {
+  years: number[];
+  value: number;
+  onChange: (y: number) => void;
+  className?: string;
+}) {
+  const stripRef = useRef<HTMLDivElement>(null);
+  const activeRef = useRef<HTMLButtonElement>(null);
+
+  // Tanlangan yil tasmaning ko'rinmas qismida qolib ketmasin
+  useEffect(() => {
+    activeRef.current?.scrollIntoView({ block: "nearest", inline: "center" });
+  }, [value, years.length]);
+
+  if (years.length === 0) return null;
+
+  const index = years.indexOf(value);
+  const step = (delta: number) => {
+    const next = years[Math.min(years.length - 1, Math.max(0, index + delta))];
+    if (next !== undefined && next !== value) onChange(next);
+  };
+
+  return (
+    <div
+      className={cn(
+        "flex items-center gap-0.5 rounded-full bg-abyss/70 p-1 ring-1 ring-edge/50",
+        className,
+      )}
+    >
+      <YearStep label="Aldıńǵı jıl" disabled={index <= 0} onClick={() => step(-1)}>
+        ‹
+      </YearStep>
+
+      <div
+        ref={stripRef}
+        className="no-scrollbar flex max-w-[min(42vw,300px)] items-center gap-0.5 overflow-x-auto"
+      >
+        {years.map((y) => {
+          const active = y === value;
+          return (
+            <button
+              key={y}
+              ref={active ? activeRef : undefined}
+              onClick={() => onChange(y)}
+              aria-current={active}
+              title={`${y}-jıl`}
+              className={cn(
+                "relative shrink-0 rounded-full px-2 py-1 text-[11px] font-medium tabular-nums whitespace-nowrap transition-colors",
+                active ? "text-void" : "text-ink-3 hover:text-ink-2",
+              )}
+            >
+              {active && (
+                <motion.span
+                  layoutId="year-scale"
+                  className="absolute inset-0 rounded-full"
+                  style={{ background: "linear-gradient(120deg, #22d3ee, #818cf8)" }}
+                  transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                />
+              )}
+              <span className="relative z-10">{active ? y : `’${String(y).slice(2)}`}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      <YearStep
+        label="Keyingi jıl"
+        disabled={index >= years.length - 1}
+        onClick={() => step(1)}
+      >
+        ›
+      </YearStep>
+    </div>
+  );
+}
+
+function YearStep({
+  children,
+  label,
+  disabled,
+  onClick,
+}: {
+  children: ReactNode;
+  label: string;
+  disabled?: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={label}
+      title={label}
+      className="grid size-6 shrink-0 place-items-center rounded-full text-[13px] leading-none text-ink-3 transition hover:bg-raised/60 hover:text-ink disabled:opacity-30 disabled:hover:bg-transparent"
+    >
+      {children}
+    </button>
+  );
+}
+
 // ── Tugma ────────────────────────────────────────────────────────────
 
 export function Button({

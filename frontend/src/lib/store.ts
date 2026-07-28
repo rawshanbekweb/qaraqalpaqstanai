@@ -1,18 +1,20 @@
 "use client";
 
 import { create } from "zustand";
-import { CURRENT_YEAR } from "@/data/dataset";
-import type { ChartSpec, ChatMessage, ModuleId, StatusId } from "@/lib/types";
+import type { ChartSpec, ChatMessage } from "@/lib/types";
 
 interface DashboardState {
   // ── Filtrlar ──
-  moduleId: ModuleId | "all";
-  status: StatusId | "all";
-  period: "month" | "quarter" | "year";
+  /**
+   * Tayanch soha kodi (`sanaat`, `awil_xojaligi`, ...) — backend
+   * `/api/stats/meta` qaytaradigan ro'yxatdan. "Barchasi" varianti yo'q:
+   * tonna bilan mlrd so'mni qo'shib bo'lmaydi, xarita esa har doim bitta
+   * ko'rsatkichni bo'yaydi.
+   */
+  moduleId: string;
+  /** 0 — yillar ro'yxati hali kelmagan (meta yuklanmoqda). */
   year: number;
-  setModule: (m: ModuleId | "all") => void;
-  setStatus: (s: StatusId | "all") => void;
-  setPeriod: (p: "month" | "quarter" | "year") => void;
+  setModule: (m: string) => void;
   setYear: (y: number) => void;
 
   // ── Xarita ──
@@ -56,13 +58,9 @@ interface DashboardState {
 }
 
 export const useDashboard = create<DashboardState>((set) => ({
-  moduleId: "all",
-  status: "all",
-  period: "year",
-  year: CURRENT_YEAR,
+  moduleId: "sanaat",
+  year: 0,
   setModule: (moduleId) => set({ moduleId }),
-  setStatus: (status) => set({ status }),
-  setPeriod: (period) => set({ period }),
   setYear: (year) => set({ year }),
 
   hoveredDistrict: null,

@@ -313,6 +313,14 @@ body:has(.app-shell) {
   background: transparent;
 }
 
+/* Yillar tasmasi kabi tor boshqaruvlarda scrollbar joyni yeb qo'yadi */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* ── Xarita ───────────────────────────────────────────────────────── */
 
 .map-stage {

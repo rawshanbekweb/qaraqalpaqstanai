@@ -2,12 +2,9 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { TrendingDown, TrendingUp } from "lucide-react";
-import { MODULE_BY_ID } from "@/data/modules";
-import { districtProfile } from "@/lib/analytics";
-import { performanceColor } from "@/lib/scale";
-import { Meter, StatusPill } from "@/components/ui/primitives";
-import { trim } from "@/lib/utils";
-import type { ModuleId } from "@/lib/types";
+import { useDistrictProfile, shortUnit } from "@/lib/stats";
+import { Meter } from "@/components/ui/primitives";
+import { compact, pct, trim } from "@/lib/utils";
 
 /**
  * `minX`/`maxX` — tooltip sig'ishi kerak bo'lgan ochiq maydon. Xarita butun
@@ -19,7 +16,6 @@ export function DistrictTooltip({
   x,
   y,
   year,
-  moduleId,
   minX,
   maxX,
 }: {
@@ -27,23 +23,13 @@ export function DistrictTooltip({
   x: number;
   y: number;
   year: number;
-  moduleId: ModuleId | "all";
   minX: number;
   maxX: number;
 }) {
   return (
     <AnimatePresence>
       {districtId ? (
-        <Body
-          key={districtId}
-          districtId={districtId}
-          x={x}
-          y={y}
-          year={year}
-          moduleId={moduleId}
-          minX={minX}
-          maxX={maxX}
-        />
+        <Body key={districtId} districtId={districtId} x={x} y={y} year={year} minX={minX} maxX={maxX} />
       ) : null}
     </AnimatePresence>
   );
@@ -54,7 +40,6 @@ function Body({
   x,
   y,
   year,
-  moduleId,
   minX,
   maxX,
 }: {
@@ -62,19 +47,18 @@ function Body({
   x: number;
   y: number;
   year: number;
-  moduleId: ModuleId | "all";
   minX: number;
   maxX: number;
 }) {
-  const p = districtProfile(districtId, year);
+  const { data: p } = useDistrictProfile(districtId, year || null);
   const W = 268;
   const raw = x + W + 24 > maxX ? x - W - 18 : x + 18;
   const left = Math.min(Math.max(raw, minX + 8), Math.max(minX + 8, maxX - W - 8));
 
-  const shown =
-    moduleId === "all"
-      ? [...p.modules].sort((a, b) => a.performance - b.performance).slice(0, 4)
-      : p.modules.filter((m) => m.moduleId === moduleId);
+  // Eng katta ulushga ega to'rt soha — hududning nima bilan yashashi
+  const shown = [...(p?.modules ?? [])]
+    .sort((a, b) => (b.share ?? 0) - (a.share ?? 0))
+    .slice(0, 4);
 
   return (
     <motion.div
@@ -88,32 +72,36 @@ function Body({
       <div className="glass glass-top-glow overflow-hidden rounded-2xl">
         <div className="flex items-start gap-2 border-b border-hairline/70 px-3.5 py-2.5">
           <div className="min-w-0 flex-1">
-            <div className="truncate text-sm font-bold text-ink">{p.district.name}</div>
+            <div className="truncate text-sm font-bold text-ink">{p?.district.name ?? "…"}</div>
             <div className="truncate text-[10.5px] text-ink-3">
-              {p.district.center} · {trim(p.district.population)} ming aholi
+              {p ? `${p.district.center} · ${trim(p.district.population)} mıń xalıq` : "júklenbekte"}
             </div>
           </div>
-          <StatusPill status={p.status} />
         </div>
 
         <div className="px-3.5 py-3">
           <div className="mb-2.5 flex items-baseline justify-between">
             <span className="text-[10px] font-semibold tracking-wider text-ink-3 uppercase">
-              Umumiy bajarilish
+              Ortasha ósiw
             </span>
             <span
               className="tnum text-lg font-bold"
-              style={{ color: performanceColor(p.overall) }}
+              style={{ color: (p?.avg_growth ?? 0) >= 0 ? "#34d399" : "#fb7185" }}
             >
-              {trim(p.overall * 100)}%
+              {p?.avg_growth !== null && p?.avg_growth !== undefined ? pct(p.avg_growth) : "—"}
             </span>
           </div>
-          <Meter value={p.overall} color={performanceColor(p.overall)} height={5} />
+          {/* Shkala: 0–40% oralig'i, undan yuqorisi to'la to'ladi */}
+          <Meter
+            value={Math.max(0, Math.min(1, (p?.avg_growth ?? 0) / 40))}
+            color={(p?.avg_growth ?? 0) >= 0 ? "#34d399" : "#fb7185"}
+            height={5}
+          />
 
           <div className="mt-3 space-y-2">
             {shown.map((m, i) => (
               <motion.div
-                key={m.moduleId}
+                key={m.module}
                 initial={{ opacity: 0, x: -6 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.05 + i * 0.05 }}
@@ -121,32 +109,37 @@ function Body({
               >
                 <span
                   className="size-1.5 shrink-0 rounded-full"
-                  style={{ background: MODULE_BY_ID[m.moduleId].color }}
+                  style={{ background: m.color }}
                 />
                 <span className="flex-1 truncate text-[11.5px] text-ink-2">{m.name}</span>
-                <span className="tnum text-[11.5px] font-semibold text-ink">
-                  {trim(m.performance * 100)}%
+                <span
+                  className="tnum text-[11.5px] font-semibold text-ink"
+                  title={`${trim(m.value)} ${shortUnit(m.unit)}`}
+                >
+                  {compact(m.value)}
                 </span>
                 <span
                   className="tnum inline-flex w-13 shrink-0 items-center justify-end gap-0.5 text-[10.5px]"
-                  // Inflyatsiyada pasayish yaxshi — belgi teskari o'qiladi
-                  style={{
-                    color: (
-                      MODULE_BY_ID[m.moduleId].lowerIsBetter ? m.yoy <= 0 : m.yoy >= 0
-                    )
-                      ? "#34d399"
-                      : "#fb7185",
-                  }}
+                  style={{ color: (m.yoy ?? 0) >= 0 ? "#34d399" : "#fb7185" }}
                 >
-                  {m.yoy >= 0 ? <TrendingUp size={11} /> : <TrendingDown size={11} />}
-                  {trim(Math.abs(m.yoy))}%
+                  {m.yoy === null ? (
+                    <span className="text-ink-3">—</span>
+                  ) : (
+                    <>
+                      {m.yoy >= 0 ? <TrendingUp size={11} /> : <TrendingDown size={11} />}
+                      {trim(Math.abs(m.yoy))}%
+                    </>
+                  )}
                 </span>
               </motion.div>
             ))}
+            {shown.length === 0 && (
+              <div className="text-[11px] text-ink-3">Bul jıl ushın maǵlıwmat joq</div>
+            )}
           </div>
 
           <div className="mt-3 border-t border-hairline/60 pt-2 text-[10px] text-ink-3">
-            Batafsil ko&apos;rish uchun bosing
+            Tolıǵıraq kóriw ushın basıń
           </div>
         </div>
       </div>
