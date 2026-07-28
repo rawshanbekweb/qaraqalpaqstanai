@@ -97,9 +97,12 @@ def record_slug(r: Record) -> str:
     """
     if r.district_id:
         # Blok raqami: bir varaqdagi ustma-ust jadvallar sarlavhasiz
-        # bo'lishi mumkin, u holda nomning o'zi ularni ajratmaydi
+        # bo'lishi mumkin, u holda nomning o'zi ularni ajratmaydi.
+        # O'lchov birligi ham kalitga kiradi: hajm ("mlrd. som") va
+        # o'sish sur'ati ("%") alohida fayllarda BIR XIL sarlavha bilan
+        # keladi va birligsiz ular bitta ko'rsatkichga tushib qolardi.
         suffix = f"|{r.source}|b{r.block}" if r.block else ""
-        return slugify(f"{r.indicator}{suffix}")
+        return slugify(f"{r.indicator}|{r.unit}{suffix}")
     return slugify(f"{r.indicator}|{r.source}|{r.row}")
 
 
@@ -189,12 +192,28 @@ def load_records(
         ))
         added += 1
 
+    # To'liq qayta yuklashda eskirgan ko'rsatkichlar qolib ketmasin:
+    # kalit qoidasi o'zgarsa ular yangi kalit bilan qayta yaratiladi va
+    # eskilari o'lchovsiz "yetim" bo'lib, qidiruvni chalg'itardi.
+    #
+    # Sessiyada `autoflush=False` — yangi o'lchovlar hali bazada yo'q.
+    # Ular yozilmasdan turib tozalash boshlansa, endigina qo'shilgan
+    # ko'rsatkichlar ham "yetim" deb o'chib ketardi.
+    db.flush()
+
+    orphans = 0
+    if replace_all:
+        orphans = db.query(StatIndicator).filter(
+            ~StatIndicator.observations.any()
+        ).delete(synchronize_session=False)
+
     db.commit()
     return {
         "kategoriya": len({r.category for r in records}),
         "korsetkish": len(indicator_ids),
         "olshov": added,
         "otkazib_yuborilgan": skipped,
+        "eskirgen": orphans,
     }
 
 

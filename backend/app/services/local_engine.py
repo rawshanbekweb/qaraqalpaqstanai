@@ -160,41 +160,77 @@ def severity_from_growth(yoy: float | None) -> str:
     return "completed"
 
 
+#: Nom qancha harfdan boshlab tanilishi mumkin. Undan qisqasi tasodifiy
+#: so'zlarga yopishib qoladi ("kegey" — mayli, "keg" — yo'q).
+MIN_STEM = 5
+
+
+def _clean(text: str) -> str:
+    """Qidiruv uchun: diakritikasiz, tinish belgilarisiz, bir bo'shliqli."""
+    return re.sub(r"\s+", " ", re.sub(r"[^\w\s]+", " ", normalize(text))).strip()
+
+
+def district_aliases(d) -> list[str]:
+    """
+    Hudud nomining barcha yozilishi.
+
+    Foydalanuvchi o'zbekcha ("Mo'ynoq"), qoraqalpoqcha ("Moynaq") yoki
+    ruscha ("Муйнак") yozishi mumkin. ID aynan o'zbekcha translitdan
+    kelib chiqqani uchun uchinchi variantni bepul beradi.
+    """
+    return [a for a in (_clean(d.name), _clean(d.id), _clean(d.name_ru)) if len(a) >= 4]
+
+
+def _has(q: str, keys: list[str]) -> bool:
+    """
+    Kalit so'z SO'Z BOSHIDA uchraydimi.
+
+    Oddiy `in` tekshiruvi so'z ichiga ham yopishadi: "jay" (qurilish
+    kaliti) "Xojayli" nomining o'rtasida turibdi va hudud haqidagi savol
+    qurilish so'rovi bo'lib qolardi. Oxiri erkin — qo'shimchalar
+    ("jaylar", "sawdada") kesilmasligi kerak.
+    """
+    return any(re.search(rf"\b{re.escape(_clean(k))}", q) for k in keys)
+
+
+def _match_len(alias: str, q: str) -> int:
+    """
+    So'rovda topilgan eng uzun bosh qism uzunligi.
+
+    Faqat boshi solishtiriladi, chunki qo'shimchalar oxiriga qo'shiladi:
+    "Moynaqta", "Moynaqtıń", "Mo'ynoqda" — hammasi bir xil boshlanadi.
+    """
+    best = 0
+    for n in range(MIN_STEM, len(alias) + 1):
+        if alias[:n] not in q:
+            break
+        best = n
+    return best
+
+
 def parse(db: Session, prompt: str) -> tuple[str, str | None, str | None]:
     """So'rovdan niyat, hudud va sohani ajratadi."""
-    q = re.sub(r"\s+", " ", normalize(prompt)).strip()
+    q = _clean(prompt)
 
+    # Eng uzun mos kelgan nom yutadi: "Nókis qalası" va "Nókis rayonı"
+    # bir xil boshlanadi, faqat uzunlik ularni ajratadi.
     district_id = None
-    # Uzun nomlar oldin tekshiriladi: "Nókis qalası" va "Nókis rayonı"
-    # bir xil boshlanadi, qisqasi oldin kelsa shahar hech qachon
-    # tanilmasdi.
-    by_length = sorted(
-        st.district_names(db).items(), key=lambda kv: len(kv[1].name), reverse=True
-    )
-    for did, d in by_length:
-        # Nomning boshi yetarli: "Moynaqta", "Moynaqtıń" kabi
-        # qo'shimchali shakllar ham topilsin
-        stem = normalize(d.name)[:5]
-        if stem and stem in q:
-            district_id = did
-            break
+    best_len = 0
+    for did, d in sorted(st.district_names(db).items()):
+        hit = max((_match_len(a, q) for a in district_aliases(d)), default=0)
+        if hit > best_len:
+            district_id, best_len = did, hit
 
-    module = None
-    for mid, keys in MODULE_KEYWORDS.items():
-        if any(k in q for k in keys):
-            module = mid
-            break
-
-    intent = "overview"
-    for name, keys in INTENT_KEYWORDS:
-        if any(k in q for k in keys):
-            intent = name
-            break
+    module = next((mid for mid, keys in MODULE_KEYWORDS.items() if _has(q, keys)), None)
+    intent = next((name for name, keys in INTENT_KEYWORDS if _has(q, keys)), "overview")
+    # Soha ATALGAN bo'lsa u aniqroq javob beradi: "module" shoxi hududni
+    # ham hisobga oladi ("Moynaqta sanaat"), "district" shoxi esa barcha
+    # sohalarni umumlashtirib, aynan so'ralganini yo'qotardi.
     if intent == "overview":
-        if district_id:
-            intent = "district"
-        elif module:
+        if module:
             intent = "module"
+        elif district_id:
+            intent = "district"
 
     return intent, district_id, module
 

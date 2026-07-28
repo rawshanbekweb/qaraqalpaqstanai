@@ -6,9 +6,11 @@ statistikada esa reja yo'q — faqat o'lchangan qiymat. Shuning uchun bu
 yerdagi ko'rsatkichlar boshqacha: qiymat, o'tgan yilga nisbatan o'sish,
 respublikadagi ulush va o'rin.
 
-Manbadagi davr turlari faqat ikkita: to'liq yil (`year`) va yil boshidan
-yig'indi (`ytd`, `period_no` — nechanchi oygacha). Oylik/choraklik qator
-umuman yo'q, shuning uchun bu yerda ham yo'q.
+Manbadagi davr turlari: to'liq yil (`year`), yil boshidan yig'indi
+(`ytd`, `period_no` — nechanchi oygacha), chorak (`quarter`) va oy
+(`month`). Tayanch sohalarda asosan `year` va `ytd` uchraydi; oylik
+qator narxlar va sanoat fayllarida bor. Bir yilda bir necha tur
+uchrasa `period_key` eng to'lig'ini tanlaydi.
 """
 
 from __future__ import annotations
@@ -48,12 +50,32 @@ GROWTH_HINTS = ("ósim", "ósiw", "o'siw", "osim", "osiw", "%")
 
 
 def period_label(period: str, period_no: int | None) -> str:
-    """Davrning qoraqalpoqcha nomi: "jıl" yoki "yanvar–iyun"."""
-    if period == "ytd" and period_no:
-        if period_no <= 1:
-            return MONTHS_KAA[0]
-        return f"{MONTHS_KAA[0]}–{MONTHS_KAA[min(period_no, 12) - 1]}"
+    """Davrning qoraqalpoqcha nomi: "jıl", "yanvar–iyun", "iyun", "2-sherek"."""
+    no = min(period_no, 12) if period_no else None
+    if period == "ytd" and no:
+        return MONTHS_KAA[0] if no <= 1 else f"{MONTHS_KAA[0]}–{MONTHS_KAA[no - 1]}"
+    if period == "month" and no:
+        return MONTHS_KAA[no - 1]
+    if period == "quarter" and no:
+        return f"{no}-sherek"
     return "jıl"
+
+
+#: Bir yilda bir necha davr turi uchraganda qaysi biri asosiy hisoblanadi.
+#: To'liq yil har doim ustun; undan keyin qamrovi kengrog'i.
+PERIOD_RANK = {"year": 3, "ytd": 2, "quarter": 1, "month": 0}
+
+
+def period_key(period: str, period_no: int | None) -> tuple[int, int]:
+    """
+    Davrlarni taqqoslash kaliti.
+
+    Bir ko'rsatkichda bir yil uchun ham oylik, ham yillik qator bo'lishi
+    mumkin (narxlar fayllarida aynan shunday). Tanlov deterministik
+    bo'lishi shart, aks holda bir xil so'rov har safar boshqa raqam
+    qaytarardi.
+    """
+    return PERIOD_RANK.get(period, 0), period_no or 0
 
 
 @dataclass(frozen=True)
@@ -76,6 +98,10 @@ class Period:
     def caption(self) -> str:
         return period_label(self.period, self.period_no)
 
+    @property
+    def key(self) -> tuple[int, int]:
+        return period_key(self.period, self.period_no)
+
     def same_span(self, other: "Period") -> bool:
         """Ikki davrni taqqoslash mumkinmi (to'liq yil ↔ yarim yil emas)."""
         return self.period == other.period and self.period_no == other.period_no
@@ -84,7 +110,7 @@ class Period:
 def periods_for(db: Session, indicator_id: int) -> dict[int, Period]:
     """Ko'rsatkichda qaysi yilda qanday davr borligi.
 
-    Bir yilda ikkala tur ham uchrasa to'liq yil ustun turadi — u to'liqroq.
+    Bir yilda bir nechta tur uchrasa eng to'lig'i tanlanadi (`period_key`).
     """
     rows = db.execute(
         select(StatObservation.year, StatObservation.period, StatObservation.period_no)
@@ -94,7 +120,7 @@ def periods_for(db: Session, indicator_id: int) -> dict[int, Period]:
     out: dict[int, Period] = {}
     for year, period, period_no in rows:
         current = out.get(year)
-        if current is None or (current.partial and period == "year"):
+        if current is None or current.key < period_key(period, period_no):
             out[year] = Period(year, period, period_no)
     return out
 
@@ -331,7 +357,7 @@ def series(
     for year, period, period_no, did, value in db.execute(stmt).all():
         p = Period(year, period, period_no)
         current = by_year.get(year)
-        if current is None or (current[0].partial and not p.partial):
+        if current is None or current[0].key < p.key:
             current = (p, {})
             by_year[year] = current
         elif not current[0].same_span(p):
