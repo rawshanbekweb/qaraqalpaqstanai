@@ -1,37 +1,47 @@
 # Qoraqalpog'iston — iqtisodiy monitoring va AI analitika
 
-Qoraqalpog'iston Respublikasi tumanlari bo'yicha iqtisodiy ko'rsatkichlarni
-kuzatish platformasi: interaktiv xarita, avtomatik grafiklar va ma'lumotlar
-bazasidan kontekst oladigan AI yordamchisi (RAG).
+Qoraqalpog'iston Respublikasi rayonlari bo'yicha rasmiy statistikani kuzatish
+platformasi: interaktiv xarita, avtomatik grafiklar va ma'lumotlar bazasidan
+kontekst oladigan AI yordamchisi (RAG). Interfeys tili — qoraqalpoqcha.
 
-**Sohalar:** inflyatsiya, sanoat, qishloq xo'jaligi, investitsiyalar, eksport,
-bandlik, qurilish, xizmatlar.
+**Manba:** 109 ta Excel fayl (2010–2026) → 1084 ko'rsatkich, 24 199 o'lchov,
+17 hudud. **Tayanch sohalar:** sanoat, qishloq xo'jaligi, investitsiyalar,
+qurilish, xizmatlar, transport, savdo.
+
+> Manbada **reja yo'q** — faqat o'lchangan qiymat. Shuning uchun platformada
+> "reja bajarilishi" tushunchasi ham yo'q: hajm, o'tgan yilga nisbatan o'sish,
+> respublikadagi ulush va o'rin bilan ishlanadi. Oylik/choraklik qator ham
+> yo'q: to'liq yil va joriy yil uchun "yanvar–iyun" yig'indisi.
 
 ## Tuzilishi
 
 ```
 backend/    FastAPI + PostgreSQL + Claude API (RAG)
 frontend/   Next.js 16 + React 19 + Tailwind 4 + Recharts
+model/      109 ta manba Excel (data/) va model kodi
 tools/      gen_districts.py — xarita SVG yo'llarini generatsiya qiladi
 map.txt     manba xarita ma'lumotlari
 ```
 
-Frontend backendsiz ham to'liq ishlaydi: `NEXT_PUBLIC_API_URL` berilmasa,
-`src/lib/ai-engine.ts` ichidagi brauzer tomonidagi RAG dvigateli javob beradi.
-Backend ulanganda interfeys o'zgarmaydi — faqat javob manbai almashadi.
+Frontend **backendsiz ishlamaydi**: barcha raqamlar bazadan keladi. Brauzerda
+ma'lumot nusxasi ataylab yo'q — ikkinchi, soddalashtirilgan hisob-kitob
+javoblarni bazadagidan ayirib qo'yardi. Backend ulanmasa interfeys buni ochiq
+aytadi.
 
 ## Ishga tushirish
 
-### 1. Frontend (o'zi yetarli)
+### 1. Frontend
 
 ```bash
 cd frontend
 npm install
-cp .env.local.example .env.local   # ixtiyoriy — backend ulash uchun
+cp .env.local.example .env.local   # NEXT_PUBLIC_API_URL — majburiy
 npm run dev                        # http://localhost:3000
 ```
 
-Demo hisoblar (`src/lib/session.ts`):
+Hisoblar backendda tekshiriladi (`/api/auth/login`); backend ulanmagan
+bo'lsa `src/lib/session.ts` dagi demo hisoblar tokensiz ishlaydi — admin
+paneli bunda ma'lumot ko'rsatmaydi:
 
 | Login    | Parol       | Rol           |
 | -------- | ----------- | ------------- |
@@ -57,9 +67,14 @@ python -m venv .venv
 .venv\Scripts\activate          # Windows;  Linux/macOS: source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env             # DATABASE_URL va ANTHROPIC_API_KEY ni to'ldiring
-python -m app.seed               # jadvallar + demo ma'lumotlar + foydalanuvchilar
-uvicorn app.main:app --reload    # http://localhost:8000
+python -m app.seed                        # jadvallar + hududlar + sohalar + foydalanuvchilar
+python -m app.ingest.loader ../model/data # Excel'dan statistikani yuklash
+uvicorn app.main:app --reload             # http://localhost:8000
 ```
+
+`app.seed` ma'lumot GENERATSIYA QILMAYDI — u faqat ma'lumotnomalarni
+sinxronlaydi. Statistika `app.ingest.loader` orqali Excel'dan keladi;
+qayta ishga tushirish xavfsiz (ko'rsatkichlar `slug` bo'yicha yagona).
 
 API hujjatlari: <http://localhost:8000/docs>
 
@@ -88,15 +103,17 @@ NEXT_PUBLIC_API_URL=http://localhost:8000
 | `POST` | `/api/auth/login`                   | JWT token oladi                      |
 | `GET`  | `/api/auth/me`                      | Joriy foydalanuvchi                  |
 | `GET`  | `/api/districts`, `/api/modules`    | Ma'lumotnomalar                      |
-| `GET`  | `/api/indicators`                   | Ko'rsatkichlar (filtrlanadi)         |
-| `POST` | `/api/indicators`                   | Yangi ko'rsatkich — **admin**        |
-| `POST` | `/api/indicators/import`            | Excel/CSV yuklash — **admin**        |
+| `GET`  | `/api/stats/meta`                   | Yillar, sohalar, kategoriyalar, hududlar |
+| `GET`  | `/api/stats/overview`               | Sohalar bo'yicha yakun               |
+| `GET`  | `/api/stats/map`                    | Xarita qatlami (hudud kesimi)        |
+| `GET`  | `/api/stats/series`                 | Yillar qatori (2010–2026)            |
+| `GET`  | `/api/stats/districts/{id}`         | Hudud profili                        |
+| `GET`  | `/api/stats/indicators`             | Ko'rsatkichlar ma'lumotnomasi (qidiruv) |
+| `GET`  | `/api/stats/summary`                | Bazaning holati — **admin**          |
+| `POST` | `/api/stats/upload`                 | Excel yuklash — **admin**            |
+| `PATCH`| `/api/stats/indicators/{id}`        | Tayanch sohaga biriktirish — **admin** |
 | `GET`  | `/api/tasks`                        | Iqtisodiy topshiriqlar               |
-| `POST` | `/api/tasks`, `PATCH /api/tasks/{id}` | Topshiriq boshqaruvi — **admin**   |
-| `GET`  | `/api/analytics/overview`           | Umumiy holat + zaif nuqtalar         |
-| `GET`  | `/api/analytics/districts/{id}`     | Tuman profili                        |
-| `GET`  | `/api/analytics/series`             | Oylik / choraklik dinamika           |
-| `GET`  | `/api/analytics/charts/{kind}`      | Tayyor `ChartSpec`                   |
+| `POST` | `/api/tasks`, `PATCH`/`DELETE /api/tasks/{id}` | Topshiriq boshqaruvi — **admin** |
 | `POST` | `/api/ai/chat`                      | RAG chat (Claude → mahalliy fallback)|
 | `GET`  | `/api/ai/insight`                   | Dashboard tepasidagi xulosa          |
 | `GET`  | `/api/ai/status`                    | Claude yoqilganmi + mavjud yillar    |
@@ -106,9 +123,18 @@ NEXT_PUBLIC_API_URL=http://localhost:8000
 
 ```bash
 cd frontend
-npx tsc --noEmit    # tiplar
-npx eslint          # lint
-npm run build       # ishlab chiqarish yig'masi
+npx tsc --noEmit         # tiplar
+npx eslint src           # lint
+npm run build            # ishlab chiqarish yig'masi
+```
+
+Eski demo modelidan qolgan yozuvlarni tozalash (topshiriqlar generatordan
+chiqqan bo'lsa ham foydalanuvchi kiritgani bo'lishi mumkin, shuning uchun
+faqat ochiq bayroq bilan):
+
+```bash
+cd backend
+python -m app.seed --reset-demo
 ```
 
 ## Xarita
@@ -152,7 +178,11 @@ Birinchi deploydan so'ng bazani to'ldiring — Render'ning **Shell** bo'limida:
 
 ```bash
 python -m app.seed
+python -m app.ingest.loader ../model/data
 ```
+
+> `model/data` repozitoriyda bor (109 Excel, ~5 MB). Model og'irliklari esa
+> `.gitignore` bilan to'silgan — demo ularsiz ishlaydi.
 
 Tekshirish: `https://<render-manzil>/api/health` → `{"status":"ok"}`
 
@@ -170,7 +200,6 @@ Tekshirish: `https://<render-manzil>/api/health` → `{"status":"ok"}`
 ### Bepul darajaning cheklovi
 
 Render'ning bepul xizmati 15 daqiqa harakatsizlikdan keyin uxlaydi va
-uyg'onishi ~30–60 soniya oladi. Shuning uchun frontend backendni 12 soniya
-kutadi, so'ng brauzerdagi mahalliy dvigatelga o'tadi — demo hech qachon
-qotib qolmaydi. Sahifa ochilganda backendga "uyg'otuvchi" so'rov ham
-yuboriladi (`warmUpApi`).
+uyg'onishi ~30–60 soniya oladi. Shuning uchun sahifa ochilganda backendga
+"uyg'otuvchi" so'rov yuboriladi (`warmUpApi`), chat esa 20 soniya kutadi va
+kutish tugasa holatni ochiq aytadi.
